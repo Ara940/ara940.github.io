@@ -104,18 +104,13 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 
 [//]: # (Images one below the other)
 <div class='l-body'>
-<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">
+<img class="img-fluid z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.png">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
 </div>
 
 <div class='l-body'>
-<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
-</div>
-
-<div class='l-body'>
-<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/tmp.png">
-<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion.2 </figcaption>
 </div>
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
