@@ -58,40 +58,46 @@ and trains a neural network to denoise the data in the reverse process.
 Due to the need to generate data from noise over several sequential steps, diffusion models are expensive to train and, especially, to sample from.
 Recent works such as Cold Diffusion <d-cite key="bansal2022cold"></d-cite>, by which our work was especially inspired, have proposed to use alternative data corruption processes like blurring. 
 
-#### Limitations of previous work
+### Limitations of Previous Work
 
 Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
 and are prone to error accumulation for long-range forecasts. 
-It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems
-and incorporate the temporality of the data into the diffusion model. 
+It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems.
+Given that most diffusion models have been designed for static data, we also ask how we can explicitly
+incorporate the temporality of the data into the diffusion model.
 
 
+### Our Key Idea
 
-
-DYffusion presents a natural solution for both these issues, by designing a temporal diffusion model
+Our proposed framework, DYffusion, presents a natural solution for both these issues, by designing a temporal diffusion model
 (leads to naturally training to forecast multiple steps) and embedding it into the “generalized diffusion model” 
 framework so that by taking inspiration from existing diffusion models we can build a strong probabilistic forecasting model.
 
 [//]: # (Side-by-side images)
-<!---
-<div class="row l-body">
-	<div class="col-sm">
-	  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">
-   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
-	</div>
-	<div class="col-sm">
-  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
-   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
-  </div>
-</div>
-</div> -->
+[//]: # (<div class="row l-body">)
+
+[//]: # (	<div class="col-sm">)
+
+[//]: # (	  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">)
+
+[//]: # (   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>)
+
+[//]: # (	</div>)
+
+[//]: # (	<div class="col-sm">)
+
+[//]: # (  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">)
+
+[//]: # (   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>)
+
+[//]: # (  </div>)
+
+[//]: # (</div>)
 
 [//]: # (Images one below the other)
-<div class='l-body'>
-<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">
+<img class="center" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
-</div>
 
 <div class='l-body'>
 <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
