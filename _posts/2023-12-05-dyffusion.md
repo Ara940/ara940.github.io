@@ -109,7 +109,7 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 
 ### Notation & Background
 
-**Problem setup:**
+#### Problem setup
 We study the problem of probabilistic spatiotemporal forecasting using a dataset consisting of
 a time series of snapshots $$ \mathbf{x}_t \in \mathcal{X}$$.
 Here, $$\mathcal{X}$$ represents the space in which the data lies, which 
@@ -118,7 +118,7 @@ We focus on the task of forecasting a sequence of $$h$$ snapshots from a single 
 That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_t)$$ .
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
-**Standard diffusion models:**
+##### Standard diffusion models:
 Here, we adapt the 
 <a src="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process">common notation for diffusion models</a> 
 to use a superscript $$n$$ for the diffusion states $$\mathbf{s}^{(n)}$$, 
