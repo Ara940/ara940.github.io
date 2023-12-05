@@ -113,6 +113,19 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
 </div>
 
+
+### Notation & Background
+
+**Problem setup:**
+We study the problem of probabilistic spatiotemporal forecasting using a dataset consisting of
+a time series of snapshots $\mathbf{x}_t \in \mathcal{X}$. Here, $\mathcal{X}$ represents the space in which the data lies, which 
+may consist of spatial dimensions (e.g., latitude, longitude, atmospheric height) and a channel dimension (e.g., velocities, temperature, humidity).
+Here, we focus on the task of forecasting a sequence of $h$ snapshots from a single initial condition. 
+That is, we aim to train a model to learn $P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_0)$.
+Note that during evaluation, we may evaluate the model on a larger horizon $H>h$ by autoregressively sampling from the model.
+
+
+
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
 As a result, our work provides a new perspective on designing a capable diffusion model, and may lead to a whole family of task-informed diffusion models.
