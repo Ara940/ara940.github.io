@@ -107,12 +107,6 @@
     if (source.doi) {
       target.doi = source.doi;
     }
-    if (source.paper_url) {
-      target.paper_url = source.paper_url;
-    }
-    if (source.code_url) {
-      target.code_url = source.code_url;
-    }
   }
 
   class FrontMatter {
@@ -178,8 +172,6 @@
       //  updatedDate: 2017-03-21T07:13:16.000Z,
       //  doi: '10.23915/distill.00001',
       this.doi = undefined;
-      this.paper_url = undefined;
-      this.code_url = undefined;
       this.publishedDate = undefined;
     }
 
@@ -339,8 +331,6 @@
       target.bibliography = objectFromMap(this.bibliographyEntries);
       target.url = this.url;
       target.doi = this.doi;
-      target.paper_url = this.paper_url;
-      target.code_url = this.code_url;
       target.githubUrl = this.githubUrl;
       target.previewURL = this.previewURL;
       if (this.publishedDate) {
