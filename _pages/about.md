@@ -4,9 +4,7 @@ title: about
 permalink: /
 subtitle: |+
   <strong>I am a second-year PhD student at UC San Diego, advised by <a href="https://roseyu.com/">Prof. Rose Yu</a></strong>. <br><br>
-  Incoming <strong>Assistant Professor</strong>, <br>
-  Electrical Engineering and Computing + Mathematical Sciences, <br>
-  <a href="https://www.caltech.edu">California Institute of Technology (Caltech)</a>.
+
 
 profile:
   image: coronado-ferry-oval.png
