@@ -35,9 +35,10 @@ hidden: false
     </ul>
     <div><a href="#dyffusion-dynamics-informed-diffusion-model"> DYffusion</a></div>
     <ul>
+      <li><a href="#training-dyffusion"> Training DYffusion </a></li>
       <li><a href="#temporal-interpolation-as-a-forward-process"> Temporal interpolation as a forward process </a></li>
       <li><a href="#forecasting-as-a-reverse-process"> Forecasting as a reverse process </a></li>
-    </ul>
+      <li><a href="#sampling-from-dyffusion"> Sampling from DYffusion </a></li>
     </ul>
   </nav>
 </d-contents>
@@ -200,6 +201,7 @@ and operates in observation space at all times.
 In contrast, a standard diffusion model is designed for unconditional generation, and reversing from white noise requires more diffusion steps. 
 For conditional prediction tasks such as forecasting, DYffusion emerges as a much more natural method that is well aligned with the task at hand.
 
+### Training DYffusion
 We split the learning of DYffusion's forward and reverse processes into two separate objectives and stages as described below.
 
 #### Temporal interpolation as a forward process
@@ -276,6 +278,9 @@ whenever $$n+1 < N$$ and weight the two loss terms equally.
 Additionally, providing a clean or noised form of the initial conditions $$\mathbf{x}_t$$ as an additional input to
 the forecaster net can improve performance. 
 These additional tricks are discussed in more details in the Appendix B of <a href="https://arxiv.org/abs/2306.01984">our paper</a>.
+
+### Sampling from DYffusion
+
 
 ### Conclusion
 
