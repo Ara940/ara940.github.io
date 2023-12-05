@@ -104,12 +104,8 @@
     if (source.doi) {
       target.doi = source.doi;
     }
-    if (source.paper_url) {
-      target.paper_url = source.paper_url;
-    }
-    if (source.code_url) {
-      target.code_url = source.code_url;
-    }
+    target.paper_url = source.paper_url;
+    target.code_url = source.code_url;
   }
 
   class FrontMatter {
@@ -176,7 +172,7 @@
       //  doi: '10.23915/distill.00001',
       this.doi = undefined;
       this.paper_url = undefined;
-      this.code_url = undefined;
+      this.code_url = "@@@";
       this.publishedDate = undefined;
     }
 
