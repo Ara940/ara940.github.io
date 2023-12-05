@@ -24,16 +24,21 @@ hidden: false
   <nav class="l-text figcaption">
   <h3>Contents</h3>
     <div><a href="#introduction"> Introduction </a></div>
-    <div><a href="#limitations-of-previous-work"> Limitations of Previous Work </a></div>
-    <div><a href="#our-key-idea"> Our Key Idea </a></div>
+    <ul>
+      <li><a href="#limitations-of-previous-work"> Limitations of Previous Work </a></li>
+      <li><a href="#our-key-idea"> Our Key Idea </a></li>
+    </ul>
+    <div><a href="#notation--background"> Notation & Background </a></div>
+    <ul>
+      <li><a href="#problem-setup"> Problem setup </a></li>
+      <li><a href="#standard-diffusion-models"> Standard diffusion models </a></li>
   </nav>
 </d-contents>
 
-[//]: # (    <ul>)
-
-[//]: # (      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>)
-
-[//]: # (    </ul>)
+    <ul>
+      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
+      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
+    </ul>
 
 
 <div class='l-body' align="center">
@@ -65,7 +70,7 @@ and trains a neural network to denoise the data in the reverse process.
 Due to the need to generate data from noise over several sequential steps, diffusion models are expensive to train and, especially, to sample from.
 Recent works such as Cold Diffusion <d-cite key="bansal2022cold"></d-cite>, by which our work was especially inspired, have proposed to use alternative data corruption processes like blurring. 
 
-### Limitations of Previous Work
+#### Limitations of Previous Work
 
 Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
@@ -75,7 +80,7 @@ Given that diffusion models have been primarily designed for static data, we als
 incorporate the temporality of the data into the diffusion model.
 
 
-### Our Key Idea
+#### Our Key Idea
 
 We introduce a solution for these issues by designing a temporal diffusion model, DYffusion.
 Following the “generalized diffusion model” framework <d-cite key="bansal2022cold"></d-cite>, we
