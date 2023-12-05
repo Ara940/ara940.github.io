@@ -9,7 +9,7 @@ subtitle: |+
   <a href="https://www.caltech.edu">California Institute of Technology (Caltech)</a>.
 
 profile:
-  image: profile.jpg
+  image: coronado-ferry-oval.png
   image_cicular: false # crops the image to make it circular
   address: false
 
