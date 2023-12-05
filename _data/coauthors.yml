@@ -1,12 +1,28 @@
-"Xing":
-  - firstname: ["Lei"]
-    url: https://med.stanford.edu/xinglab.html
-    
-"Tang":
-  - firstname: ["Jian"]
-    url: https://openreview.net/forum?id=PzcvxEMzvQC
+"Boecking":
+  - firstname: ["Benedikt"]
+    url: https://benbo.github.io/
 
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Dubrawski":
+  - firstname: ["Artur"]
+    url: https://www.ri.cmu.edu/ri-faculty/artur-w-dubrawski/
+
+
+"Lütjens":
+  - firstname: ["Bjorn", "Björn"]
+    url: https://blutjens.github.io/
+
+"Rolnick":
+  - firstname: ["David"]
+    url: http://www.davidrolnick.com/
+
+"Yu":
+  - firstname: ["Rose"]
+    url: https://roseyu.com/
+    
+"Zhao":
+  - firstname: ["Bo"]
+    url: https://b-zhao.github.io/
+
+
+
 
