@@ -261,11 +261,10 @@ As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,
 we can choose _any_ diffusion-dynamics schedule during training or inference 
 and even use $$F_\theta$$ for unseen timesteps.  
 
-The resulting two-stage training procedure is summarized in the algorithm below.
-
 [//]: # (Make image only be 75% of the page width)
 <div class='l-body' align="center">
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png" width="75%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">DYffusion's two-stage training procedure is summarized in the algorithm above. </figcaption>
 </div>
 
 Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
