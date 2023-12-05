@@ -128,7 +128,7 @@ the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$
 
 $$
 \begin{equation} 
-q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n); \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad 
+q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n)}; \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad 
 q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})
 \end{equation}
 $$
@@ -144,7 +144,7 @@ for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
 
 $$
 \begin{equation} 
-q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})\mathbb{E}_{p_t(\mathbf{x})}[\lambda(t) \| \nabla_\mathbf{x} \log p_t(\mathbf{x}) - \mathbf{s}_\theta(\mathbf{x}, t) \|_2^2], 
+q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}), 
 \end{equation}
 $$
 
@@ -160,9 +160,3 @@ As a result, our work provides a new perspective on designing a capable diffusio
 
 For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
 and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion).
-
-$$
-\begin{equation} 
-\mathbb{E}_{t \in \mathcal{U}(0, T)}\mathbb{E}_{p_t(\mathbf{x})}[\lambda(t) \| \nabla_\mathbf{x} \log p_t(\mathbf{x}) - \mathbf{s}_\theta(\mathbf{x}, t) \|_2^2], 
-\end{equation}
-$$
