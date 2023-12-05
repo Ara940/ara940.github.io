@@ -19,7 +19,6 @@ hidden: false
 ---
 
 <d-contents>
-
   <nav class="l-text figcaption">
   <h3>Contents</h3>
     <div><a href="#motivation"> Motivation </a></div>
@@ -76,13 +75,6 @@ framework so that by taking inspiration from existing diffusion models we can bu
    <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
   </div>
 </div>
-
-<div align="center">
-<img src="/assets/2023-12-05-dyffusion/noise-diagram-gaussian.jpg" width="400" height="400" alt="Gaussian diffusion" title="Gaussian noise-based diffusion model" />
-<img src="/assets/2023-12-05-dyffusion/noise-diagram-dyffusion.jpg" width="400" height="400" alt="DYffusion" title="DYffusion">
-<!--img src="https://raw.githubusercontent.com/Rose-STL-Lab/dyffusion/main/assets/noise-diagram-dyffusion.png" width="400" height="400" alt="DYffusion" title="DYffusion" -->
-</div>
-
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
