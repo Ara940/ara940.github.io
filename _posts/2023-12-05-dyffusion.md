@@ -28,12 +28,10 @@ hidden: false
     </ul>
   </nav>
 </d-contents>
-<div align="center">
 
 <div class='l-body'>
 <img class="img-fluid rounded z-depth-1" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXpvdHB5bGY1aWltbTdoYTdxNW03bmdxaG9tMDN6dGY1ZTZ2OWU5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h7yQszDENzsSiIUOpJ/giphy.gif">
-<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> *DYffusion forecasts a sequence of* $h$ *snapshots* $\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_h$
-*given the initial conditions* $\mathbf{x}_0$ *similarly to how standard diffusion models are used to sample from a distribution.*</figcaption>
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> DYffusion forecasts a sequence of $h$ snapshots $\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_h$ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion models are used to sample from a distribution.</figcaption>
 </div>
 
 
