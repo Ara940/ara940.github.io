@@ -281,6 +281,29 @@ These additional tricks are discussed in more details in the Appendix B of <a hr
 
 ### Sampling from DYffusion
 
+Our above design of the forward and reverse processes of DYffusion, imply the following generative process:
+$$
+\begin{align}
+    p_\theta(\mathbf{s}^{(n+1)} | \mathbf{s}^{(n)}, \mathbf{x}_t) = 
+    \begin{cases}
+        F_\theta(\mathbf{s}^{(n)}, i_{n})  & \text{if} \ n = N-1 \\
+        \mathcal{I}_\phi(\mathbf{x}_t, F_\theta(\mathbf{s}^{(n)}, i_n), i_{n+1}) & \text{otherwise,}
+    \end{cases} 
+    \label{eq:new-reverse}
+\end{align}
+$$
+
+where $\xk[0]=\xt[t]$ and $\xk[n]\approx\xt[t+i_n]$ correspond to the initial conditions and predictions of intermediate steps, respectively.
+In our formulations, we reverse the diffusion step indexing to align with the temporal indexing of the data. That is, $n=0$ refers to the start of the reverse process (i.e. $\xt[\inputtimesteps]$), while $n=N$ refers to the final output of the reverse process (here, $\xt[t+h]$).
+% For the last step, $\xk[N]$, we add Gaussian noise to the predictions to support the generative process.
+Our reverse process steps forward in time, in contrast to the mapping from noise to data in standard diffusion models. As a result,  \method\ should require fewer diffusion steps and data.
+
+\input{algos/sampling}
+Similarly to the forward process in ~\citep{song2021ddim, bansal2022cold}, our interpolation stage ceases to be a diffusion process. Our forecasting stage as detailed in Eq.~\eqref{eq:forecaster}, follows the (generalized) diffusion model objectives.
+This similarity allows us to use many existing diffusion model sampling methods for inference, such as the cold sampling algorithm from~\cite{bansal2022cold} (see  Alg.~\ref{alg:sa2}). In Appendix~\ref{appendix:ode-cold-is-better}, we also discuss a simpler but less performant sampling algorithm.
+During the sampling process, our method essentially alternates between forecasting and interpolation, as illustrated in Fig.~\ref{fig:dyffusion-interplay}. 
+$\nn$ always predicts the last timestep, $\xt[t+h]$, but iteratively improves those forecasts as the reverse process comes closer in time to $t+h$. This is analogous to the iterative denoising of the ``clean'' data in standard diffusion models.
+This motivates line $6$ of Alg.~\ref{alg:sa2}, where the final forecast of $\xt[t+h]$ can be used to fine-tune intermediate predictions or to increase the temporal resolution of the forecast. \method\ can be applied autoregressively to forecast even longer rollouts beyond the training horizon, as demonstrated by the Navier-Stokes and spring mesh experiments in section \ref{sec:experiments}.
 
 ### Conclusion
 
