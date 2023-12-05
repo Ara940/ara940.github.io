@@ -59,7 +59,7 @@ Recent works such as Cold Diffusion <d-cite key="bansal2022cold"></d-cite>, by w
 _**Problem:**_ Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
 and are prone to error accumulation for long-range forecasts. It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems
-and incorporate the temporality of the data into the diffusion model. <d-cite key="gal2016dropout"></d-cite>
+and incorporate the temporality of the data into the diffusion model. 
 
 
 
