@@ -127,10 +127,10 @@ The step sizes are controlled by a variance schedule $$\{\beta_n \in (0, 1)\}_{n
 the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$ and $$\mathbf{s}^{(N)} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$.
 
 $$
-\begin{equation} 
+\begin{equation*} 
 q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n)}; \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad 
 q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})
-\end{equation}
+\end{equation*}
 $$
 
 <div class='l-body'>
