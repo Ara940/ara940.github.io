@@ -26,16 +26,16 @@ hidden: false
     <div><a href="#introduction"> Introduction </a></div>
     <div><a href="#limitations-of-previous-work"> Limitations of Previous Work </a></div>
     <div><a href="#our-key-idea"> Our Key Idea </a></div>
+  </nav>
+</d-contents>
 
 [//]: # (    <ul>)
 
 [//]: # (      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>)
 
 [//]: # (    </ul>)
-  </nav>
-</d-contents>
 
-<!--- Align the gif to the center -->
+
 <div class='l-body' align="center">
 <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diagram.gif">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
