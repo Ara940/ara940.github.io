@@ -39,8 +39,8 @@ hidden: false
 <div class='l-body' align="center">
 <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diagram.gif">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
-DYffusion forecasts a sequence of $h$ snapshots $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_h$ 
-given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion models are used to sample from a distribution.</figcaption>
+DYffusion forecasts a sequence of $$h$$ snapshots $$\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_h$$ 
+given the initial conditions $$\mathbf{x}_0$$ similarly to how standard diffusion models are used to sample from a distribution.</figcaption>
 </div>
 
 
@@ -118,11 +118,11 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 
 **Problem setup:**
 We study the problem of probabilistic spatiotemporal forecasting using a dataset consisting of
-a time series of snapshots $\mathbf{x}_t \in \mathcal{X}$. Here, $\mathcal{X}$ represents the space in which the data lies, which 
+a time series of snapshots $$ \mathbf{x}_t \in \mathcal{X}$$ . Here, $$\mathcal{X}$$ represents the space in which the data lies, which 
 may consist of spatial dimensions (e.g., latitude, longitude, atmospheric height) and a channel dimension (e.g., velocities, temperature, humidity).
 Here, we focus on the task of forecasting a sequence of $h$ snapshots from a single initial condition. 
-That is, we aim to train a model to learn $P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_0)$.
-Note that during evaluation, we may evaluate the model on a larger horizon $H>h$ by autoregressively sampling from the model.
+That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_0)$$ .
+Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by autoregressively sampling from the model.
 
 
 
