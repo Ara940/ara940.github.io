@@ -32,13 +32,9 @@ hidden: false
     <ul>
       <li><a href="#problem-setup"> Problem setup </a></li>
       <li><a href="#standard-diffusion-models"> Standard diffusion models </a></li>
+    </ul>
   </nav>
 </d-contents>
-
-    <ul>
-      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
-      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
-    </ul>
 
 
 <div class='l-body' align="center">
