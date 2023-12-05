@@ -33,7 +33,7 @@
               "name": "{{ author.affiliations.name }}",
               "url": "{{ author.affiliations.url }}"
             }
-          ],
+          ]
         }{% if forloop.last == false %},{% endif %}
         {% endfor %}
       ],
@@ -102,7 +102,7 @@
     {%- include footer.html %}
 
     <d-bibliography src="{{ page.bibliography | prepend: '/assets/bibliography/' | relative_url }}"></d-bibliography>
-    
+
     {% if site.disqus_shortname and page.comments %}
     <d-article>
       <div id="disqus_thread"></div>
