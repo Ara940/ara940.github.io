@@ -33,6 +33,7 @@ hidden: false
       <li><a href="#problem-setup"> Problem setup </a></li>
       <li><a href="#standard-diffusion-models"> Standard diffusion models </a></li>
     </ul>
+    <div><a href="#dyffusion-dynamics-informed-diffusion-model"> DYffusion</a></div>
   </nav>
 </d-contents>
 
@@ -118,7 +119,7 @@ We focus on the task of forecasting a sequence of $$h$$ snapshots from a single 
 That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_t)$$ .
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
-#### Standard diffusion models:
+#### Standard diffusion models
 Here, we adapt the 
 <a src="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process">common notation for diffusion models</a> 
 to use a superscript $$n$$ for the diffusion states $$\mathbf{s}^{(n)}$$, 
@@ -169,11 +170,23 @@ We use the latter as a baseline since this is common in the related field of vid
 and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
 
+### DYffusion: Dynamics-informed Diffusion Model
+
+The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
+spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$. 
+Specifically, we replace the forward process operator, $$D$$, with a stochastic interpolator network $$\mathcal{I}_\phi$$,
+and the denoising network, $$R_\theta$$, with a deterministic forecaster network, $$F_\theta$$.
+
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
 </div>
 
+At a high level, our forward and reverse processes emulate the temporal dynamics in the data. Thus, intermediate steps in the diffusion process can be reused as forecasts for actual timesteps in multi-step forecasting. Another benefit of our approach is that the reverse process is initialized with the initial conditions of the dynamics and operates in observation space at all times. 
+In contrast, a standard diffusion model is designed for unconditional generation, and reversing from white noise requires more diffusion steps. 
+For conditional prediction tasks such as forecasting, \method\ emerges as a much more natural method that is well aligned with the task at hand.
+
+### Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
