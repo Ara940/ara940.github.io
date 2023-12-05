@@ -265,7 +265,7 @@ Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
 the imperfect forecasts  $$\hat{\mathbf{x}}_{t+h} = F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n), i_n)$$
 may degrade accuracy when used during sequential sampling. 
 To handle this, we introduce an optional one-step look-ahead loss term 
-$$\|  F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \hat{\mathbf{x}}_{t+h}, i_{n+1}), i_{n+1}) - \mathbf_{t+h} \|^2$$ 
+$$\|  F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \hat{\mathbf{x}}_{t+h}, i_{n+1}), i_{n+1}) - \mathbf{x}_{t+h} \|^2$$ 
 whenever $$n+1 < N$$ and weight the two loss terms equally. 
 Additionally, providing a clean or noised form of the initial conditions $$\mathbf{x}_t$$ as an additional input to
 the forecaster net can improve performance. 
