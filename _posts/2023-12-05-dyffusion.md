@@ -23,9 +23,9 @@ hidden: false
 <d-contents>
   <nav class="l-text figcaption">
   <h3>Contents</h3>
-    <div><a href="#introduction"> Introduction </a>
-    </div><a href="#limitations-of-previous-work"> Limitations of Previous Work </a>
-    </div><a href="#our-key-idea"> Our Key Idea </a>
+    <div><a href="#introduction"> Introduction </a></div>
+    <div><a href="#limitations-of-previous-work"> Limitations of Previous Work </a></div>
+    <div><a href="#our-key-idea"> Our Key Idea </a></div>
 
 [//]: # (    <ul>)
 
