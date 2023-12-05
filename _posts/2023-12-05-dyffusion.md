@@ -8,8 +8,6 @@ authors:
       affiliations:
         name: UC San Diego
 bibliography: blogs.bib
-paper_url: https://arxiv.org/abs/2306.01984
-code_url: https://github.com/Rose-STL-Lab/dyffusion
 description: We introduce a novel diffusion model-based framework, DYffusion, for large-scale probabilistic forecasting.
     We propose to couple the diffusion steps with the physical timesteps of the data, 
     leading to temporal forward and reverse processes that we represent through a 
