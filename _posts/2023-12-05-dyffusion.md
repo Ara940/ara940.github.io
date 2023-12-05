@@ -30,7 +30,8 @@ hidden: false
   </nav>
 </d-contents>
 
-<div class='l-body'>
+<!--- Align the gif to the center -->
+<div class='l-body' align="center">
 <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diagram.gif">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
 DYffusion forecasts a sequence of $h$ snapshots $\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_h$ 
