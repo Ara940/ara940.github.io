@@ -6,6 +6,7 @@ authors:
     - name: <a href='https://salvarc.github.io/'>Salva Rühling Cachay</a>
       affiliations:
         name: UC San Diego
+bibliography: blogs.bib
 paper_url: https://arxiv.org/abs/2306.01984
 code_url: https://github.com/Rose-STL-Lab/dyffusion
 description: We introduce a novel diffusion model-based framework, DYffusion, for large-scale probabilistic forecasting.
@@ -52,7 +53,7 @@ The standard approach (e.g. see [this excellent blog post](https://lilianweng.gi
 is to corrupt the data with increasing levels of Gaussian noise in the forward process,
 and to train a neural network to denoise the data in the reverse process. 
 Due to the need to generate data from noise over several sequential steps, diffusion models are expensive to train and, especially, to sample from.
-Recent works such as [Cold Diffusion](https://arxiv.org/abs/2208.09392), by which our work was especially inspired, have proposed to use alternative data corruption processes like blurring. 
+Recent works such as Cold Diffusion <d-cite key="bansal2022cold"</d-cite>, by which our work was especially inspired, have proposed to use alternative data corruption processes like blurring. 
 
 _**Problem:**_ Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
