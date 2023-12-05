@@ -69,7 +69,7 @@ Common approaches for large-scale spatiotemporal problems tend to be _determinis
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
 and are prone to error accumulation for long-range forecasts. 
 It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems.
-Given that diffusion models have been primarily for static data, we also ask how we can explicitly
+Given that diffusion models have been primarily designed for static data, we also ask how we can explicitly
 incorporate the temporality of the data into the diffusion model.
 
 
@@ -122,10 +122,21 @@ a time series of snapshots $$ \mathbf{x}_t \in \mathcal{X}$$.
 Here, $$\mathcal{X}$$ represents the space in which the data lies, which 
 may consist of spatial dimensions (e.g., latitude, longitude, atmospheric height) and a channel dimension (e.g., velocities, temperature, humidity).
 We focus on the task of forecasting a sequence of $$h$$ snapshots from a single initial condition. 
-That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_0)$$ .
+That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_t)$$ .
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
-
+**Standard diffusion models:**
+Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined through a _forward diffusion process_ 
+in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
+$$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
+The step sizes are controlled by a variance schedule $$\{\beta_n \in (0, 1)\}_{n=1}^N$$ such that 
+the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$.
+<div>
+$$
+q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n); \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad
+q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})
+$$
+</div>
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
