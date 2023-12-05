@@ -170,7 +170,9 @@ $$
 where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and
 $$\mathbf{s}^{(0)}$$ is the forecasting target. 
 For a single-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
-while for a multi-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$. 
+while for a multi-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$
+<d-footnote>In practice, $$R_\theta$$ can also be trained to predict the Gaussian noise that has 
+been added to the data point using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>.
 We use the latter as a baseline since this is common in the related field of video diffusion models, 
 and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
