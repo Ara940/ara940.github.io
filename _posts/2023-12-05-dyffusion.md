@@ -241,7 +241,7 @@ Specifically, we seek to optimize the objective
 $$
 \begin{equation}
     \min_\theta 
-        \matbbb{E}_{n \sim \mathcal{U}[\![0, N-1]\!], \mathbf{x}_{t, t+h}\sim \mathcal{X}}
+        \matbb{E}_{n \sim \mathcal{U}[\![0, N-1]\!], \mathbf{x}_{t, t+h}\sim \mathcal{X}}
         \left[\|
             F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n) - \mathbf{x}_{t+h}
         \|^2 \right].
@@ -250,7 +250,7 @@ $$
 $$
 
 To include the setting where $$F_\theta$$ learns to forecast the initial conditions, 
-we define $$i_0 := 0$$ and $$\mathcal{I}_\phi(\mathbf{x}_{t}, \cdot, i_0) := \xt$$.
+we define $$i_0 := 0$$ and $$\mathcal{I}_\phi(\mathbf{x}_{t}, \cdot, i_0) := \mathbf{x}_t$$.
 In the simplest case, the forecaster network is supervised by all possible timesteps given
 by the temporal resolution of the training data. That is, $$N=h$$ and $$S = [j]_{j=0}^{h-1}$$. 
 Generally, the interpolation timesteps should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n < m \leq N-1$$.
