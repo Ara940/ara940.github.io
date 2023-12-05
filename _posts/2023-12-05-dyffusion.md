@@ -23,7 +23,7 @@ hidden: false
 <d-contents>
   <nav class="l-text figcaption">
   <h3>Contents</h3>
-    <div><a href="#motivation"> Motivation </a></div>
+    <div><a href="#introduction"> Introduction </a></div>
     <ul>
       <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
     </ul>
@@ -39,7 +39,7 @@ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion 
 </div>
 
 
-### Motivation
+### Introduction
 
 Obtaining _accurate and reliable probabilistic forecasts_ is an important component of policy formulation,
 risk management, resource optimization, and strategic planning with a wide range of applications from
@@ -50,16 +50,20 @@ in fields such as [global weather forecasting](https://www.ecmwf.int/en/about/me
 
 Generative modeling, and especially diffusion models, have shown great success in other fields such as 
 natural image generation, and video synthesis.
-Diffusion models iteratively transform data back and forth between an initial distribution and the target distribution over multiple diffusion steps.
+Diffusion models iteratively transform data between an initial distribution
+and the target distribution over multiple diffusion steps<d-cite key="sohldickstein2015deepunsupervised, ho2020ddpm, karras2022edm"></d-cite>.
 The standard approach (e.g. see [this excellent blog post](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/))
-is to corrupt the data with increasing levels of Gaussian noise in the forward process,
-and to train a neural network to denoise the data in the reverse process. 
+corrupts the data with increasing levels of Gaussian noise in the forward process,
+and trains a neural network to denoise the data in the reverse process. 
 Due to the need to generate data from noise over several sequential steps, diffusion models are expensive to train and, especially, to sample from.
 Recent works such as Cold Diffusion <d-cite key="bansal2022cold"></d-cite>, by which our work was especially inspired, have proposed to use alternative data corruption processes like blurring. 
 
-_**Problem:**_ Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
+#### Limitations of previous work
+
+Common approaches for large-scale spatiotemporal problems tend to be _deterministic_ and _autoregressive_.
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
-and are prone to error accumulation for long-range forecasts. It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems
+and are prone to error accumulation for long-range forecasts. 
+It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems
 and incorporate the temporality of the data into the diffusion model. 
 
 

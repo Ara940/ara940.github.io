@@ -18,8 +18,8 @@ social: true  # includes social icons at the bottom of the page
 
 <p>
 I was a research intern at the Allen Institute for AI (AI2) and Palo Alto Research Center (PARC) during the summers of 2023 and 2022, focusing on machine learning for climate modeling.
-Before, I had the pleasure to be researching at <a href="https://mila.quebec/en/">Mila - Quebec AI Institute</a>,
-with <a href="https://davidrolnick.com/">Prof. David Rolnick</a> on climate change+ML.
+Before, I had the pleasure to work with <a href="https://davidrolnick.com/">Prof. David Rolnick</a>
+on climate change+ML at <a href="https://mila.quebec/en/">Mila - Quebec AI Institute</a>.
 </p>
 <p>
 I got started in ML research through a project on weakly supervised learning
