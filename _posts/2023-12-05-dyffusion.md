@@ -261,8 +261,8 @@ As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,
 we can choose _any_ diffusion-dynamics schedule during training or inference 
 and even use $$F_\theta$$ for unseen timesteps.  
 
-<div class='l-body'>
-<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
 </div>
 
 
