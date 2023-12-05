@@ -210,6 +210,14 @@ $$
 \end{equation}
 $$
 
+Interpolation is an easier task than forecasting, and we can use the resulting interpolator
+for temporal super-resolution during inference to interpolate beyond the temporal resolution of the data.
+That is, the time input can be continuous, with $$i \in (0, h-1)$$, 
+where we note that the range $$(0, 1)$$ is outside the training regime but may improve performance in some cases. 
+It is crucial for the interpolator, $$\mathcal{I}_\phi$$,
+to _produce stochastic outputs_ within DYffusion so that its forward process is stochastic, and it can generate probabilistic forecasts at inference time.
+We enable this using Monte Carlo dropout <d-cite key="gal2016dropout"></d-cite> at inference time.
+
 ### Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
