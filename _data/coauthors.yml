@@ -1,3 +1,7 @@
+"Biret":
+  - firstname: ["Suyash"]
+    url: https://eapsweb.mit.edu/people/bire
+
 "Boecking":
   - firstname: ["Benedikt"]
     url: https://benbo.github.io/
@@ -13,6 +17,10 @@
 "Lütjens":
   - firstname: ["Bjorn", "Björn"]
     url: https://blutjens.github.io/
+
+"Osei":
+  - firstname: ["Salomey"]
+    url: https://scholar.google.com/citations?user=32M1HMsAAAAJ
 
 "Ramesh":
   - firstname: ["Venkatesh"]
