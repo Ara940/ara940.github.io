@@ -328,6 +328,8 @@
       target.bibliography = objectFromMap(this.bibliographyEntries);
       target.url = this.url;
       target.doi = this.doi;
+      target.paper_url = this.paper_url;
+      target.code_url = this.code_url,
       target.githubUrl = this.githubUrl;
       target.previewURL = this.previewURL;
       if (this.publishedDate) {
