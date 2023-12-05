@@ -116,6 +116,7 @@ That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
 **Standard diffusion models:**
+Adapting the , $$\mathbf{s}^{(N)}$$, with a superscript $$n$$ to clearly distinguish them from the time steps of the data, $$\mathbf{x}_t$$.
 Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined through a _forward diffusion process_ 
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
@@ -128,11 +129,6 @@ q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n); \sqr
 q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})
 \end{equation}
 $$
-$$
-\begin{equation} 
-q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n); \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad 
-\end{equation}
-$$
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.png">
@@ -143,6 +139,11 @@ Adopting the notation from <d-cite key="bansal2022cold"></d-cite>, for generaliz
 a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$ 
 for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
 
+$$
+\begin{equation} 
+q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})\mathbb{E}_{p_t(\mathbf{x})}[\lambda(t) \| \nabla_\mathbf{x} \log p_t(\mathbf{x}) - \mathbf{s}_\theta(\mathbf{x}, t) \|_2^2], 
+\end{equation}
+$$
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
