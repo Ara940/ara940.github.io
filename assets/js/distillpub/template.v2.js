@@ -101,11 +101,11 @@
     target.authors = source.authors.map( (authorObject) => new Author(authorObject));
     target.katex = source.katex;
     target.password = source.password;
+    target.paper_url = source.paper_url;
+    target.code_url = source.code_url;
     if (source.doi) {
       target.doi = source.doi;
     }
-    target.paper_url = source.paper_url;
-    target.code_url = source.code_url;
   }
 
   class FrontMatter {
@@ -172,7 +172,7 @@
       //  doi: '10.23915/distill.00001',
       this.doi = undefined;
       this.paper_url = undefined;
-      this.code_url = "@@@";
+      this.code_url = "www.google.com";
       this.publishedDate = undefined;
     }
 
