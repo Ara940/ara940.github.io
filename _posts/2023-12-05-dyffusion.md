@@ -194,6 +194,22 @@ and operates in observation space at all times.
 In contrast, a standard diffusion model is designed for unconditional generation, and reversing from white noise requires more diffusion steps. 
 For conditional prediction tasks such as forecasting, DYffusion emerges as a much more natural method that is well aligned with the task at hand.
 
+#### Temporal interpolation as a forward process
+
+To impose a temporal bias, we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
+Given a horizon $$h$$, we train $$\mathcal{I}_\phi$$ so that 
+$$\mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) \approx \mathbf{x}_{t+i}$$ for $$i \in \{1, \ldots, h-1\}$$ using the objective:
+$$
+\begin{equation}
+    \min_\phi 
+        \mathbb{E}_{i \sim \mathcal{U}[\![1, h-1]\!],  \mathbf{x}_{t, t+i, t+h} \sim \mathcal{X}}
+        \left[\|
+            \mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) - \mathbf{x}_{t+i}
+        \|^2 \right].
+\label{eq:interpolation}
+\end{equation}
+$$
+
 ### Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
