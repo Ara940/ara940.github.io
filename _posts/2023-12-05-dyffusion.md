@@ -142,6 +142,22 @@ Adopting the notation from <d-cite key="bansal2022cold"></d-cite>, for generaliz
 a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$ 
 for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
 
+A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to restore $$\mathbf{s}^{(0)}$$,
+i.e. such that $$R_\theta(\mathbf{s}^{(n)}, n) \approx \mathbf{s}^{(0)}$$. 
+For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering 
+$$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$. Then, the diffusion model can be trained to minimize the objective
+
+$$
+\begin{equation}
+    \min_\theta 
+    \mathbb{E}_{n \sim \mathcal{U}[\![1, N]\!], \mathbf{x}_{t}, \mathbf{s}^{(0)}\sim \mathcal{X}}
+    \left[
+    \|R_\theta(D(\mathbf{s}^{(0)}, n), \mathbf{x}_{t}, n) - \mathbf{s}^{(0)}\|^2
+    \right],
+\label{eq:diffusionmodels}
+\end{equation}
+$$
+
 $$
 \begin{equation} 
 q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}), 
