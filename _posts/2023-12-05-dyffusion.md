@@ -49,7 +49,7 @@ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion 
 </div>
 
 
-### Introduction
+## Introduction
 
 Obtaining _accurate and reliable probabilistic forecasts_ is an important component of policy formulation,
 risk management, resource optimization, and strategic planning with a wide range of applications from
@@ -111,7 +111,7 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 
 [//]: # (Images one below the other)
 
-### Notation & Background
+## Notation & Background
 
 #### Problem setup
 We study the problem of probabilistic spatiotemporal forecasting using a dataset consisting of
@@ -173,7 +173,7 @@ We use the latter as a baseline since this is common in the related field of vid
 and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
 
-### DYffusion: Dynamics-informed Diffusion Model
+## DYffusion: Dynamics-informed Diffusion Model
 
 The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
 spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$.
