@@ -2110,7 +2110,7 @@ d-appendix > distill-appendix {
         <p><em>Not published yet.</em></p>`}
     </div>
     <div>
-      <h3>Link</h3>
+      <h3>Further Link's</h3>
       <p>
         <a class="affiliation" href="${frontMatter.paper_url}">Paper</a>
         <!-- Make some space between the links -->
