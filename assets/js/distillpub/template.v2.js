@@ -2115,6 +2115,16 @@ d-appendix > distill-appendix {
         <p>${frontMatter.publishedMonth} ${frontMatter.publishedDay}, ${frontMatter.publishedYear}</p> ` : `
         <p><em>Not published yet.</em></p>`}
     </div>
+    
+    <div>
+      <h2>Paper</h2>
+      <p><a class="url" href="${frontMatter.paper_url}">Link</a></p>
+    </div>
+    
+    <div>
+      <h2>Code</h2>
+      <p><a class="url" href="${frontMatter.code_url}">Link</a></p>
+    </div>
   </div>
 `;
   }
