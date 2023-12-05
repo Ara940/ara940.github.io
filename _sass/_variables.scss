@@ -22,9 +22,13 @@ $light-purple-color:  lighten($purple-color, 25%);
 $pink-color:          #f92080 !default;
 $pink-color-light:    #ffdddd !default;
 $yellow-color:        #efcc00 !default;
-$caltech-orange: #ff6c0c !default;
-$caltech-purple: #644B78 !default;
-$caltech-blue: #00A1DF !default;
+$caltech-orange: #ff6c0c;
+$caltech-purple: #644B78;
+$caltech-blue: #00A1DF;
+$ucsd-navy: #182B49 !default;
+$ucsd-blue: #00629B !default;
+$ucsd-gold: #C69214 !default;
+$ucsd-yellow: #FFCD00 !default;
 
 $grey-color:          #828282 !default;
 $grey-color-light:    lighten($grey-color, 40%);
