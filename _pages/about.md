@@ -2,6 +2,8 @@
 layout: about
 title: about
 permalink: /about/
+nav: true
+nav_order: 1
 subtitle: |+
 I am a second-year PhD student at UC San Diego, advised by <a href="https://roseyu.com/">Prof. Rose Yu</a>.
 
