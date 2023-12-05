@@ -173,18 +173,26 @@ Lastly, autoregressive single-step forecasting with a standard diffusion model w
 ### DYffusion: Dynamics-informed Diffusion Model
 
 The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
-spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$. 
-Specifically, we replace the forward process operator, $$D$$, with a stochastic interpolator network $$\mathcal{I}_\phi$$,
-and the denoising network, $$R_\theta$$, with a deterministic forecaster network, $$F_\theta$$.
+spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$.
+Specifically, we design the reverse (forward) process to step forward (backward) in time 
+so that our diffusion model emulates the temporal dynamics in the data. 
+Thus, similarly to the processes in <d-cite key="song2021ddim, bansal2022cold"></d-cite>, 
+they cease to represent actual "diffusion" processes.
+Differently to all prior work, our processes are _not_ based on data corruption or restoration.
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
 </div>
 
-At a high level, our forward and reverse processes emulate the temporal dynamics in the data. Thus, intermediate steps in the diffusion process can be reused as forecasts for actual timesteps in multi-step forecasting. Another benefit of our approach is that the reverse process is initialized with the initial conditions of the dynamics and operates in observation space at all times. 
+Implementation-wise, we replace the standard denoising network, $$R_\theta$$, with a deterministic forecaster network, $$F_\theta$$.
+Because we do not have a closed-form expression for the forward process, we also need to learn it from data
+by replacing the standard forward process operator, $$D$$, with a stochastic interpolator network $$\mathcal{I}_\phi$$.
+Intermediate steps in DYffusion's reverse process can be reused as forecasts for actual timesteps.
+Another benefit of our approach is that the reverse process is initialized with the initial conditions of the dynamics 
+and operates in observation space at all times. 
 In contrast, a standard diffusion model is designed for unconditional generation, and reversing from white noise requires more diffusion steps. 
-For conditional prediction tasks such as forecasting, \method\ emerges as a much more natural method that is well aligned with the task at hand.
+For conditional prediction tasks such as forecasting, DYffusion emerges as a much more natural method that is well aligned with the task at hand.
 
 ### Conclusion
 
