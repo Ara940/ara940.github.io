@@ -158,7 +158,12 @@ $$
 \end{equation}
 $$
 
-where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$.
+where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and
+$$\mathbf{s}^{(0)}$$ is the forecasting target. 
+For a single-step training forecasting approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
+while for a multi-step forecasting approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$. 
+Here, we use the latter as a baseline given that it is common in the related field of video diffusion models and because
+autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
