@@ -261,6 +261,35 @@ we can choose _any_ diffusion-dynamics schedule during training or inference
 and even use $$F_\theta$$ for unseen timesteps.  
 
 
+\begin{algorithm}[H]
+\caption{\method, Two-stage Training}
+\label{alg:dyffusion}
+\begin{algorithmic}
+    \STATE
+        {\bfseries Input:} 
+        networks $\nn, \nninterpolate$, norm $\norm{\cdot}$, horizon $h$, schedule $[i_n]_{i=0}^{N-1}$
+    \STATE
+        \emph{Stage 1:} Train interpolator network, $\nninterpolate$ % on 
+    \STATE
+        \quad 1.
+            Sample $i \sim \interpolationstepsspacelong$
+        \\\quad 2.
+            Sample $\xt[\inputtimesteps], \xt[t+i], \xt[t+h] \sim \dataspace$
+        \\\quad 3.
+            Optimize $\min_\phi \norm{\nninterpolatefunc{}{}{} - \xt[t+i]}^2$
+    \STATE
+    \STATE
+        \emph{Stage 2:} Train forecaster network (diffusion model backbone), $\nn$ % on  
+    \STATE
+        \quad 1.
+            Freeze $\nninterpolate$ and enable inference stochasticity (e.g. dropout)
+        \\\quad 2.
+        Sample $n \sim \diffusionstepsspacelong$ and $\xt[\inputtimesteps], \xt[t+h]\sim \dataspace$
+        \\\quad 3.
+            Optimize $\min_\theta \norm{\nn(\nninterpolatefunc{}{}{i_n}, \nntime[n]) - \xt[t+h]}^2$
+\end{algorithmic}
+\end{algorithm}
+
 Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
 the imperfect forecasts  $$\hat{\mathbf{x}}_{t+h} = F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n), i_n)$$
 may degrade accuracy when used during sequential sampling. 
