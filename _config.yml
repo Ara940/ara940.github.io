@@ -109,7 +109,7 @@ pagination:
   enabled: true
 
 # Comments
-disqus_shortname: salvaRC7 # put your disqus shortname (necessary to enable comments in your blog)
+disqus_shortname: ara90-github-io    #salvaRC7 # put your disqus shortname (necessary to enable comments in your blog)
 # https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 # External sources.
