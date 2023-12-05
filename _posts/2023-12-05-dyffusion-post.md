@@ -1,14 +1,16 @@
 ---
-layout: distill
+layout: post
+mathjax: true
 title:  "DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting"
 date:   2023-12-05
+categories: jekyll update
 tags: dyffusion, diffusion model, spatiotemporal, forecasting, probabilistic, generative modeling, machine learning, deep learning, neurips
-authors: <a href='https://salvarc.github.io/'>Salva Rühling Cachay</a>, <a href='https://b-zhao.github.io/'>Bo Zhao</a>, <a href='https://haileyjoren.github.io/'>Hailey Joren</a>, <a href='https://roseyu.com/'>Rose Yu</a>
+author: <a href='https://salvarc.github.io/'>Salva Rühling Cachay</a>, <a href='https://b-zhao.github.io/'>Bo Zhao</a>, <a href='https://haileyjoren.github.io/'>Hailey Joren</a>, <a href='https://roseyu.com/'>Rose Yu</a>
 paper_url: https://arxiv.org/abs/2306.01984
 code_url: https://github.com/Rose-STL-Lab/dyffusion
-description: While diffusion models can successfully generate data and make predictions, they are predominantly designed for static images. We propose an approach for efficiently training diffusion models for probabilistic spatiotemporal forecasting, where generating stable and accurate rollout forecasts remains challenging, Our method, DYffusion, leverages the temporal dynamics in the data, directly coupling it with the diffusion steps in the model. We train a stochastic, time-conditioned interpolator and a forecaster network that mimic the forward and reverse processes of standard diffusion models, respectively. DYffusion naturally facilitates multi-step and long-range forecasting, allowing for highly flexible, continuous-time sampling trajectories and the ability to trade-off performance with accelerated sampling at inference time. In addition, the dynamics-informed diffusion process in DYffusion imposes a strong inductive bias and significantly improves computational efficiency compared to traditional Gaussian noise-based diffusion models. Our approach performs competitively on probabilistic forecasting of complex dynamics in sea surface temperatures, Navier-Stokes flows, and spring mesh systems.
+excerpt: While diffusion models can successfully generate data and make predictions, they are predominantly designed for static images. We propose an approach for efficiently training diffusion models for probabilistic spatiotemporal forecasting, where generating stable and accurate rollout forecasts remains challenging, Our method, DYffusion, leverages the temporal dynamics in the data, directly coupling it with the diffusion steps in the model. We train a stochastic, time-conditioned interpolator and a forecaster network that mimic the forward and reverse processes of standard diffusion models, respectively. DYffusion naturally facilitates multi-step and long-range forecasting, allowing for highly flexible, continuous-time sampling trajectories and the ability to trade-off performance with accelerated sampling at inference time. In addition, the dynamics-informed diffusion process in DYffusion imposes a strong inductive bias and significantly improves computational efficiency compared to traditional Gaussian noise-based diffusion models. Our approach performs competitively on probabilistic forecasting of complex dynamics in sea surface temperatures, Navier-Stokes flows, and spring mesh systems.
 comments: true
-hidden: false
+hidden: true
 
 ---
 
