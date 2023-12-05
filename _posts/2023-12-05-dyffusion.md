@@ -2,26 +2,32 @@
 layout: distill
 title:  "DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting"
 date:   2023-12-05
-tags: dyffusion, diffusion model, spatiotemporal, forecasting, probabilistic, generative modeling, machine learning, deep learning, neurips
 authors: 
-    - name: <a href='https://salvarc.github.io/'>Salva Rühling Cachay</a>, <a href='https://b-zhao.github.io/'>Bo Zhao</a>, <a href='https://haileyjoren.github.io/'>Hailey Joren</a>, <a href='https://roseyu.com/'>Rose Yu</a>
+    - name: <a href='https://salvarc.github.io/'>Salva Rühling Cachay</a>
       affiliations:
         name: UC San Diego
 paper_url: https://arxiv.org/abs/2306.01984
 code_url: https://github.com/Rose-STL-Lab/dyffusion
-description: While diffusion models can successfully generate data and make predictions, they are predominantly designed for static images. We propose an approach for efficiently training diffusion models for probabilistic spatiotemporal forecasting, where generating stable and accurate rollout forecasts remains challenging, Our method, DYffusion, leverages the temporal dynamics in the data, directly coupling it with the diffusion steps in the model. We train a stochastic, time-conditioned interpolator and a forecaster network that mimic the forward and reverse processes of standard diffusion models, respectively. DYffusion naturally facilitates multi-step and long-range forecasting, allowing for highly flexible, continuous-time sampling trajectories and the ability to trade-off performance with accelerated sampling at inference time. In addition, the dynamics-informed diffusion process in DYffusion imposes a strong inductive bias and significantly improves computational efficiency compared to traditional Gaussian noise-based diffusion models. Our approach performs competitively on probabilistic forecasting of complex dynamics in sea surface temperatures, Navier-Stokes flows, and spring mesh systems.
+description: We introduce a novel diffusion model-based framework, DYffusion, for large-scale probabilistic forecasting.
+    We propose to couple the diffusion steps with the physical timesteps of the data, 
+    leading to temporal forward and reverse processes that we represent through a 
+    stochastic interpolator and a deterministic forecaster network, respectively.
+    These design choices effectively address the challenges of generating stable, accurate and probabilistic rollout forecasts.
 comments: true
 hidden: false
 
 ---
 
-**TL;DR:** 
-We introduce a novel diffusion model-based framework, DYffusion, for large-scale probabilistic forecasting.
-We propose to couple the diffusion steps with the physical timesteps of the data, 
-leading to temporal forward and reverse processes that we represent through a 
-stochastic interpolator and a deterministic forecaster network, respectively.
-These design choices effectively address the challenges of generating stable, accurate and probabilistic rollout forecasts.
+<d-contents>
 
+  <nav class="l-text figcaption">
+  <h3>Contents</h3>
+    <div><a href="#motivation"> Motivation </a></div>
+    <ul>
+      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
+    </ul>
+  </nav>
+</d-contents>
 <div align="center">
 
 ![DYffusion Diagram](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXpvdHB5bGY1aWltbTdoYTdxNW03bmdxaG9tMDN6dGY1ZTZ2OWU5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h7yQszDENzsSiIUOpJ/giphy.gif)
@@ -30,7 +36,7 @@ These design choices effectively address the challenges of generating stable, ac
 *given the initial conditions* $\mathbf{x}_0$ *similarly to how standard diffusion models are used to sample from a distribution.*
 </div>
 
-### Motivation for our work
+### Motivation
 
 Obtaining _accurate and reliable probabilistic forecasts_ is an important component of policy formulation,
 risk management, resource optimization, and strategic planning with a wide range of applications from
