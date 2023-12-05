@@ -36,6 +36,8 @@ hidden: false
     <div><a href="#dyffusion-dynamics-informed-diffusion-model"> DYffusion</a></div>
     <ul>
       <li><a href="#temporal-interpolation-as-a-forward-process"> Temporal interpolation as a forward process </a></li>
+      <li><a href="#forecasting-as-a-reverse-process"> Forecasting as a reverse process </a></li>
+    </ul>
     </ul>
   </nav>
 </d-contents>
@@ -225,8 +227,49 @@ It is crucial for the interpolator, $$\mathcal{I}_\phi$$,
 to _produce stochastic outputs_ within DYffusion so that its forward process is stochastic, and it can generate probabilistic forecasts at inference time.
 We enable this using Monte Carlo dropout <d-cite key="gal2016dropout"></d-cite> at inference time.
 
+
 #### Forecasting as a reverse process
 
+In the second stage, we train a forecaster network $$F_\theta$$ to forecast $$\mathbf{x}_{t+h}$$
+such that $$F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i \vert \xi}, i)\approx \mathbf{x}_{t+h}$$
+for $$i \in S =[i_n]_{n=0}^{N-1}$$, where $$S$$ denotes a schedule coupling the diffusion step to the interpolation timestep. 
+The interpolator network, $$\mathcal{I}$$, is frozen with inference stochasticity enabled,
+represented by the random variable $$\xi$$. 
+In our experiments, $$\xi$$ stands for the randomly dropped out weights of the neural network and is omitted henceforth for clarity.
+Specifically, we seek to optimize the objective
+
+$$
+\begin{equation}
+    \min_\theta 
+        \matbbb{E}_{n \sim \mathcal{U}[\![0, N-1]\!], \mathbf{x}_{t, t+h}\sim \mathcal{X}}
+        \left[\|
+            F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n) - \mathbf{x}_{t+h}
+        \|^2 \right].
+\label{eq:forecaster}
+\end{equation}
+$$
+
+To include the setting where $$F_\theta$$ learns to forecast the initial conditions, 
+we define $$i_0 := 0$$ and $$\mathcal{I}_\phi(\mathbf{x}_{t}, \cdot, i_0) := \xt$$.
+In the simplest case, the forecaster network is supervised by all possible timesteps given
+by the temporal resolution of the training data. That is, $$N=h$$ and $$S = [j]_{j=0}^{h-1}$$. 
+Generally, the interpolation timesteps should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n < m \leq N-1$$.
+Given the equivalent roles between our forecaster net and the denoising net in diffusion models, 
+we also refer to them as the diffusion backbones.
+As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,
+we can choose _any_ diffusion-dynamics schedule during training or inference 
+and even use $$F_\theta$$ for unseen timesteps.  
+
+
+Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
+the imperfect forecasts  $$\hat{\mathbf{x}}_{t+h} = F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n), i_n)$$
+may degrade accuracy when used during sequential sampling. 
+To handle this, we introduce an optional one-step look-ahead loss term 
+$$\|  F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \hat{\mathbf{x}}_{t+h}, i_{n+1}), i_{n+1}) - \mathbf_{t+h} \|^2$$ 
+whenever $$n+1 < N$$ and weight the two loss terms equally. 
+Additionally, providing a clean or noised form of the initial conditions $$\mathbf{x}_t$$ as an additional input to
+the forecaster net can improve performance. 
+These additional tricks are discussed in more details in the Appendix B of <a href="https://arxiv.org/abs/2306.01984">our paper</a>.
 
 ### Conclusion
 
