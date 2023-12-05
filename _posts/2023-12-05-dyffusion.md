@@ -261,10 +261,12 @@ As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,
 we can choose _any_ diffusion-dynamics schedule during training or inference 
 and even use $$F_\theta$$ for unseen timesteps.  
 
-<div class='l-body' align="center">
-<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
-</div>
+[//]: # (Make image only be 75% of the page width)
 
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Algorithm for training DYffusion. </figcaption>
+</div>
 
 Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
 the imperfect forecasts  $$\hat{\mathbf{x}}_{t+h} = F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i_n), i_n)$$
