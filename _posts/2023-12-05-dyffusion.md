@@ -30,7 +30,7 @@ hidden: false
 </d-contents>
 
 <div class='l-body'>
-<img class="img-fluid rounded z-depth-1" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXpvdHB5bGY1aWltbTdoYTdxNW03bmdxaG9tMDN6dGY1ZTZ2OWU5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h7yQszDENzsSiIUOpJ/giphy.gif">
+<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diagram.gif">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> DYffusion forecasts a sequence of $h$ snapshots $\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_h$ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion models are used to sample from a distribution.</figcaption>
 </div>
 
@@ -61,8 +61,21 @@ and incorporate the temporality of the data into the diffusion model.
 
 
 
-DYffusion presents a natural solution for both these issues, by designing a temporal diffusion model (leads to naturally training to forecast multiple steps) and embedding it into the “generalized diffusion model” framework so that by taking inspiration from existing diffusion models we can build a strong probabilistic forecasting model.
+DYffusion presents a natural solution for both these issues, by designing a temporal diffusion model
+(leads to naturally training to forecast multiple steps) and embedding it into the “generalized diffusion model” 
+framework so that by taking inspiration from existing diffusion models we can build a strong probabilistic forecasting model.
 
+
+<div class="row l-body">
+	<div class="col-sm">
+	  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
+	</div>
+	<div class="col-sm">
+  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
+  </div>
+</div>
 
 <div align="center">
 <img src="/assets/2023-12-05-dyffusion/noise-diagram-gaussian.jpg" width="400" height="400" alt="Gaussian diffusion" title="Gaussian noise-based diffusion model" />
