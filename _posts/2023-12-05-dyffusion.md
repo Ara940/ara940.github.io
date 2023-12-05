@@ -103,16 +103,6 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 [//]: # (</div>)
 
 [//]: # (Images one below the other)
-<div class='l-body'>
-<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.png">
-<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
-</div>
-
-<div class='l-body'>
-<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
-<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
-</div>
-
 
 ### Notation & Background
 
@@ -130,7 +120,7 @@ Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined 
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
 The step sizes are controlled by a variance schedule $$\{\beta_n \in (0, 1)\}_{n=1}^N$$ such that 
-the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$.
+the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$ and $$\mathbf{s}^{(N)} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$.
 
 $$
 \begin{equation}
@@ -139,6 +129,22 @@ q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} 
 \end{equation}
 $$
 
+<div class='l-body'>
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.png">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
+</div>
+
+Adopting the notation from <d-cite key="bansal2022cold"></d-cite>, for generalized diffusion models, we can also consider
+a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$ 
+for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
+
+
+<div class='l-body'>
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
+</div>
+
+
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
 As a result, our work provides a new perspective on designing a capable diffusion model, and may lead to a whole family of task-informed diffusion models.
@@ -146,3 +152,8 @@ As a result, our work provides a new perspective on designing a capable diffusio
 For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
 and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion).
 
+$$
+\begin{equation}
+\mathbb{E}_{t \in \mathcal{U}(0, T)}\mathbb{E}_{p_t(\mathbf{x})}[\lambda(t) \| \nabla_\mathbf{x} \log p_t(\mathbf{x}) - \mathbf{s}_\theta(\mathbf{x}, t) \|_2^2],
+\end{equation}
+$$
