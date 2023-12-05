@@ -197,7 +197,7 @@ For conditional prediction tasks such as forecasting, DYffusion emerges as a muc
 #### Temporal interpolation as a forward process
 
 To impose a temporal bias, we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
-Given a horizon $$h$$, we train $$\mathcal{I}_\phi$$ so that 
+Given a horizon $$h$$, we train the interpolator net so that 
 $$\mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) \approx \mathbf{x}_{t+i}$$ for $$i \in \{1, \ldots, h-1\}$$ using the objective:
 
 $$
