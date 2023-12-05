@@ -262,7 +262,7 @@ we can choose _any_ diffusion-dynamics schedule during training or inference
 and even use $$F_\theta$$ for unseen timesteps.  
 
 <div class='l-body' align="center">
-<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
+<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
 </div>
 
 
