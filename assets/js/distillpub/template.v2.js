@@ -2117,12 +2117,12 @@ d-appendix > distill-appendix {
     </div>
     
     <div>
-      <h2>Paper</h2>
+      <h3>Paper</h3>
       <p><a class="url" href="${frontMatter.paper_url}">Link</a></p>
     </div>
     
     <div>
-      <h2>Code</h2>
+      <h3>Code</h3>
       <p><a class="url" href="${frontMatter.code_url}">Link</a></p>
     </div>
   </div>
