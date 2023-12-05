@@ -23,10 +23,15 @@ hidden: false
 <d-contents>
   <nav class="l-text figcaption">
   <h3>Contents</h3>
-    <div><a href="#introduction"> Introduction </a></div>
-    <ul>
-      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>
-    </ul>
+    <div><a href="#introduction"> Introduction </a>
+    </div><a href="#limitations-of-previous-work"> Limitations of Previous Work </a>
+    </div><a href="#our-key-idea"> Our Key Idea </a>
+
+[//]: # (    <ul>)
+
+[//]: # (      <li><a href="#controllable-generation-for-inverse-problem-solving">Controllable generation for inverse problem solving</a></li>)
+
+[//]: # (    </ul>)
   </nav>
 </d-contents>
 
@@ -64,15 +69,17 @@ Common approaches for large-scale spatiotemporal problems tend to be _determinis
 As such, they are often unable to capture the inherent uncertainty in the data, produce unphysical predictions,
 and are prone to error accumulation for long-range forecasts. 
 It is natural to ask how we can efficiently leverage diffusion models for large-scale spatiotemporal problems.
-Given that most diffusion models have been designed for static data, we also ask how we can explicitly
+Given that diffusion models have been primarily for static data, we also ask how we can explicitly
 incorporate the temporality of the data into the diffusion model.
 
 
 ### Our Key Idea
 
-Our proposed framework, DYffusion, presents a natural solution for both these issues, by designing a temporal diffusion model
-(leads to naturally training to forecast multiple steps) and embedding it into the “generalized diffusion model” 
-framework so that by taking inspiration from existing diffusion models we can build a strong probabilistic forecasting model.
+We introduce a solution for these issues by designing a temporal diffusion model, DYffusion.
+Following the “generalized diffusion model” framework <d-cite key="bansal2022cold"></d-cite>, we
+replace the forward and reverse processes of standard diffusion models
+with dynamics-informed interpolation and forecasting, respectively.
+This leads to a scalable generalized diffusion model for probabilistic forecasting that is naturally trained to forecast multiple timesteps.
 
 [//]: # (Side-by-side images)
 [//]: # (<div class="row l-body">)
@@ -102,7 +109,7 @@ framework so that by taking inspiration from existing diffusion models we can bu
 </div>
 
 <div class='l-body'>
-<img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
 </div>
 
