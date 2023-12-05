@@ -113,6 +113,11 @@ This leads to a scalable generalized diffusion model for probabilistic forecasti
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
 </div>
 
+<div class='l-body'>
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/tmp.png">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion.2 </figcaption>
+</div>
+
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
 As a result, our work provides a new perspective on designing a capable diffusion model, and may lead to a whole family of task-informed diffusion models.
