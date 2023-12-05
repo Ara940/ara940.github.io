@@ -231,7 +231,7 @@ We enable this using Monte Carlo dropout <d-cite key="gal2016dropout"></d-cite> 
 #### Forecasting as a reverse process
 
 In the second stage, we train a forecaster network $$F_\theta$$ to forecast $$\mathbf{x}_{t+h}$$
-such that $$F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i \vert \xi}, i)\approx \mathbf{x}_{t+h}$$
+such that $$F_\theta(\mathcal{I}_\phi(\mathbf{x}_{t}, \mathbf{x}_{t+h}, i \vert \xi), i)\approx \mathbf{x}_{t+h}$$
 for $$i \in S =[i_n]_{n=0}^{N-1}$$, where $$S$$ denotes a schedule coupling the diffusion step to the interpolation timestep. 
 The interpolator network, $$\mathcal{I}$$, is frozen with inference stochasticity enabled,
 represented by the random variable $$\xi$$. 
