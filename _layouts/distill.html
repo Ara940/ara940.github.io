@@ -33,10 +33,12 @@
               "name": "{{ author.affiliations.name }}",
               "url": "{{ author.affiliations.url }}"
             }
-          ]
+          ],
         }{% if forloop.last == false %},{% endif %}
         {% endfor %}
       ],
+      "link": "{{ page.paper_url }}",
+      "code": "{{ page.code_url }}",
       "katex": {
         "delimiters": [
           {
