@@ -49,8 +49,10 @@ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion 
 Obtaining _accurate and reliable probabilistic forecasts_ is an important component of policy formulation,
 risk management, resource optimization, and strategic planning with a wide range of applications from
 climate simulations and fluid dynamics to financial markets and epidemiology.
-Often, accurate _long-range_ probabilistic forecasts are particularly  challenging to obtain. When they exist, physics-based methods typically hinge on computationally expensive
-numerical simulations. In contrast, data-driven methods are much more efficient and have started to have real-world impact
+Often, accurate _long-range_ probabilistic forecasts are particularly  challenging to obtain. 
+When they exist, physics-based methods typically hinge on computationally expensive
+numerical simulations <d-cite key="bauer2015thequiet"></d-cite>.
+In contrast, data-driven methods are much more efficient and have started to have real-world impact
 in fields such as [global weather forecasting](https://www.ecmwf.int/en/about/media-centre/news/2023/how-ai-models-are-transforming-weather-forecasting-showcase-data).
 
 Generative modeling, and especially diffusion models, have shown great success in other fields such as 
@@ -160,10 +162,11 @@ $$
 
 where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and
 $$\mathbf{s}^{(0)}$$ is the forecasting target. 
-For a single-step training forecasting approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
-while for a multi-step forecasting approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$. 
-Here, we use the latter as a baseline given that it is common in the related field of video diffusion models and because
-autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
+For a single-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
+while for a multi-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$. 
+We use the latter as a baseline since this is common in the related field of video diffusion models, 
+and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
+Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
