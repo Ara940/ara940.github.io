@@ -121,7 +121,7 @@ We study the problem of probabilistic spatiotemporal forecasting using a dataset
 a time series of snapshots $$ \mathbf{x}_t \in \mathcal{X}$$.
 Here, $$\mathcal{X}$$ represents the space in which the data lies, which 
 may consist of spatial dimensions (e.g., latitude, longitude, atmospheric height) and a channel dimension (e.g., velocities, temperature, humidity).
-We focus on the task of forecasting a sequence of $h$ snapshots from a single initial condition. 
+We focus on the task of forecasting a sequence of $$h$$ snapshots from a single initial condition. 
 That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf{x}_0)$$ .
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
