@@ -2115,15 +2115,14 @@ d-appendix > distill-appendix {
         <p>${frontMatter.publishedMonth} ${frontMatter.publishedDay}, ${frontMatter.publishedYear}</p> ` : `
         <p><em>Not published yet.</em></p>`}
     </div>
-    
     <div>
-      <h3>Paper</h3>
-      <p><a class="url" href="${frontMatter.paper_url}">Link</a></p>
-    </div>
-    
-    <div>
-      <h3>Code</h3>
-      <p><a class="url" href="${frontMatter.code_url}">Link</a></p>
+      <h3>Link</h3>
+      <p>
+        <a class="affiliation" href="${frontMatter.paper_url}">Paper</a>
+        <!-- Make some space between the links -->
+        <span style="margin: 0 5px;"></span>
+        <a class="affiliation" href="${frontMatter.code_url}">Code</a>
+        </p>
     </div>
   </div>
 `;
