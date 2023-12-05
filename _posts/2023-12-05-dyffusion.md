@@ -171,7 +171,7 @@ where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the inte
 $$\mathbf{s}^{(0)}$$ is the forecasting target. 
 For a single-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
 while for a multi-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$.<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has 
-been added to the data point using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>
+been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>
 We use the latter as a baseline since this is common in the related field of video diffusion models, 
 and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
@@ -262,10 +262,8 @@ we can choose _any_ diffusion-dynamics schedule during training or inference
 and even use $$F_\theta$$ for unseen timesteps.  
 
 [//]: # (Make image only be 75% of the page width)
-
 <div class='l-body' align="center">
-<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png">
-<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Algorithm for training DYffusion. </figcaption>
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png" width="75%">
 </div>
 
 Because the interpolator $$\mathcal{I}_\phi$$ is frozen in the second stage,
