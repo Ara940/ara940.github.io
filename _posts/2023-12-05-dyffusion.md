@@ -158,12 +158,6 @@ $$
 \end{equation}
 $$
 
-$$
-\begin{equation} 
-q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}), 
-\end{equation}
-$$
-
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>
