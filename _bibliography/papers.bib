@@ -18,7 +18,9 @@
     author={Salva R{\"u}hling Cachay* and Venkatesh Ramesh* and Jason N. S. Cole and Howard Barker and David Rolnick},
     booktitle={Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
     abbr={NeurIPS},
-    pdf={https://arxiv.org/abs/2111.14671}
+    abstract={Numerical simulations of Earth's weather and climate require substantial amounts of computation. This has led to a growing interest in replacing subroutines that explicitly compute physical processes with approximate machine learning (ML) methods that are fast at inference time. Within weather and climate models, atmospheric radiative transfer (RT) calculations are especially expensive. This has made them a popular target for neural network-based emulators. However, prior work is hard to compare due to the lack of a comprehensive dataset and standardized best practices for ML benchmarking. To fill this gap, we build a large dataset, ClimART, with more than \emph{10 million samples from present, pre-industrial, and future climate conditions}, based on the Canadian Earth System Model. ClimART poses several methodological challenges for the ML community, such as multiple out-of-distribution test sets, underlying domain physics, and a trade-off between accuracy and inference speed. We also present several novel baselines that indicate shortcomings of datasets and network architectures used in prior work.},
+    pdf={https://arxiv.org/abs/2111.14671},
+    OpenReview={https://openreview.net/forum?id=FZBtIpEAb5J},
     code={https://github.com/RolnickLab/climart},
     poster={https://salvarc.github.io/posters/climart.png},
     slides={https://salvarc.github.io/slides/ClimART.pdf},
@@ -38,4 +40,15 @@
   slides={https://salvarc.github.io/slides/WeaSEL.pdf},
   year={2021},
   selected={true}
+}
+
+@article{cachay2021world,
+    title={The World as a Graph: Improving El Ni\~no Forecasts with Graph Neural Networks},
+    author={Salva Rühling Cachay and Emma Erickson and Arthur Fender C. Bucker and Ernest Pokropek and Willa Potosnak and Suyash Bire and Salomey Osei and Björn Lütjens},
+    abbr={arXiv},
+    abstract={Deep learning-based models have recently outperformed state-of-the-art seasonal forecasting models, such as for predicting El Ni~no-Southern Oscillation (ENSO). However, current deep learning models are based on convolutional neural networks which are difficult to interpret and can fail to model large-scale atmospheric patterns. In comparison, graph neural networks (GNNs) are capable of modeling large-scale spatial dependencies and are more interpretable due to the explicit modeling of information flow through edge connections. We propose the first application of graph neural networks to seasonal forecasting. We design a novel graph connectivity learning module that enables our GNN model to learn large-scale spatial interactions jointly with the actual ENSO forecasting task. Our model, \graphino, outperforms state-of-the-art deep learning-based models for forecasts up to six months ahead. Additionally, we show that our model is more interpretable as it learns sensible connectivity structures that correlate with the ENSO anomaly pattern.},
+    pdf={https://arxiv.org/abs/2104.05089},
+    code={https://github.com/salvaRC/graphino},
+    year={2021},
+    selected={true}
 }
