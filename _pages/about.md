@@ -6,7 +6,7 @@ subtitle: |+
 I am a second-year PhD student at UC San Diego, advised by <a href="https://roseyu.com/">Prof. Rose Yu</a>.
 
 profile:
-  image: coronado-ferry-oval.png
+  image: profile.jpg
   image_cicular: false # crops the image to make it circular
   address: false
 

@@ -6,10 +6,17 @@
   - firstname: ["Artur"]
     url: https://www.ri.cmu.edu/ri-faculty/artur-w-dubrawski/
 
+"Joren":
+    - firstname: ["Hailey"]
+      url: https://haileyjoren.github.io/
 
 "Lütjens":
   - firstname: ["Bjorn", "Björn"]
     url: https://blutjens.github.io/
+
+"Ramesh":
+  - firstname: ["Venkatesh"]
+    url: https://scholar.google.com/citations?user=IZUbyQkAAAAJ&hl=en
 
 "Rolnick":
   - firstname: ["David"]
