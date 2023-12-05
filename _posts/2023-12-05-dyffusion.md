@@ -131,12 +131,13 @@ in which small amounts of Gaussian noise are added to the sample in $$N$$ steps,
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
 The step sizes are controlled by a variance schedule $$\{\beta_n \in (0, 1)\}_{n=1}^N$$ such that 
 the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$.
-<div>
+
 $$
+\begin{equation}
 q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)}) = \mathcal{N}(\mathbf{s}^{(n); \sqrt{1 - \beta_n} \mathbf{s}^{(n-1)}, \beta_n\mathbf{I}) \quad
 q(\mathbf{s}^{(1:N)} \vert \mathbf{s}^{(0)}) = \prod^N_{n=1} q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})
+\end{equation}
 $$
-</div>
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
