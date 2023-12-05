@@ -3,14 +3,14 @@ layout: about
 title: about
 permalink: /
 subtitle: |+
-  <strong>Research Scientist</strong> at <a href="https://openai.com/">OpenAI</a>. <br><br>
+  <strong>I am a second-year PhD student at UC San Diego, advised by <a href="https://roseyu.com/">Prof. Rose Yu</a></strong>. <br><br>
   Incoming <strong>Assistant Professor</strong>, <br>
   Electrical Engineering and Computing + Mathematical Sciences, <br>
   <a href="https://www.caltech.edu">California Institute of Technology (Caltech)</a>.
 
 profile:
   image: coronado-ferry-oval.png
-  image_cicular: false # crops the image to make it circular
+  image_cicular: true # crops the image to make it circular
   address: false
 
 news: true # includes a list of news items
