@@ -116,7 +116,10 @@ That is, we aim to train a model to learn $$P(\mathbf{x}_{t+1:t+h} \,|\, \mathbf
 Note that during evaluation, we may evaluate the model on a larger horizon $$H>h$$ by running the model autoregressively.
 
 **Standard diffusion models:**
-Adapting the , $$\mathbf{s}^{(N)}$$, with a superscript $$n$$ to clearly distinguish them from the time steps of the data, $$\mathbf{x}_t$$.
+Here, we adapt the 
+<a src="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process">common notation for diffusion models</a> 
+to use a superscript $$n$$ for the diffusion states $$\mathbf{s}^{(n)}$$, 
+to clearly distinguish them from the time steps of the data, $$\mathbf{x}_t$$.
 Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined through a _forward diffusion process_ 
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
