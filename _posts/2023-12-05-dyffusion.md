@@ -197,9 +197,12 @@ and operates in observation space at all times.
 In contrast, a standard diffusion model is designed for unconditional generation, and reversing from white noise requires more diffusion steps. 
 For conditional prediction tasks such as forecasting, DYffusion emerges as a much more natural method that is well aligned with the task at hand.
 
+We split the learning of DYffusion's forward and reverse processes into two separate objectives and stages as described below.
+
 #### Temporal interpolation as a forward process
 
-To impose a temporal bias, we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
+To learn our proposed temporal forward process,
+we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
 Given a horizon $$h$$, we train the interpolator net so that 
 $$\mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) \approx \mathbf{x}_{t+i}$$ for $$i \in \{1, \ldots, h-1\}$$ using the objective:
 
@@ -221,6 +224,9 @@ where we note that the range $$(0, 1)$$ is outside the training regime but may b
 It is crucial for the interpolator, $$\mathcal{I}_\phi$$,
 to _produce stochastic outputs_ within DYffusion so that its forward process is stochastic, and it can generate probabilistic forecasts at inference time.
 We enable this using Monte Carlo dropout <d-cite key="gal2016dropout"></d-cite> at inference time.
+
+#### Forecasting as a reverse process
+
 
 ### Conclusion
 
