@@ -49,6 +49,11 @@ hidden: false
       <li><a href="#evaluation-metrics"> Evaluation metrics </a></li>
     </ul>
     <div><a href="#results"> Results </a></div>
+    <ul>
+      <li><a href="#quantitative-results"> Quantitative </a></li>
+      <li><a href="#qualitative-results"> Qualitative </a></li>
+      <li><a href="#temporal-super-resolution"> Temporal super-resolution </a></li>
+    </ul>
   </nav>
 </d-contents>
 
@@ -506,6 +511,8 @@ especially for fine-scale patterns such as the tails of the flow after the right
 Exemplary samples for the best baseline (Dropout) and DYffusion as well as the corresponding ground truth at five different timesteps from a complete Navier-Stokes trajectory forecast. Our method can reproduce the true dynamics over the full trajectory and does so better than the baseline, especially for fine-scale patterns such as the tails of the flow after the right-most obstacle.
 </figcaption>
 </div>
+
+### Temporal super-resolution
 
 ## Conclusion
 
