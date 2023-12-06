@@ -345,60 +345,6 @@ The <span style="color:blue;font-weight:bold">blue</span> lines represent the su
 DYffusion can be applied autoregressively to forecast even longer rollouts beyond the training horizon, 
 as demonstrated by our Navier-Stokes and spring mesh experiments.
 
-### Memory footprint
-
-During training, DYffusion only requires $$\mathbf{x}_t$$ and $$\mathbf{x}_{t+h}$$ (plus $$\mathbf{x}_{t+i}$$ during the first interpolation stage),
-resulting in a _constant memory footprint as a function of_ $$h$$. 
-In contrast, direct multi-step prediction models including video diffusion models or (autoregressive) multi-step loss approaches require 
-$$\mathbf{x}_{t:t+h}$$ to compute the loss. 
-This means that these models must fit $$h+1$$ timesteps of data into memory (and may need to compute gradients recursively through them),
-which scales poorly with the training horizon $$h$$. 
-Therefore, many are limited to predicting a small number of frames or snapshots.
-For example, our main video diffusion model baseline, MCVD, trains on a maximum of 5 video frames due to GPU memory constraints <d-cite key="voleti2022mcvd"></d-cite>.
-
-## Experimental Setup
-
-#### Datasets
-
-We evaluate our method and baselines on three different datasets:
-1. **Sea Surface Temperatures (SST):** a new dataset based on NOAA OISSTv2~<d-cite key="huang2021oisstv2"></d-cite>, which 
-comes at a daily time-scale. Similarly to <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>, 
-we train our models on regional patches which increases the available 
-data<d-footnote>Here, we choose 11 boxes of $60$ latitude $\times 60$ longitude resolution in the eastern tropical Pacific Ocean.
-Unlike the data based on the NEMO dataset in <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>,
-we choose OISSTv2 as our SST dataset because it contains more data (although it has a lower spatial resolution of $1/4^\circ$ compared to $1/12^\circ$ of NEMO).</d-footnote>.
-We train, validate, and test all models for the years 1982-2019, 2020, and 2021, respectively.
-2. **Navier-Stokes flow:** benchmark dataset from <d-cite key="otness21nnbenchmark"></d-cite>, which consists of a
-$$221\times42$$ grid. Each trajectory contains four randomly generated circular obstacles that block the flow.
-The channels consist of the $$x$$ and $$y$$ velocities as well as a pressure field and the viscosity is $$1e\text{-}3$$.
-Boundary conditions and obstacle masks are given as additional inputs to all models.
-3. **Spring Mesh:** benchmark dataset from <d-cite key="otness21nnbenchmark"></d-cite>. It represents a $$10\times10$$ grid of
-particles connected by springs, each with mass 1. The channels consist of two position and momentum fields each.
-
-We follow the official train, validation, and test splits from <d-cite key="otness21nnbenchmark"></d-cite> for the Navier-Stokes and spring mesh datasets, 
-always using the full training set for training.
-
-#### Baselines
-
-We compare our method against both direct applications of standard diffusion models to dynamics forecasting and
-methods to ensemble the "barebone" backbone network of each dataset. The network operating in "barebone" form means
-that there is no involvement of diffusion. 
-We use the following baselines:
-- **DDPM**<d-cite key="ho2020ddpm"></d-cite>: We train it as a multi-step (video-like problem) conditional diffusion model.
-- **MCVD**<d-cite key="voleti2022mcvd"></d-cite>: A state-of-the-art conditional video diffusion model<d-footnote>We train MCVD in "concat" mode, which in their experiments performed best.</d-footnote>.
-- **Dropout**<d-cite key="gal2016dropout"></d-cite>: Ensemble multi-step forecasting of the barebone backbone network based on enabling dropout at inference time.
-- **Perturbation**<d-cite key="pathak2022fourcastnet"></d-cite>: Ensemble multi-step forecasting with the barebone backbone network based on random perturbations of the initial conditions with a fixed variance.
-- Official **deterministic** baselines from<d-cite key="otness21nnbenchmark"></d-cite> trained to forecast a single timestep for the Navier-Stokes and spring mesh datasets <d-footnote>Due to its deterministic nature, we exclude this baseline from our main probabilistic benchmarks.</d-footnote>.
-
-MCVD and the multi-step DDPM predict the timesteps $$\mathbf{x}_{t+1:t+h}$$ based on $$\mathbf{x}_{t}$$.
-The barebone backbone network baselines are time-conditioned forecasters (similarly to the DYffusion forecaster)
-trained on the multi-step objective 
-$$\mathbb{E}_{i \sim \mathcal{U}[\![1, h]\!], \mathbf{x}_{t, t+i}\sim \mathcal{X}} 
-    \| F_\theta(\mathbf{x}_{t}, i) - \mathbf{x}_{t+i}\|^2$$ 
-from scratch<d-footnote>We found it to perform very similarly to predicting all $h$ horizon timesteps at once in a single forward pass (not shown).</d-footnote>.
-See Appendix D.2 of <a href="https://arxiv.org/abs/2306.01984">our paper</a> for more details of the implementation.
-
-
 ## Results
 
 
