@@ -105,29 +105,6 @@ replace the forward and reverse processes of standard diffusion models
 with dynamics-informed interpolation and forecasting, respectively.
 This leads to a scalable generalized diffusion model for probabilistic forecasting that is naturally trained to forecast multiple timesteps.
 
-[//]: # (Side-by-side images)
-[//]: # (<div class="row l-body">)
-
-[//]: # (	<div class="col-sm">)
-
-[//]: # (	  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-gaussian.jpg">)
-
-[//]: # (   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>)
-
-[//]: # (	</div>)
-
-[//]: # (	<div class="col-sm">)
-
-[//]: # (  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.jpg">)
-
-[//]: # (   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Graphical model for DYffusion. </figcaption>)
-
-[//]: # (  </div>)
-
-[//]: # (</div>)
-
-[//]: # (Images one below the other)
-
 ## Notation & Background
 
 #### Problem setup
@@ -508,7 +485,7 @@ especially for fine-scale patterns such as the tails of the flow after the right
   <source src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/ls9vw31m-kwy9mak6-5fps.mp4" type="video/mp4">
 </video>
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
-Exemplary samples for the best baseline (Dropout) and DYffusion as well as the corresponding ground truth at five different timesteps from a complete Navier-Stokes trajectory forecast. Our method can reproduce the true dynamics over the full trajectory and does so better than the baseline, especially for fine-scale patterns such as the tails of the flow after the right-most obstacle.
+Exemplary samples from DYffusion and the best baseline, Dropout, as well as the corresponding ground truth from a complete Navier-Stokes trajectory forecast. 
 </figcaption>
 </div>
 
