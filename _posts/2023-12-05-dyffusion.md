@@ -465,7 +465,8 @@ none of the DDPM or MCVD diffusion models converged.
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/results-table-spring-mesh.png" width="95%">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
 Spring Mesh results. Both methods are trained on a horizon of $h = 134$ timesteps and
-evaluated how well they forecast the full test trajectories of 804 steps.
+evaluated how well they forecast the full test trajectories of 804 steps. 
+For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon.
 </figcaption>
 </div>
 
