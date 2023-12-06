@@ -431,7 +431,7 @@ For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-foo
 We present the time-averaged metrics for the SST and Navier-Stokes dataset in the table below.
 DYffusion performs best on the Navier-Stokes dataset, while coming in a close second on the SST dataset after MCVD, in terms of CRPS.
 Since MCVD uses 1000 diffusion steps<d-footnote>This is the default, and we were not able to successfully train MCVD models with fewer diffusion steps.</d-footnote>, 
-it is slower to sample from at inference time than from DYffusion, which is trained with at most 134 diffusion steps.
+it is slower to sample from at inference time than from DYffusion, which is trained with at most 35 diffusion steps.
 The DDPM model for the SST dataset is fairly efficient because it only uses 5 diffusion steps but lags in terms of performance.
 
 <div class='l-body' align="center">
@@ -446,6 +446,29 @@ MCVD and DDPM are trained on $h=4$ and $h=1$, respectively, as we could not succ
 For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon.
 </figcaption>
 </div>
+
+[//]: # (Thanks to the time-conditioned nature of \method's interpolator and forecaster nets, memory is not an issue
+when scaling our framework to long horizons. In the spring mesh dataset, we train with a horizon of $134$ and evaluate
+long trajectories of $804$ steps.
+[//]: # (Our method beats the barebone network baseline, with a larger margin on the out-of-distribution test dataset.
+It is worth noting that our reported MSE scores are significantly better than the ones reported in~
+\cite{otness21nnbenchmark}, likely due to multi-step training being superior to the single-step forecasting approach of~
+\cite{otness21nnbenchmark} (see Appendix~\ref{sec:benchmark-deterministic} for more details).)
+
+Thanks to the dynamics-informed and memory-efficient nature of DYffusion, we can scale our framework to long horizons.
+In the spring mesh dataset, we train with a horizon of 134 and evaluate the models on trajectories of 804 time steps.
+Our method beats the Dropout baseline, with a larger margin on the out-of-distribution test dataset.
+Despite several attempts with varying configurations over the number of diffusion steps, learning rates, and diffusion schedules,
+none of the DDPM or MCVD diffusion models converged. 
+
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/results-table-spring-mesh.png" width="95%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+Spring Mesh results. Both methods are trained on a horizon of $h = 134$ timesteps and
+evaluated how well they forecast the full test trajectories of 804 steps.
+</figcaption>
+</div>
+
 ## Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
