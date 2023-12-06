@@ -411,13 +411,13 @@ The UNet and CNN models from <d-cite key="otness21nnbenchmark"></d-cite> are ext
 We evaluate the models by generating an M-member ensemble (i.e. M samples are drawn per batch element), where
 we use M=20 for validation and M=50 for testing. 
 As metrics, we use the Continuous Ranked Probability Score (CRPS) <d-cite key="matheson1976crps"></d-cite>,
-which is a proper scoring rule and a popular metric in the probabilistic forecasting
-literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2021AutoregressiveDD, rasp2018postprocessing, scher2021ensemble"></d-cite>,
 the mean squared error (MSE), and the spread-skill ratio (SSR).
+The CRPS is a proper scoring rule and a popular metric in the probabilistic forecasting
+literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2021AutoregressiveDD, rasp2018postprocessing, scher2021ensemble"></d-cite>.
 The MSE is computed on the ensemble mean prediction. 
 The SSR is defined as the ratio of the square root of the ensemble variance to the corresponding ensemble mean RMSE.
 It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate underdispersion 
-<d-footnote>That is, the probabilistic forecast is overconfident in its forecasts and fails to model the full uncertainty of the forecast</d-footnote>,
+<d-footnote>That is, the probabilistic forecast is overconfident and fails to model the full uncertainty of the forecast</d-footnote>,
 and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
 For early stopping and final model selection between different hyperparameter runs, we use the best validation CRPS.
 On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test trajectories of length 64 and 804, respectively.
