@@ -362,7 +362,7 @@ For example, our main video diffusion model baseline, MCVD, trains on a maximum 
 #### Datasets
 
 We evaluate our method and baselines on three different datasets:
-1. **Sea Surface Temperatures (SST):** a new dataset based on NOAA OISSTv2~<d-cite key="huang2021oisstv2"></d-cite>, which 
+1. **Sea Surface Temperatures (SST):** a new dataset based on NOAA OISSTv2<d-cite key="huang2021oisstv2"></d-cite>, which 
 comes at a daily time-scale. Similarly to <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>, 
 we train our models on regional patches which increases the available 
 data<d-footnote>Here, we choose 11 boxes of $60$ latitude $\times 60$ longitude resolution in the eastern tropical Pacific Ocean.
