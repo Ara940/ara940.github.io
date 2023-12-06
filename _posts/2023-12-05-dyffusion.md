@@ -434,6 +434,15 @@ Since MCVD uses 1000 diffusion steps<d-footnote>This is the default, we were not
 it is slower to sample from at inference time than from DYffusion, which is trained with at most 134 diffusion steps.
 The DDPM model for the SST dataset is fairly efficient because it only uses 5 diffusion steps but lags in terms of performance.
 
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/results-table-main.png" width="95%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+Results for sea surface temperature forecasting of 1 to 7 days ahead, and Navier-Stokes
+flow full trajectory forecasting of 64 timesteps. Numbers are averaged out over the evaluation horizon.
+**Bold** indicates best, <span style="color:blue">blue</span> second best. 
+For CRPS and MSE, lower is better. For SSR, closer to 1 is better.
+</figcaption>
+</div>
 ## Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
