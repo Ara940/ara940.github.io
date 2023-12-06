@@ -541,8 +541,9 @@ DYffusion's forecaster network iteratively improves its forecasts during samplin
 
 ## Conclusion
 
-Our study presents the first comprehensive evaluation
-of diffusion models for the task of spatiotemporal forecasting
+[//]: # (Our study presents the first comprehensive evaluation)
+[//]: # (of diffusion models for the task of spatiotemporal forecasting.)
+
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 Other existing diffusion models, albeit more general, use data corruption-based processes. 
 Thus, our work provides a new perspective on designing a capable diffusion model, 
