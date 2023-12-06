@@ -441,7 +441,7 @@ Results for sea surface temperature forecasting of 1 to 7 days ahead, and Navier
 flow full trajectory forecasting of 64 timesteps.
 For SST, the time column represents the time needed to forecast all 7 timesteps for a single batch.
 <span style="font-weight:bold">bold</span>indicates best, <span style="color:blue">blue</span> second best. 
-For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon
+For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon.
 </figcaption>
 </div>
 ## Conclusion
