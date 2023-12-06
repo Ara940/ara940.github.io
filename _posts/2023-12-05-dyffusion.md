@@ -447,14 +447,6 @@ For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are a
 </figcaption>
 </div>
 
-[//]: # (Thanks to the time-conditioned nature of \method's interpolator and forecaster nets, memory is not an issue
-when scaling our framework to long horizons. In the spring mesh dataset, we train with a horizon of $134$ and evaluate
-long trajectories of $804$ steps.
-[//]: # (Our method beats the barebone network baseline, with a larger margin on the out-of-distribution test dataset.
-It is worth noting that our reported MSE scores are significantly better than the ones reported in~
-\cite{otness21nnbenchmark}, likely due to multi-step training being superior to the single-step forecasting approach of~
-\cite{otness21nnbenchmark} (see Appendix~\ref{sec:benchmark-deterministic} for more details).)
-
 Thanks to the dynamics-informed and memory-efficient nature of DYffusion, we can scale our framework to long horizons.
 In the spring mesh dataset, we train with a horizon of 134 and evaluate the models on trajectories of 804 time steps.
 Our method beats the Dropout baseline, with a larger margin on the out-of-distribution test dataset.
@@ -469,6 +461,30 @@ evaluated how well they forecast the full test trajectories of 804 steps.
 For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon.
 </figcaption>
 </div>
+
+The reported MSE scores above, using the same CNN architecture, are significantly better than the ones reported for the official CNN baselines in Fig. 8 of <d-cite key="otness21nnbenchmark"></d-cite>,
+where the deterministic CNN diverged or attained a very poor MSE. 
+This is likely because our models are trained to forecast multiple timesteps, 
+while the models from <d-cite key="otness21nnbenchmark"></d-cite> are trained to forecast the next timestep only.
+As a result, the training objective significantly deviates from the evaluation procedure,
+which was already noted as a limitation of the benchmark baselines in <d-cite key="otness21nnbenchmark"></d-cite>.
+This effect is also found for the Navier-Stokes dataset to a lower extent.
+We demonstrate this in the figures below, where we plot the MSE as a function of the trajectory timestep.
+
+<div class="row l-body">
+    <div class="col-sm">
+      <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-navier-stokes.png">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Navier-Stokes.</figcaption>
+    </div>
+    <div class="col-sm">
+  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-spring-mesh.png">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Spring Mesh.</figcaption>
+    </div>
+    <!--- add joint caption here --->
+    <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px"> caption="MSE as a function of the trajectory timestep for the Navier-Stokes and spring mesh datasets. The deterministic CNN baseline diverges, while our multi-step trained baseline and DYffusion models."></figcaption>
+</div>
+
+
 
 ## Conclusion
 
