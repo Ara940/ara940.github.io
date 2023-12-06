@@ -395,7 +395,6 @@ trained on the multi-step objective
 $$\mathbb{E}_{i \sim \mathcal{U}[\![1, h]\!], \mathbf{x}_{t, t+i}\sim \mathcal{X}} 
     \| F_\theta(\mathbf{x}_{t}, i) - \mathbf{x}_{t+i}\|^2$$ 
 from scratch<d-footnote>We found it to perform very similarly to predicting all $h$ horizon timesteps at once in a single forward pass (not shown).</d-footnote>.
-In all experiments, we observed that the single-step forecasting ($$h=1$$) version of the barebone network yielded significantly lower performance compared to any of the multi-step training approaches.
 See Appendix D.2 of <a href="https://arxiv.org/abs/2306.01984">our paper</a> for more details of the implementation.
 
 #### Neural network architectures
