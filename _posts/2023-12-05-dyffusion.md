@@ -53,7 +53,9 @@ hidden: false
       <li><a href="#quantitative-results"> Quantitative </a></li>
       <li><a href="#qualitative-results"> Qualitative </a></li>
       <li><a href="#temporal-super-resolution-and-sample-variability"> Temporal super-resolution </a></li>
+      <li><a href="#iterative-refinement-of-forecasts "> Iterative refinement of forecasts </a></li>
     </ul>
+    <div><a href="#conclusion"> Conclusion </a></div>
   </nav>
 </d-contents>
 
@@ -519,11 +521,34 @@ It is reassuring that DYffusion's samples show sufficient variation, but also co
 This advantage is also reflected quantitatively in the spread-skill ratio (SSR) metric, where DYffusion 
 consistently reached values close to 1.
 
+### Iterative refinement of forecasts 
+
+DYffusion's forecaster network repeatedly predicts the same timestep, $$t+h$$, during sampling.
+Thus, we need to verify that these forecasts, 
+$$\hat{\mathbf{x}}_{t+h} = F_\theta(\mathbf{x}_{t+i_n}, i_n)$$, tend to improve throughout the course of the reverse process, 
+i.e. as $$n\rightarrow N$$ and $$\mathbf{x}_{t+i_n}\rightarrow\mathbf{x}_{t+h}$$.
+Below we show that this is indeed the case for the Navier-Stokes dataset. 
+Generally, we find that this observation tends to hold especially for the probabilistic metrics, CRPS and SSR, 
+while the trend is less clear for the MSE across all datasets (see Fig. 7 of <a href="https://arxiv.org/abs/2306.01984">our paper</a>).
+
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diffusion-step-vs-metric-navier-stokes.png" width="100%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+DYffusion's forecaster network iteratively refines its forecasts during sampling.
+</figcaption>
+</div>
+
+
 ## Conclusion
 
+Our study presents the first comprehensive evaluation
+of diffusion models for the task of spatiotemporal forecasting
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
-All other existing diffusion models, albeit more general, use data corruption-based processes. 
-As a result, our work provides a new perspective on designing a capable diffusion model, and may lead to a whole family of task-informed diffusion models.
+Other existing diffusion models, albeit more general, use data corruption-based processes. 
+Thus, our work provides a new perspective on designing a capable diffusion model, 
+and we hope that it will lead to a whole family of task-informed diffusion models.
 
-For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
+If you have any application that you think could benefit from DYffusion, or build on top of it, we would love to hear from you!
+
+For more details and results, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
 and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion).
