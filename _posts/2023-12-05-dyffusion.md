@@ -53,7 +53,7 @@ hidden: false
       <li><a href="#quantitative-results"> Quantitative </a></li>
       <li><a href="#qualitative-results"> Qualitative </a></li>
       <li><a href="#temporal-super-resolution-and-sample-variability"> Temporal super-resolution </a></li>
-      <li><a href="#iterative-refinement-of-forecasts "> Iterative refinement </a></li>
+      <li><a href="#iterative-refinement-of-forecasts"> Iterative refinement </a></li>
     </ul>
     <div><a href="#conclusion"> Conclusion </a></div>
   </nav>
