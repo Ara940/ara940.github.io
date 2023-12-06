@@ -337,3 +337,76 @@
     journal = {IEEE Transactions on Robotics},
     title = {Learning Stable Models for Prediction and Control}
 }
+
+%%%%%%% DL For TIMESERIES
+@inproceedings{Rasul2021AutoregressiveDD,
+  title={Autoregressive Denoising Diffusion Models for Multivariate Probabilistic Time Series Forecasting},
+  author={Kashif Rasul and Calvin Seward and Ingmar Schuster and Roland Vollgraf},
+  booktitle={ICML},
+  year={2021}
+}
+
+@article{lopez2023diffusionimputation,
+    title={Diffusion-based Time Series Imputation and Forecasting with Structured State Space Models},
+    author={Juan Lopez Alcaraz and Nils Strodthoff},
+    journal={Transactions on Machine Learning Research},
+    issn={2835-8856},
+    year={2023},
+    url={https://openreview.net/forum?id=hHiIbk7ApW},
+}
+
+@inproceedings{wu2021quantifying,
+  title={Quantifying uncertainty in deep spatiotemporal forecasting},
+  author={Wu, Dongxia and Gao, Liyao and Chinazzi, Matteo and Xiong, Xinyue and Vespignani, Alessandro and Ma, Yi-An and Yu, Rose},
+  booktitle={Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery \& Data Mining},
+  pages={1841--1851},
+  year={2021}
+}
+
+% Probabilistic weather forecasting
+@article{scher2021ensemble,
+    author = {Scher, Sebastian and Messori, Gabriele},
+    title = {Ensemble Methods for Neural Network-Based Weather Forecasts},
+    journal = {Journal of Advances in Modeling Earth Systems},
+    volume = {13},
+    number = {2},
+    doi = {https://doi.org/10.1029/2020MS002331},
+    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020MS002331},
+    eprint = {https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2020MS002331},
+    abstract = {Abstract Ensemble weather forecasts enable a measure of uncertainty to be attached to each forecast, by computing the ensemble's spread. However, generating an ensemble with a good spread-error relationship is far from trivial, and a wide range of approaches to achieve this have been explored—chiefly in the context of numerical weather prediction models. Here, we aim to transform a deterministic neural network weather forecasting system into an ensemble forecasting system. We test four methods to generate the ensemble: random initial perturbations, retraining of the neural network, use of random dropout in the network, and the creation of initial perturbations with singular vector decomposition. The latter method is widely used in numerical weather prediction models, but is yet to be tested on neural networks. The ensemble mean forecasts obtained from these four approaches all beat the unperturbed neural network forecasts, with the retraining method yielding the highest improvement. However, the skill of the neural network forecasts is systematically lower than that of state-of-the-art numerical weather prediction models.},
+    year = {2021}
+}
+% scher2021ensemble studies 4 methods to make a deterministic NN probabilistic (initial conditions, inference dropout, and random seeds). All models are next-step (=6h) forecasters, that are unrolled autoregressively
+
+@article{garg2022weatherbenchprob,
+  title={WeatherBench Probability: A benchmark dataset for probabilistic medium-range weather forecasting along with deep learning baseline models},
+  author={Garg, Sagar and Rasp, Stephan and Thuerey, Nils},
+  journal={arXiv preprint arXiv:2205.00865},
+  year={2022}
+}  % garg2022weatherbenchprob studies proba forecasts based on inference dropout, Gaussian parametric, and by discretizing into bins
+
+@article{hu2023swinrnn,
+    author = {Hu, Yuan and Chen, Lei and Wang, Zhibin and Li, Hao},
+    title = {SwinVRNN: A Data-Driven Ensemble Forecasting Model via Learned Distribution Perturbation},
+    journal = {Journal of Advances in Modeling Earth Systems},
+    volume = {15},
+    number = {2},
+    pages = {e2022MS003211},
+    keywords = {medium-range weather forecasting, data-driven method, ensemble forecast, learned distribution perturbation},
+    doi = {https://doi.org/10.1029/2022MS003211},
+    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2022MS003211},
+    eprint = {https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2022MS003211},
+    note = {e2022MS003211 2022MS003211},
+    abstract = {Abstract The data-driven approaches for medium-range weather forecasting are recently shown to be extraordinarily promising for ensemble forecasting due to their fast inference speed compared to the traditional numerical weather prediction models. However, their forecast accuracy can hardly match the state-of-the-art operational ECMWF Integrated Forecasting System (IFS) model. Previous data-driven approaches perform ensemble forecasting using some simple perturbation methods, like the initial condition perturbation and the Monte Carlo dropout. However, their ensemble performance is often limited arguably by the sub-optimal ways of applying perturbation. We propose a Swin Transformer-based Variational Recurrent Neural Network (SwinVRNN), which is a stochastic weather forecasting model combining a SwinRNN predictor with a perturbation module. SwinRNN is designed as a Swin Transformer-based recurrent neural network, which predicts the future states deterministically. Furthermore, to model the stochasticity in the prediction, we design a perturbation module following the Variational Auto-Encoder paradigm to learn the multivariate Gaussian distributions of a time-variant stochastic latent variable from the data. Ensemble forecasting can be easily performed by perturbing the model features leveraging the noise sampled from the learned distribution. We also compare four categories of perturbation methods for ensemble forecasting, that is, fixed distribution perturbation, learned distribution perturbation, MC dropout, and multi model ensemble. Comparisons on the WeatherBench data set show that the learned distribution perturbation method using our SwinVRNN model achieves remarkably improved forecasting accuracy and reasonable ensemble spread due to the joint optimization of the two targets. More notably, SwinVRNN surpasses operational IFS on the surface variables of the 2-m temperature and the 6-hourly total precipitation at all lead times up to 5 days (Code is available at https://github.com/tpys/wwprediction).},
+    year = {2023}
+}
+% SwinRNN adds stochasticity to the deterministic RNN (next-step predictor) by perturbing a latent condition with a VAE
+
+
+@article{thuemmel2023inductive,
+      title={Inductive biases in deep learning models for weather prediction},
+      author={Jannik Thuemmel and Matthias Karlbauer and Sebastian Otte and Christiane Zarfl and Georg Martius and Nicole Ludwig and Thomas Scholten and Ulrich Friedrich and Volker Wulfmeyer and Bedartha Goswami and Martin V. Butz},
+      year={2023},
+      eprint={2304.04664},
+      archivePrefix={arXiv},
+}
