@@ -1,7 +1,7 @@
 @inproceedings{gal2016dropout,
   title={Dropout as a bayesian approximation: Representing model uncertainty in deep learning},
   author={Gal, Yarin and Ghahramani, Zoubin},
-  booktitle={International Conference on Machine Learning (ICML)},
+  booktitle={international conference on machine learning},
   pages={1050--1059},
   year={2016},
   organization={PMLR}
@@ -67,7 +67,7 @@
 @inproceedings{song2021ddim,
   title     = {Denoising Diffusion Implicit Models},
   author    = {Song, Jiaming and Meng, Chenlin and Ermon, Stefano},
-  booktitle = {International Conference on Learning Representations (ICLR)},
+  booktitle = {International Conference on Learning Representations},
   year      = {2021}
 }
 @inproceedings{song2020improved,
@@ -125,53 +125,10 @@
   url={https://arxiv.org/abs/2208.09392}
 }
 
-%%%%%%%%%%% Video diffusion models
-@inproceedings{voleti2022mcvd,
-  title={MCVD: Masked Conditional Video Diffusion for Prediction, Generation, and Interpolation},
-  url = {https://arxiv.org/abs/2205.09853},
-  author = {Voleti, Vikram and Jolicoeur-Martineau, Alexia and Pal, Christopher},
-  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year = {2022}
-}
-
-@article{ho2022videodiffusion,
-    title={Video diffusion models},
-    author={Ho, Jonathan and Salimans, Tim and Gritsenko, Alexey and Chan, William and Norouzi, Mohammad and Fleet, David J},
-    journal={Advances in Neural Information Processing Systems (NeurIPS)},
-    year={2022}}
-}
-
-@article{singer2022makeavideo,
-  url = {https://arxiv.org/abs/2209.14792},
-  author = {Singer, Uriel and Polyak, Adam and Hayes, Thomas and Yin, Xi and An, Jie and Zhang, Songyang and Hu, Qiyuan and Yang, Harry and Ashual, Oron and Gafni, Oran and Parikh, Devi and Gupta, Sonal and Taigman, Yaniv},
-  title = {Make-A-Video: Text-to-Video Generation without Text-Video Data},
-  year = {2022}
-}
-
-@article{ho2022imagenvideo,
-  url = {https://arxiv.org/abs/2210.02303},
-  author = {Ho, Jonathan and Chan, William and Saharia, Chitwan and Whang, Jay and Gao, Ruiqi and Gritsenko, Alexey and Kingma, Diederik P. and Poole, Ben and Norouzi, Mohammad and Fleet, David J. and Salimans, Tim},
-  title = {Imagen Video: High Definition Video Generation with Diffusion Models},
-  year = {2022}
-}
-@article{harvey2022flexiblevideos,
-  title   = {Flexible Diffusion Modeling of Long Videos},
-  author  = {Harvey, William and Naderiparizi, Saeid and Masrani, Vaden and Weilbach, Christian and Wood, Frank},
-  journal = {Advances in Neural Information Processing Systems (NeurIPS)},
-  year    = {2022}
-}
-
-@article{yang2022diffusion,
-  title   = {Diffusion probabilistic modeling for video generation},
-  author  = {Yang, Ruihan and Srivastava, Prakhar and Mandt, Stephan},
-  journal = {arXiv preprint arXiv:2203.09481},
-  year    = {2022}
-}
-
 %%%%%%%%%%%% DATA
 @article{Rasp2020weatherbench,
 	url = {https://doi.org/10.1029\%2F2020ms002203},
-	year = {2020},
+	year = 2020,
 	author = {Stephan Rasp and Peter D. Dueben and Sebastian Scher and Jonathan A. Weyn and Soukayna Mouatadid and Nils Thuerey},
 	title = {{WeatherBench}: A Benchmark Data Set for Data-Driven Weather Forecasting},
 	journal = {Journal of Advances in Modeling Earth Systems}
@@ -181,7 +138,7 @@
   author={Karl Otness and Arvi Gjoka and Joan Bruna and Daniele Panozzo and Benjamin Peherstorfer and Teseo Schneider and Denis Zorin},
   year={2021},
   url={https://arxiv.org/abs/2108.07799},
-  journal={Advances in Neural Information Processing Systems (NeurIPS) Track on Datasets and Benchmarks}
+  journal={Advances in Neural Information Processing Systems (NeurIPS 2021) Track on Datasets and Benchmarks}
 }
 
 @article{huang2021oisstv2,
@@ -300,7 +257,7 @@
 }  % Maps snapshots to latent (graph-based) space (basically to latent tokens), on which an autoregressive transformer operates to evolve the dynamics up to T snapshots into the future (using the previously predicted tokens as input/query). Interesting is that they propose a multi-step loss curriculum, i.e the model "is trained by incrementally including loss terms computed from different time steps." (i.e. it seems, first only loss for x1, then x1 and x2, then x1 x2 x3, etc.). Issue: Needs to attend during training on whole simulation trajectories.
 
 @inproceedings{brandstetter2022message,
-    title={Message Passing Neural PDE Solvers},
+    title={Message Passing Neural {PDE} Solvers},
     author={Johannes Brandstetter and Daniel E. Worrall and Max Welling},
     booktitle={International Conference on Learning Representations},
     year={2022},
@@ -308,7 +265,7 @@
 } % Basically, does autoregressive rollouts but over direct multi-step predictions ("temporal bundling") and adds a stability loss term on rolled out predictions (two steps in exps) based on a domain adaptation adversarial loss
 
 @inproceedings{brandstetter2023clifford,
-    title={Clifford Neural Layers for PDE Modeling},
+    title={Clifford Neural Layers for {PDE} Modeling},
     author={Johannes Brandstetter and Rianne van den Berg and Max Welling and Jayesh K Gupta},
     booktitle={The Eleventh International Conference on Learning Representations },
     year={2023},
