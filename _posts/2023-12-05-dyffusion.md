@@ -426,9 +426,13 @@ For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-foo
 
 ## Results
 
-1213231
+### Quantitative results
 
-
+We present the time-averaged metrics for the SST and Navier-Stokes dataset in the table below.
+DYffusion performs best on the Navier-Stokes dataset, while coming in a close second on the SST dataset after MCVD, in terms of CRPS.
+Since MCVD uses 1000 diffusion steps<d-footnote>This is the default, we were not able to successfully train MCVD models with fewer diffusion steps.</d-footnote>, 
+it is slower to sample from at inference time than from DYffusion, which is trained with at most 134 diffusion steps.
+The DDPM model for the SST dataset is fairly efficient because it only uses 5 diffusion steps but lags in terms of performance.
 
 ## Conclusion
 
