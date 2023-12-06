@@ -506,7 +506,7 @@ In the video below, we choose to do the latter and find the 5 sampled forecasts 
   <source src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/yivdhhzu-trajectory4-0.125res-timeDependentTruthBoundary-5samples-5fps.mp4" type="video/mp4">
 </video>
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
-$8\times$ temporal super-resolution of a Navier-Stokes trajectory with DYffusion.
+$8\times$ temporal super-resolution of a Navier-Stokes trajectory with DYffusion. The ground truth is frozen in-between the original timesteps.
 </figcaption>
 </div>
 
