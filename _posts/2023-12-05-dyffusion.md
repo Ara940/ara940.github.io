@@ -488,7 +488,24 @@ This effect is also found for the Navier-Stokes dataset to a lower extent, as de
 </figcaption>
 </div>
 
+### Qualitative results
 
+Long-range forecasts of ML models often suffer from blurriness or might even diverge when using autoregressive models.
+In the video below, we show the Navier-Stokes test trajectories forecasted by the best baseline (Dropout)
+and DYffusion as well as the corresponding ground truth.
+Our method can reproduce the true dynamics over the full trajectory and does so better than the baseline, 
+especially for fine-scale patterns such as the tails of the flow after the right-most obstacle.
+
+[//]: # (Embed mp4 video video.mp4)
+
+<div class='l-body' align="center">
+<video width="100%" controls>
+  <source src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/ls9vw31m-kwy9mak6-5fps.mp4" type="video/mp4">
+</video>
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+Exemplary samples for the best baseline (Dropout) and DYffusion as well as the corresponding ground truth at five different timesteps from a complete Navier-Stokes trajectory forecast. Our method can reproduce the true dynamics over the full trajectory and does so better than the baseline, especially for fine-scale patterns such as the tails of the flow after the right-most obstacle.
+</figcaption>
+</div>
 
 ## Conclusion
 
