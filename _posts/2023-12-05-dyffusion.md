@@ -293,7 +293,7 @@ $$
 \end{align}
 $$
 
-where $$\mathbf{s}^{(0)}=\mathbf{x}_t$$ and $$\mathbf{s}^{(n)}\approx\mathbf{x}_[t+i_n]$$ 
+where $$\mathbf{s}^{(0)}=\mathbf{x}_t$$ and $$\mathbf{s}^{(n)}\approx\mathbf{x}_{t+i_n}$$ 
 correspond to the initial conditions and predictions of intermediate steps, respectively.
 In our formulations, we reverse the diffusion step indexing to align with the temporal indexing of the data. 
 That is, $$n=0$$ refers to the start of the reverse process, 
@@ -317,7 +317,7 @@ as illustrated in the figure below.
 $$R_\theta$$ always predicts the last timestep, $$\mathbf{x}_{t+h}$$, 
 but iteratively improves those forecasts as the reverse process comes closer in time to $$t+h$$.
 This is analogous to the iterative denoising of the ``clean'' data in standard diffusion models.
-This motivates line $$6$$ of Alg. 2, where the final forecast of $$\mathbf{x}_{t+h}$$ can be used to
+This motivates line 6 of Alg. 2, where the final forecast of $$\mathbf{x}_{t+h}$$ can be used to
 fine-tune intermediate predictions or to increase the temporal resolution of the forecast.
 
 <div class='l-body' align="center">
