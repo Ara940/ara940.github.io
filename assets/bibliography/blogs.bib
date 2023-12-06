@@ -169,3 +169,63 @@
   journal = {arXiv preprint arXiv:2203.09481},
   year    = {2022}
 }
+
+
+%%%%%%%%%%%% DATA
+@article{Rasp2020weatherbench,
+	url = {https://doi.org/10.1029\%2F2020ms002203},
+	year = {2020},
+	author = {Stephan Rasp and Peter D. Dueben and Sebastian Scher and Jonathan A. Weyn and Soukayna Mouatadid and Nils Thuerey},
+	title = {{WeatherBench}: A Benchmark Data Set for Data-Driven Weather Forecasting},
+	journal = {Journal of Advances in Modeling Earth Systems}
+}
+@article{otness21nnbenchmark,
+  title={An Extensible Benchmark Suite for Learning to Simulate Physical Systems},
+  author={Karl Otness and Arvi Gjoka and Joan Bruna and Daniele Panozzo and Benjamin Peherstorfer and Teseo Schneider and Denis Zorin},
+  year={2021},
+  url={https://arxiv.org/abs/2108.07799},
+  journal={Advances in Neural Information Processing Systems (NeurIPS) Track on Datasets and Benchmarks}
+}
+
+@article{huang2021oisstv2,
+      author = "Boyin Huang and Chunying Liu and Viva Banzon and Eric Freeman and Garrett Graham and Bill Hankins and Tom Smith and Huai-Min Zhang",
+      title = "Improvements of the Daily Optimum Interpolation Sea Surface Temperature (DOISST) Version 2.1",
+      journal = "Journal of Climate",
+      year = "2021",
+      publisher = "American Meteorological Society",
+      address = "Boston MA, USA",
+      volume = "34",
+      number = "8",
+      doi = "https://doi.org/10.1175/JCLI-D-20-0166.1",
+      pages=      "2923 - 2939",
+      url = "https://journals.ametsoc.org/view/journals/clim/34/8/JCLI-D-20-0166.1.xml"
+}
+
+%  Deep learning weather forecasting
+@article{pathak2022fourcastnet,
+  url = {https://arxiv.org/abs/2202.11214},
+  author = {Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and Raja, Sanjeev and Chattopadhyay, Ashesh and Mardani, Morteza and Kurth, Thorsten and Hall, David and Li, Zongyi and Azizzadenesheli, Kamyar and Hassanzadeh, Pedram and Kashinath, Karthik and Anandkumar, Animashree},
+  title = {{FourCastNet}: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators},
+  year = {2022},
+}   % At short term similarly good or better than IFS. Training is done on next-step predictions, and then fine-tuned on unrolled step 1 and 2 predictions
+
+@article{lam2022graphcast,
+  url = {https://arxiv.org/abs/2212.12794},
+  author = {Lam, Remi and Sanchez-Gonzalez, Alvaro and Willson, Matthew and Wirnsberger, Peter and Fortunato, Meire and Pritzel, Alexander and Ravuri, Suman and Ewalds, Timo and Alet, Ferran and Eaton-Rosen, Zach and Hu, Weihua and Merose, Alexander and Hoyer, Stephan and Holland, George and Stott, Jacklynn and Vinyals, Oriol and Mohamed, Shakir and Battaglia, Peter},
+  title = {{GraphCast}: Learning skillful medium-range global weather forecasting},
+  year = {2022},
+}
+
+@article{bi2022pangu,
+  title={Pangu-Weather: A 3D High-Resolution Model for Fast and Accurate Global Weather Forecast},
+  author={Bi, Kaifeng and Xie, Lingxi and Zhang, Hengheng and Chen, Xin and Gu, Xiaotao and Tian, Qi},
+  journal={arXiv preprint arXiv:2211.02556},
+  year={2022}
+} % Hierarchical lead-time models so that mid-range forecasts require few NN calls. Ensembling via input perturbations like fourcastnet
+
+@article{nguyen2023climax,
+  title={Clima{X}: A foundation model for weather and climate},
+  author={Nguyen, Tung and Brandstetter, Johannes and Kapoor, Ashish and Gupta, Jayesh K and Grover, Aditya},
+  journal={International Conference on Machine Learning},
+  year={2023}
+}
