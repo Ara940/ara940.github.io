@@ -430,7 +430,7 @@ For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-foo
 
 We present the time-averaged metrics for the SST and Navier-Stokes dataset in the table below.
 DYffusion performs best on the Navier-Stokes dataset, while coming in a close second on the SST dataset after MCVD, in terms of CRPS.
-Since MCVD uses 1000 diffusion steps<d-footnote>This is the default, we were not able to successfully train MCVD models with fewer diffusion steps.</d-footnote>, 
+Since MCVD uses 1000 diffusion steps<d-footnote>This is the default, and we were not able to successfully train MCVD models with fewer diffusion steps.</d-footnote>, 
 it is slower to sample from at inference time than from DYffusion, which is trained with at most 134 diffusion steps.
 The DDPM model for the SST dataset is fairly efficient because it only uses 5 diffusion steps but lags in terms of performance.
 
@@ -438,9 +438,10 @@ The DDPM model for the SST dataset is fairly efficient because it only uses 5 di
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/results-table-main.png" width="95%">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
 Results for sea surface temperature forecasting of 1 to 7 days ahead, and Navier-Stokes
-flow full trajectory forecasting of 64 timesteps. Numbers are averaged out over the evaluation horizon.
-**Bold** indicates best, <span style="color:blue">blue</span> second best. 
-For CRPS and MSE, lower is better. For SSR, closer to 1 is better.
+flow full trajectory forecasting of 64 timesteps.
+For SST, the time column represents the time needed to forecast all 7 timesteps for a single batch.
+<span style="font-weight:bold">bold</span>indicates best, <span style="color:blue">blue</span> second best. 
+For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon
 </figcaption>
 </div>
 ## Conclusion
