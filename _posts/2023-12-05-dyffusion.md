@@ -25,7 +25,7 @@ hidden: false
   <h3>Contents</h3>
     <div><a href="#introduction"> Introduction </a></div>
     <ul>
-      <li><a href="#limitations-of-previous-work"> Limitations of prio work </a></li>
+      <li><a href="#limitations-of-previous-work">Limitations of prior work</a></li>
       <li><a href="#our-key-idea"> Our key idea </a></li>
     </ul>
     <div><a href="#notation--background"> Notation & Background </a></div>
