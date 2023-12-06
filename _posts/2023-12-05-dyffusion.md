@@ -534,7 +534,7 @@ while the trend is less clear for the MSE across all datasets (see Fig. 7 of <a 
 <div class='l-body' align="center">
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/diffusion-step-vs-metric-navier-stokes.png" width="100%">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
-DYffusion's forecaster network iteratively refines its forecasts during sampling.
+DYffusion's forecaster network iteratively improves its forecasts during sampling.
 </figcaption>
 </div>
 
@@ -550,5 +550,5 @@ and we hope that it will lead to a whole family of task-informed diffusion model
 
 If you have any application that you think could benefit from DYffusion, or build on top of it, we would love to hear from you!
 
-For more details and results, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
+For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
 and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion).
