@@ -387,7 +387,7 @@ We use the following baselines:
 - **MCVD**<d-cite key="voleti2022mcvd"></d-cite>: A state-of-the-art conditional video diffusion model<d-footnote>We train MCVD in "concat" mode, which in their experiments performed best.</d-footnote>.
 - **Dropout**<d-cite key="gal2016dropout"></d-cite>: Ensemble multi-step forecasting of the barebone backbone network based on enabling dropout at inference time.
 - **Perturbation**<d-cite key="pathak2022fourcastnet"></d-cite>: Ensemble multi-step forecasting with the barebone backbone network based on random perturbations of the initial conditions with a fixed variance.
-- **Deterministic** barebone model from <d-cite key="otness21nnbenchmark"></d-cite> for the Navier-Stokes and spring mesh datasets <d-footnote>Due to its deterministic nature, we exclude this baseline from our main probabilistic benchmarks.</d-footnote>.
+- Official **deterministic** baselines from<d-cite key="otness21nnbenchmark"></d-cite> trained to forecast a single timestep for the Navier-Stokes and spring mesh datasets <d-footnote>Due to its deterministic nature, we exclude this baseline from our main probabilistic benchmarks.</d-footnote>.
 
 MCVD and the multi-step DDPM predict the timesteps $$\mathbf{x}_{t+1:t+h}$$ based on $$\mathbf{x}_{t}$$.
 The barebone backbone network baselines are time-conditioned forecasters (similarly to the DYffusion forecaster)
