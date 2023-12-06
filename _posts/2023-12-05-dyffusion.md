@@ -44,7 +44,7 @@ hidden: false
     <div><a href="#experiments"> Experiments </a></div>
     <ul>
       <li><a href="#datasets"> Datasets </a></li>
-</ul>   
+    </ul>   
   </nav>
 </d-contents>
 
@@ -359,7 +359,7 @@ For example, our main video diffusion model baseline, MCVD, trains on a maximum 
 
 We evaluate our method and baselines on three different datasets:
 1. **Sea Surface Temperatures (SST):** a new dataset based on NOAA OISSTv2~<d-cite key="huang2021oisstv2"></d-cite>, which 
-comes at a daily time-scale. Similar to <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>, 
+comes at a daily time-scale. Similarly to <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>, 
 we train our models on regional patches which increases the available 
 data<d-footnote>Here, we choose 11 boxes of $60$ latitude $\times 60$ longitude resolution in the eastern tropical Pacific Ocean.
 Unlike the data based on the NEMO dataset in <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>,
@@ -372,9 +372,31 @@ Boundary conditions and obstacle masks are given as additional inputs to all mod
 3. **Spring Mesh:** benchmark dataset from <d-cite key="otness21nnbenchmark"></d-cite>. It represents a $$10\times10$$ grid of
 particles connected by springs, each with mass 1. The channels consist of two position and momentum fields each.
 
+We follow the official train, validation, and test splits from <d-cite key="otness21nnbenchmark"></d-cite> for the Navier-Stokes and spring mesh datasets, 
+always using the full training set for training.
 
+### Experimental setup
 
+#### Baselines
 
+We compare our method against both direct applications of standard diffusion models to dynamics forecasting and
+methods to ensemble the "barebone" backbone network of each dataset. The network operating in "barebone" form means
+that there is no involvement of diffusion. 
+We use the following baselines:
+- **DDPM**<d-cite key="ho2020ddpm"></d-cite>: We train it as a multi-step (video-like problem) conditional diffusion model.
+- **MCVD**<d-cite key="voleti2022mcvd"></d-cite>: A state-of-the-art conditional video diffusion model<d-footnote>We train MCVD in "concat" mode, which in their experiments performed best.</d-footnote>.
+- **Dropout**<d-cite key="gal2016dropout"></d-cite>: Ensemble multi-step forecasting of the barebone backbone network based on enabling dropout at inference time.
+- **Perturbation**<d-cite key="pathak2022fourcastnet"></d-cite>: Ensemble multi-step forecasting with the barebone backbone network based on random perturbations of the initial conditions with a fixed variance.
+- **Deterministic** barebone model from <d-cite key="otness21nnbenchmark"></d-cite> for the Navier-Stokes and spring mesh datasets <d-footnote>Due to its deterministic nature, we exclude this baseline from our main probabilistic benchmarks.</d-footnote>.
+
+MCVD and the multi-step DDPM predict the timesteps $$\mathbf{x}_{t+1:t+h}$$ based on $$\mathbf{x}_{t}$$.
+The barebone backbone network baselines are time-conditioned forecasters (similarly to the DYffusion forecaster)
+trained on the multi-step objective 
+$$\mathbb{E}_{i \sim \mathcal{U}[\![1, h]\!], \mathbf{x}_{t, t+i}\sim \mathcal{X}} 
+    \| F_\theta(\mathbf{x}_{t}, i) - \mathbf{x}_{t+i}\|^2$$ from scratch.
+We found it to perform very similarly to predicting all $$h$$ horizon timesteps at once in a single forward pass (not shown).
+In all experiments, we observed that the single-step forecasting ($$h=1$$) version of the barebone network yielded significantly lower performance compared to any of the multi-step training approaches.
+See Appendix D.2 of <a href="https://arxiv.org/abs/2306.01984">our paper</a> for more details of the implementation.
 
 ## Conclusion
 
