@@ -39,6 +39,7 @@ hidden: false
       <li><a href="#temporal-interpolation-as-a-forward-process"> Temporal interpolation as a forward process </a></li>
       <li><a href="#forecasting-as-a-reverse-process"> Forecasting as a reverse process </a></li>
       <li><a href="#sampling-from-dyffusion"> Sampling from DYffusion </a></li>
+      <li><a href="#memory-footprint"> Memory footprint </a></li>
     </ul>
   </nav>
 </d-contents>
