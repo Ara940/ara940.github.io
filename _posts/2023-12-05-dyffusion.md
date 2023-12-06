@@ -66,7 +66,7 @@ given the initial conditions $\mathbf{x}_0$ similarly to how standard diffusion 
 Obtaining _accurate and reliable probabilistic forecasts_ is an important component of policy formulation,
 risk management, resource optimization, and strategic planning with a wide range of applications from
 climate simulations and fluid dynamics to financial markets and epidemiology.
-Often, accurate _long-range_ probabilistic forecasts are particularly  challenging to obtain. 
+Often, accurate _long-range_ probabilistic forecasts are particularly challenging to obtain <d-cite key="300BillionServed2009, gneiting2005weather,bevacqua2023smiles"></d-cite>.
 When they exist, physics-based methods typically hinge on computationally expensive
 numerical simulations <d-cite key="bauer2015thequiet"></d-cite>.
 In contrast, data-driven methods are much more efficient and have started to have real-world impact
@@ -391,37 +391,6 @@ We use the following baselines:
 - **Perturbation**<d-cite key="pathak2022fourcastnet"></d-cite>: Ensemble multi-step forecasting with the barebone backbone network based on random perturbations of the initial conditions with a fixed variance.
 - Official **deterministic** baselines from<d-cite key="otness21nnbenchmark"></d-cite> trained to forecast a single timestep for the Navier-Stokes and spring mesh datasets <d-footnote>Due to its deterministic nature, we exclude this baseline from our main probabilistic benchmarks.</d-footnote>.
 
-MCVD and the multi-step DDPM predict the timesteps $$\mathbf{x}_{t+1:t+h}$$ based on $$\mathbf{x}_{t}$$.
-The barebone backbone network baselines are time-conditioned forecasters (similarly to the DYffusion forecaster)
-trained on the multi-step objective 
-$$\mathbb{E}_{i \sim \mathcal{U}[\![1, h]\!], \mathbf{x}_{t, t+i}\sim \mathcal{X}} 
-    \| F_\theta(\mathbf{x}_{t}, i) - \mathbf{x}_{t+i}\|^2$$ 
-from scratch<d-footnote>We found it to perform very similarly to predicting all $h$ horizon timesteps at once in a single forward pass (not shown).</d-footnote>.
-See Appendix D.2 of <a href="https://arxiv.org/abs/2306.01984">our paper</a> for more details of the implementation.
-
-#### Neural network architectures
-
-For a given dataset, we use the _same backbone architecture_ for all baselines as well as for both the interpolation and forecaster networks in DYffusion.
-For the SST dataset, we use a <a href="https://github.com/lucidrains/denoising-diffusion-pytorch/blob/main/denoising_diffusion_pytorch/denoising_diffusion_pytorch.py">popular UNet architecture</a> designed for diffusion models.
-For the Navier-Stokes and spring mesh datasets, we use the UNet and CNN from the original benchmark paper <d-cite key="otness21nnbenchmark"></d-cite>, respectively.
-The UNet and CNN models from <d-cite key="otness21nnbenchmark"></d-cite> are extended by the sine/cosine-based featurization module of the SST UNet to embed the diffusion step or dynamical timestep.
-
-#### Evaluation metrics
-
-We evaluate the models by generating an M-member ensemble (i.e. M samples are drawn per batch element), where
-we use M=20 for validation and M=50 for testing. 
-As metrics, we use the Continuous Ranked Probability Score (CRPS) <d-cite key="matheson1976crps"></d-cite>,
-the mean squared error (MSE), and the spread-skill ratio (SSR).
-The CRPS is a proper scoring rule and a popular metric in the probabilistic forecasting
-literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2021AutoregressiveDD, rasp2018postprocessing, scher2021ensemble"></d-cite>.
-The MSE is computed on the ensemble mean prediction. 
-The SSR is defined as the ratio of the square root of the ensemble variance to the corresponding ensemble mean RMSE.
-It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate 
-underdispersion<d-footnote>That is, the probabilistic forecast is overconfident and fails to model the full uncertainty of the forecast</d-footnote> 
-and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
-For early stopping and final model selection between different hyperparameter runs, we use the best validation CRPS.
-On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test trajectories of length 64 and 804, respectively.
-For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-footnote>We do not explore more long-term SST forecasts because the chaotic nature of the system, and the fact that we only use regional patches, inherently limits predictability.</d-footnote>.
 
 
 ## Results
