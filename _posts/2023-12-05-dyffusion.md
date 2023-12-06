@@ -263,7 +263,7 @@ As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,
 we can choose _any_ diffusion-dynamics schedule during training or inference 
 and even use $$F_\theta$$ for unseen timesteps.  
 
-[//]: # (Make image only be 75% of the page width)
+[//]: # (Make algo image only be 75% of the page width)
 <div class='l-body' align="center">
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-training.png" width="75%">
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">DYffusion's two-stage training procedure is summarized in the algorithm above. </figcaption>
@@ -281,7 +281,7 @@ These additional tricks are discussed in more details in the Appendix B of <a hr
 
 ### Sampling from DYffusion
 
-Our above design of the forward and reverse processes of DYffusion, imply the following generative process:
+Our above design for the forward and reverse processes of DYffusion, implies the following generative process:
 $$
 \begin{align}
     p_\theta(\mathbf{s}^{(n+1)} | \mathbf{s}^{(n)}, \mathbf{x}_t) = 
@@ -293,17 +293,54 @@ $$
 \end{align}
 $$
 
-where $\xk[0]=\xt[t]$ and $\xk[n]\approx\xt[t+i_n]$ correspond to the initial conditions and predictions of intermediate steps, respectively.
-In our formulations, we reverse the diffusion step indexing to align with the temporal indexing of the data. That is, $n=0$ refers to the start of the reverse process (i.e. $\xt[\inputtimesteps]$), while $n=N$ refers to the final output of the reverse process (here, $\xt[t+h]$).
-% For the last step, $\xk[N]$, we add Gaussian noise to the predictions to support the generative process.
-Our reverse process steps forward in time, in contrast to the mapping from noise to data in standard diffusion models. As a result,  \method\ should require fewer diffusion steps and data.
+where $$\mathbf{s}^{(0)}=\mathbf{x}_t$$ and $$\mathbf{s}^{(n)}\approx\mathbf{x}_[t+i_n]$$ 
+correspond to the initial conditions and predictions of intermediate steps, respectively.
+In our formulations, we reverse the diffusion step indexing to align with the temporal indexing of the data. 
+That is, $$n=0$$ refers to the start of the reverse process with $$\mathbf{s}^{(0)}=\mathbf{x}_t$$, 
+while $$n=N$$ refers to the final output of the reverse process with $$\mathbf{s}^{(N)}\approx\mathbf{x}_{t+h}$$.
+Our reverse process steps forward in time, in contrast to the mapping from noise to data in standard diffusion models. 
+As a result, DYffusion should require fewer diffusion steps and data.
 
-\input{algos/sampling}
-Similarly to the forward process in ~\citep{song2021ddim, bansal2022cold}, our interpolation stage ceases to be a diffusion process. Our forecasting stage as detailed in Eq.~\eqref{eq:forecaster}, follows the (generalized) diffusion model objectives.
-This similarity allows us to use many existing diffusion model sampling methods for inference, such as the cold sampling algorithm from~\cite{bansal2022cold} (see  Alg.~\ref{alg:sa2}). In Appendix~\ref{appendix:ode-cold-is-better}, we also discuss a simpler but less performant sampling algorithm.
-During the sampling process, our method essentially alternates between forecasting and interpolation, as illustrated in Fig.~\ref{fig:dyffusion-interplay}. 
-$\nn$ always predicts the last timestep, $\xt[t+h]$, but iteratively improves those forecasts as the reverse process comes closer in time to $t+h$. This is analogous to the iterative denoising of the ``clean'' data in standard diffusion models.
-This motivates line $6$ of Alg.~\ref{alg:sa2}, where the final forecast of $\xt[t+h]$ can be used to fine-tune intermediate predictions or to increase the temporal resolution of the forecast. \method\ can be applied autoregressively to forecast even longer rollouts beyond the training horizon, as demonstrated by the Navier-Stokes and spring mesh experiments in section \ref{sec:experiments}.
+Our forecasting stage as detailed in Eq.~\eqref{eq:forecaster}, follows the generalized diffusion model objective.
+This similarity allows us to use existing diffusion model sampling methods for inference.
+In our experiments, we use the sampling algorithm from <d-cite key="bansal2022cold"></d-cite> that we adapt to our setting as shown below.
+
+[//]: # (Make algo image only be 75% of the page width)
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/algo-sampling-cold.png" width="75%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Sampling algorithm for DYffusion. </figcaption>
+</div>
+
+[//]: # (In Appendix~\ref{appendix:ode-cold-is-better}, we also discuss a simpler but less performant sampling algorithm.)
+During the sampling process, our method essentially alternates between forecasting and interpolation, 
+as illustrated in the figure below.
+$$R_\theta$$ always predicts the last timestep, $$\mathbf{x}_{t+h}$$, 
+but iteratively improves those forecasts as the reverse process comes closer in time to $$t+h$$.
+This is analogous to the iterative denoising of the ``clean'' data in standard diffusion models.
+This motivates line $$6$$ of Alg. 2, where the final forecast of $$\mathbf{x}_{t+h}$$ can be used to
+fine-tune intermediate predictions or to increase the temporal resolution of the forecast.
+
+<div class='l-body' align="center">
+<img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/sampling-unrolled.png" width="75%">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+During sampling, DYffusion essentially alternates between forecasting and interpolation, following Alg. 2. 
+In this example, the sampling trajectory follows a simple schedule of going through all integer timesteps that precede the horizon of $h=4$,
+with the number of diffusion steps $N=h$. 
+The output of the last diffusion step is used as the final forecast for $\hat\mathbf{x}_4$. 
+The \textbf{{\color{black}black}} lines represent forecasts by the forecaster network, $F_\theta$. 
+The first forecast is based on the initial conditions, $\mathbf{x}_0$.
+The \textbf{{\color{blue}blue}} lines represent the subsequent temporal interpolations performed by the interpolator network, $\mathcal{I}_\phi.
+</figcaption>
+</div>
+
+DYffusion can be applied autoregressively to forecast even longer rollouts beyond the training horizon, 
+as demonstrated by our Navier-Stokes and spring mesh experiments.
+
+### Results
+
+
+
+
 
 ### Conclusion
 
