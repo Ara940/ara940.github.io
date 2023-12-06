@@ -416,7 +416,9 @@ literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2
 the mean squared error (MSE), and the spread-skill ratio (SSR).
 The MSE is computed on the ensemble mean prediction. 
 The SSR is defined as the ratio of the square root of the ensemble variance to the corresponding ensemble mean RMSE.
-It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate underdispersion (i.e. the probabilistic forecast is overconfident in its forecasts), and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
+It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate underdispersion 
+<d-footnote>That is, the probabilistic forecast is overconfident in its forecasts and fails to model the full uncertainty of the forecast</d-footnote>,
+and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
 For early stopping and final model selection between different hyperparameter runs, we use the best validation CRPS.
 On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test trajectories of length 64 and 804, respectively.
 For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-footnote>We do not explore more long-term SST forecasts because the chaotic nature of the system, and the fact that we only use regional patches, inherently limits predictability.</d-footnote>.
