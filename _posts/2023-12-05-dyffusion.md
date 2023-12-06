@@ -52,7 +52,7 @@ hidden: false
     <ul>
       <li><a href="#quantitative-results"> Quantitative </a></li>
       <li><a href="#qualitative-results"> Qualitative </a></li>
-      <li><a href="#temporal-super-resolution"> Temporal super-resolution </a></li>
+      <li><a href="#temporal-super-resolution-and-sample-variability"> Temporal super-resolution </a></li>
     </ul>
   </nav>
 </d-contents>
