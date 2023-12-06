@@ -272,207 +272,6 @@
     year = {2019}
 }
 
-@article{rasp2018postprocessing,
-      author = "Stephan Rasp and Sebastian Lerch",
-      title = "Neural Networks for Postprocessing Ensemble Weather Forecasts",
-      journal = "Monthly Weather Review",
-      year = "2018",
-      publisher = "American Meteorological Society",
-      address = "Boston MA, USA",
-      volume = "146",
-      number = "11",
-      pages=   "3885 - 3900",
-}
-
-@article{rasp2021datadriven,
-    author = {Rasp, Stephan and Thuerey, Nils},
-    title = {Data-Driven Medium-Range Weather Prediction With a Resnet Pretrained on Climate Simulations: A New Model for WeatherBench},
-    journal = {Journal of Advances in Modeling Earth Systems},
-    volume = {13},
-    number = {2},
-    keywords = {deep learning, machine learning, numerical weather forecasting},
-    doi = {https://doi.org/10.1029/2020MS002405},
-    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020MS002405},
-    year = {2021}
-}
-
-
-@inproceedings{chattopadhyay2020deep,
-  title={Deep spatial transformers for autoregressive data-driven forecasting of geophysical turbulence},
-  author={Chattopadhyay, Ashesh and Mustafa, Mustafa and Hassanzadeh, Pedram and Kashinath, Karthik},
-  booktitle={Proceedings of the 10th International Conference on Climate Informatics},
-  pages={106--112},
-  year={2020}
-}
-
-@article{chattopadhyay2022why,
-  title={Why are deep learning-based models of geophysical turbulence long-term unstable? },
-  author={Chattopadhyay, Ashesh and Hassanzadeh, Pedram},
-  journal={NeurIPS, Machine Learning for Physical Sciences},
-  year={2022}
-}
-
-@article{keisler2022forecasting,
-  url = {https://arxiv.org/abs/2202.07575},
-  author = {Keisler, Ryan},
-  title = {Forecasting Global Weather with Graph Neural Networks},
-  year = {2022},
-}
-
-
-@article{erichson2019pimlLyapunov,
-  url = {https://arxiv.org/abs/1905.10866},
-  author = {Erichson, N. Benjamin and Muehlebach, Michael and Mahoney, Michael W.},
-  title = {Physics-informed Autoencoders for Lyapunov-stable Fluid Flow Prediction},
-  year = {2019},
-}
-
-@article{mamakoukas2020learningstable,
-    author = {Mamakoukas, Giorgos and Abraham, Ian and Murphey, Todd},
-    year = {2020},
-    journal = {IEEE Transactions on Robotics},
-    title = {Learning Stable Models for Prediction and Control}
-}
-
-%%%%%%% DL For TIMESERIES
-@inproceedings{Rasul2021AutoregressiveDD,
-  title={Autoregressive Denoising Diffusion Models for Multivariate Probabilistic Time Series Forecasting},
-  author={Kashif Rasul and Calvin Seward and Ingmar Schuster and Roland Vollgraf},
-  booktitle={ICML},
-  year={2021}
-}
-
-@article{lopez2023diffusionimputation,
-    title={Diffusion-based Time Series Imputation and Forecasting with Structured State Space Models},
-    author={Juan Lopez Alcaraz and Nils Strodthoff},
-    journal={Transactions on Machine Learning Research},
-    issn={2835-8856},
-    year={2023},
-    url={https://openreview.net/forum?id=hHiIbk7ApW},
-}
-
-@inproceedings{wu2021quantifying,
-  title={Quantifying uncertainty in deep spatiotemporal forecasting},
-  author={Wu, Dongxia and Gao, Liyao and Chinazzi, Matteo and Xiong, Xinyue and Vespignani, Alessandro and Ma, Yi-An and Yu, Rose},
-  booktitle={Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery \& Data Mining},
-  pages={1841--1851},
-  year={2021}
-}
-
-% Probabilistic weather forecasting
-@article{scher2021ensemble,
-    author = {Scher, Sebastian and Messori, Gabriele},
-    title = {Ensemble Methods for Neural Network-Based Weather Forecasts},
-    journal = {Journal of Advances in Modeling Earth Systems},
-    volume = {13},
-    number = {2},
-    doi = {https://doi.org/10.1029/2020MS002331},
-    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020MS002331},
-    eprint = {https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2020MS002331},
-    abstract = {Abstract Ensemble weather forecasts enable a measure of uncertainty to be attached to each forecast, by computing the ensemble's spread. However, generating an ensemble with a good spread-error relationship is far from trivial, and a wide range of approaches to achieve this have been explored—chiefly in the context of numerical weather prediction models. Here, we aim to transform a deterministic neural network weather forecasting system into an ensemble forecasting system. We test four methods to generate the ensemble: random initial perturbations, retraining of the neural network, use of random dropout in the network, and the creation of initial perturbations with singular vector decomposition. The latter method is widely used in numerical weather prediction models, but is yet to be tested on neural networks. The ensemble mean forecasts obtained from these four approaches all beat the unperturbed neural network forecasts, with the retraining method yielding the highest improvement. However, the skill of the neural network forecasts is systematically lower than that of state-of-the-art numerical weather prediction models.},
-    year = {2021}
-}
-% scher2021ensemble studies 4 methods to make a deterministic NN probabilistic (initial conditions, inference dropout, and random seeds). All models are next-step (=6h) forecasters, that are unrolled autoregressively
-
-@article{garg2022weatherbenchprob,
-  title={WeatherBench Probability: A benchmark dataset for probabilistic medium-range weather forecasting along with deep learning baseline models},
-  author={Garg, Sagar and Rasp, Stephan and Thuerey, Nils},
-  journal={arXiv preprint arXiv:2205.00865},
-  year={2022}
-}  % garg2022weatherbenchprob studies proba forecasts based on inference dropout, Gaussian parametric, and by discretizing into bins
-
-@article{hu2023swinrnn,
-    author = {Hu, Yuan and Chen, Lei and Wang, Zhibin and Li, Hao},
-    title = {SwinVRNN: A Data-Driven Ensemble Forecasting Model via Learned Distribution Perturbation},
-    journal = {Journal of Advances in Modeling Earth Systems},
-    volume = {15},
-    number = {2},
-    pages = {e2022MS003211},
-    keywords = {medium-range weather forecasting, data-driven method, ensemble forecast, learned distribution perturbation},
-    doi = {https://doi.org/10.1029/2022MS003211},
-    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2022MS003211},
-    eprint = {https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2022MS003211},
-    note = {e2022MS003211 2022MS003211},
-    abstract = {Abstract The data-driven approaches for medium-range weather forecasting are recently shown to be extraordinarily promising for ensemble forecasting due to their fast inference speed compared to the traditional numerical weather prediction models. However, their forecast accuracy can hardly match the state-of-the-art operational ECMWF Integrated Forecasting System (IFS) model. Previous data-driven approaches perform ensemble forecasting using some simple perturbation methods, like the initial condition perturbation and the Monte Carlo dropout. However, their ensemble performance is often limited arguably by the sub-optimal ways of applying perturbation. We propose a Swin Transformer-based Variational Recurrent Neural Network (SwinVRNN), which is a stochastic weather forecasting model combining a SwinRNN predictor with a perturbation module. SwinRNN is designed as a Swin Transformer-based recurrent neural network, which predicts the future states deterministically. Furthermore, to model the stochasticity in the prediction, we design a perturbation module following the Variational Auto-Encoder paradigm to learn the multivariate Gaussian distributions of a time-variant stochastic latent variable from the data. Ensemble forecasting can be easily performed by perturbing the model features leveraging the noise sampled from the learned distribution. We also compare four categories of perturbation methods for ensemble forecasting, that is, fixed distribution perturbation, learned distribution perturbation, MC dropout, and multi model ensemble. Comparisons on the WeatherBench data set show that the learned distribution perturbation method using our SwinVRNN model achieves remarkably improved forecasting accuracy and reasonable ensemble spread due to the joint optimization of the two targets. More notably, SwinVRNN surpasses operational IFS on the surface variables of the 2-m temperature and the 6-hourly total precipitation at all lead times up to 5 days (Code is available at https://github.com/tpys/wwprediction).},
-    year = {2023}
-}
-% SwinRNN adds stochasticity to the deterministic RNN (next-step predictor) by perturbing a latent condition with a VAE
-
-
-@article{thuemmel2023inductive,
-      title={Inductive biases in deep learning models for weather prediction},
-      author={Jannik Thuemmel and Matthias Karlbauer and Sebastian Otte and Christiane Zarfl and Georg Martius and Nicole Ludwig and Thomas Scholten and Ulrich Friedrich and Volker Wulfmeyer and Bedartha Goswami and Martin V. Butz},
-      year={2023},
-      eprint={2304.04664},
-      archivePrefix={arXiv},
-}
-
-
-
-@article{300BillionServed2009,
-      author = "Jeffrey K. Lazo and Rebecca E. Morss and Julie L. Demuth",
-      title = "300 Billion Served: Sources, Perceptions, Uses, and Values of Weather Forecasts",
-      journal = "Bulletin of the American Meteorological Society",
-      year = "2009",
-      publisher = "American Meteorological Society",
-      address = "Boston MA, USA",
-      volume = "90",
-      number = "6",
-      doi = "10.1175/2008BAMS2604.1",
-      pages=      "785 - 798",
-      url = "https://journals.ametsoc.org/view/journals/bams/90/6/2008bams2604_1.xml"
-}
-
-@article{gneiting2005weather,
-    author = {Tilmann Gneiting  and Adrian E. Raftery },
-    title = {Weather Forecasting with Ensemble Methods},
-    journal = {Science},
-    volume = {310},
-    number = {5746},
-    pages = {248-249},
-    year = {2005},
-    doi = {10.1126/science.1115255},
-    URL = {https://www.science.org/doi/abs/10.1126/science.1115255},
-}
-
-@article{gneiting2014Probabilistic,
-    author = {Gneiting, Tilmann and Katzfuss, Matthias},
-    title = {Probabilistic Forecasting},
-    journal = {Annual Review of Statistics and Its Application},
-    volume = {1},
-    number = {1},
-    pages = {125-151},
-    year = {2014}
-}
-
-
-
-@article{bevacqua2023smiles,
-  title    = "Advancing research on compound weather and climate events via
-              large ensemble model simulations",
-  author   = "Bevacqua, Emanuele and Suarez-Gutierrez, Laura and
-              J{\'e}z{\'e}quel, Agla{\'e} and Lehner, Flavio and Vrac, Mathieu
-              and Yiou, Pascal and Zscheischler, Jakob",
-  journal  = "Nature Communications",
-  volume   =  14,
-  number   =  1,
-  pages    = "2145",
-  month    =  apr,
-  year     =  2023
-}
-
-@article{el2021implicit,
-  title={Implicit deep learning},
-  author={El Ghaoui, Laurent and Gu, Fangda and Travacca, Bertrand and Askari, Armin and Tsai, Alicia},
-  journal={SIAM Journal on Mathematics of Data Science},
-  volume={3},
-  number={3},
-  pages={930--958},
-  year={2021},
-  publisher={SIAM}
-}
-
-
 @article{kochkov2021mlfluids,
     author = {Dmitrii Kochkov  and Jamie A. Smith  and Ayya Alieva  and Qing Wang  and Michael P. Brenner  and Stephan Hoyer },
     title = {Machine learning–accelerated computational fluid dynamics},
@@ -653,6 +452,17 @@
   year={2017}
 }
 
+@article{matheson1976scoring,
+  title={Scoring rules for continuous probability distributions},
+  author={Matheson, James E and Winkler, Robert L},
+  journal={Management science},
+  volume={22},
+  number={10},
+  pages={1087--1096},
+  year={1976},
+  publisher={INFORMS}
+}
+
 @article{hersbach2000decomposition,
   title={Decomposition of the continuous ranked probability score for ensemble prediction systems},
   author={Hersbach, Hans},
@@ -694,12 +504,75 @@
 
 @article{ham2019dlenso,
     author = {Ham, Yoo-Geun and Kim, Jeong-Hwan and Luo, Jing-Jia},
-    year = {2019},
-    month = {9},
+    year = 2019,
+    month = 9,
     title = {Deep learning for multi-year ENSO forecasts},
     journal = {Nature},
-    pages = {568-572},
-    volume = {573},
-    issue = {7775}
+    pages = "568-572",
+    volume = 573,
+    issue = 7775,
 }
 
+@article{vos2021long,
+  title={Long-range seasonal forecasting of 2m-temperature with machine learning},
+  author={Vos, Etienne E and Gritzman, Ashley and Makhanya, Sibusisiwe and Mashinini, Thabang and Watson, Campbell D},
+  journal={NeurIPS, Tackling Climate Change with Machine Learning},
+  year={2020}
+}
+
+
+
+@article{raissi2017pidl,
+  url = {https://arxiv.org/abs/1711.10561},
+  author = {Raissi, Maziar and Perdikaris, Paris and Karniadakis, George Em},
+  title = {Physics Informed Deep Learning (Part I): Data-driven Solutions of Nonlinear Partial Differential Equations},
+  year = {2017},
+}
+
+
+@article{kashinath2021piml,
+    author = {Kashinath, K.  and Mustafa, M.  and Albert, A.  and Wu, J-L.  and Jiang, C.  and Esmaeilzadeh, S.  and Azizzadenesheli, K.  and Wang, R.  and Chattopadhyay, A.  and Singh, A.  and Manepalli, A.  and Chirila, D.  and Yu, R.  and Walters, R.  and White, B.  and Xiao, H.  and Tchelepi, H. A.  and Marcus, P.  and Anandkumar, A.  and Hassanzadeh, P.  and Prabhat, null },
+    title = {Physics-informed machine learning: case studies for weather and climate modelling},
+    journal = {Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences},
+    volume = {379},
+    number = {2194},
+    pages = {20200093},
+    year = {2021},
+    doi = {10.1098/rsta.2020.0093},
+    URL = {https://royalsocietypublishing.org/doi/abs/10.1098/rsta.2020.0093},
+}
+
+@article{brenowitz2018prognostic,
+    author = {Brenowitz, N. D. and Bretherton, C. S.},
+    title = {Prognostic Validation of a Neural Network Unified Physics Parameterization},
+    journal = {Geophysical Research Letters},
+    volume = {45},
+    number = {12},
+    pages = {6289-6298},
+    year = {2018}
+}
+
+@article{scher2018toward,
+    author = {Scher, S.},
+    title = {Toward Data-Driven Weather and Climate Forecasting: Approximating a Simple General Circulation Model With Deep Learning},
+    journal = {Geophysical Research Letters},
+    volume = {45},
+    number = {22},
+    pages = {12,616-12,622},
+    keywords = {machine learning, weather prediction, neural networks, deep learning, climate models},
+    doi = {https://doi.org/10.1029/2018GL080704},
+    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2018GL080704},
+    year = {2018}
+}
+
+@article{scher2019generalization,
+    AUTHOR = {Scher, S. and Messori, G.},
+    TITLE = {Generalization properties of feed-forward neural networks trained on Lorenz systems},
+    JOURNAL = {Nonlinear Processes in Geophysics},
+    VOLUME = {26},
+    YEAR = {2019},
+    NUMBER = {4},
+    PAGES = {381--399},
+    URL = {https://npg.copernicus.org/articles/26/381/2019/},
+    DOI = {10.5194/npg-26-381-2019}
+}
