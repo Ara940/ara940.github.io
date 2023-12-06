@@ -330,8 +330,8 @@ The output of the last diffusion step is used as the final forecast for $\hat\ma
 
 [//]: # (Write The \color{black}black in md)
 The <span style="color:black">**black**</span> lines represent forecasts by the forecaster network, $F_\theta$.
-The <span style="color:blue">**blue**</span> lines represent the subsequent temporal interpolations performed by the interpolator network, $\mathcal{I}_\phi$.
 The first forecast is based on the initial conditions, $\mathbf{x}_0$.
+The <span style="color:blue">**blue**</span> lines represent the subsequent temporal interpolations performed by the interpolator network, $\mathcal{I}_\phi$.
 
 </figcaption>
 </div>
