@@ -41,6 +41,10 @@ hidden: false
       <li><a href="#sampling-from-dyffusion"> Sampling from DYffusion </a></li>
       <li><a href="#memory-footprint"> Memory footprint </a></li>
     </ul>
+    <div><a href="#experiments"> Experiments </a></div>
+    <ul>
+      <li><a href="#datasets"> Datasets </a></li>
+</ul>   
   </nav>
 </d-contents>
 
@@ -349,7 +353,24 @@ which scales poorly with the training horizon $$h$$.
 Therefore, many are limited to predicting a small number of frames or snapshots.
 For example, our main video diffusion model baseline, MCVD, trains on a maximum of 5 video frames due to GPU memory constraints <d-cite key="voleti2022mcvd"></d-cite>.
 
-## Results
+## Experiments
+
+### Datasets
+
+We evaluate our method and baselines on three different datasets:
+1. **Sea Surface Temperatures (SST):** a new dataset based on NOAA OISSTv2~<d-cite key="huang2021oisstv2"></d-cite>, which 
+comes at a daily time-scale. Similar to <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>, 
+we train our models on regional patches which increases the available 
+data<d-footnote>Here, we choose 11 boxes of $60$ latitude $\times 60$ longitude resolution in the eastern tropical Pacific Ocean.
+Unlike the data based on the NEMO dataset in <d-cite key="de2018physicalsstbaseline, wang2022metalearning"></d-cite>,
+we choose OISSTv2 as our SST dataset because it contains more data (although it has a lower spatial resolution of $1/4^\circ$ compared to $1/12^\circ$ of NEMO).</d-footnote>.
+We train, validate, and test all models for the years 1982-2019, 2020, and 2021, respectively.
+2. **Navier-Stokes flow:** benchmark dataset from <d-cite key="otness21nnbenchmark"></d-cite>, which consists of a
+$$221\times42$$ grid. Each trajectory contains four randomly generated circular obstacles that block the flow.
+The channels consist of the $$x$$ and $$y$$ velocities as well as a pressure field and the viscosity is $$1e\text{-}3$$.
+Boundary conditions and obstacle masks are given as additional inputs to all models.
+3. **Spring Mesh:** benchmark dataset from <d-cite key="otness21nnbenchmark"></d-cite>. It represents a $$10\times10$$ grid of
+particles connected by springs, each with mass 1. The channels consist of two position and momentum fields each.
 
 
 
