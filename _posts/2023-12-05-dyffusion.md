@@ -448,10 +448,10 @@ For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are a
 </div>
 
 Thanks to the dynamics-informed and memory-efficient nature of DYffusion, we can scale our framework to long horizons.
-In the spring mesh dataset, we train with a horizon of 134 and evaluate the models on trajectories of 804 time steps.
+On the spring mesh dataset, we train with a horizon of 134 and evaluate the models on trajectories of 804 time steps.
 Our method beats the Dropout baseline, with a larger margin on the out-of-distribution test dataset.
 Despite several attempts with varying configurations over the number of diffusion steps, learning rates, and diffusion schedules,
-none of the DDPM or MCVD diffusion models converged. 
+none of the DDPM or MCVD diffusion models converged on the spring mesh dataset.
 
 <div class='l-body' align="center">
 <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/results-table-spring-mesh.png" width="95%">
@@ -462,7 +462,8 @@ For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are a
 </figcaption>
 </div>
 
-The reported MSE scores above, using the same CNN architecture, are significantly better than the ones reported for the official CNN baselines in Fig. 8 of <d-cite key="otness21nnbenchmark"></d-cite>,
+The reported MSE scores above, using the same CNN architecture, 
+are significantly better than the ones reported for the official CNN baselines in Fig. 8 of <d-cite key="otness21nnbenchmark"></d-cite>,
 where the deterministic CNN diverged or attained a very poor MSE. 
 This is likely because our models are trained to forecast multiple timesteps, 
 while the models from <d-cite key="otness21nnbenchmark"></d-cite> are trained to forecast the next timestep only.
