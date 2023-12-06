@@ -296,12 +296,12 @@ $$
 where $$\mathbf{s}^{(0)}=\mathbf{x}_t$$ and $$\mathbf{s}^{(n)}\approx\mathbf{x}_[t+i_n]$$ 
 correspond to the initial conditions and predictions of intermediate steps, respectively.
 In our formulations, we reverse the diffusion step indexing to align with the temporal indexing of the data. 
-That is, $$n=0$$ refers to the start of the reverse process with $$\mathbf{s}^{(0)}=\mathbf{x}_t$$, 
+That is, $$n=0$$ refers to the start of the reverse process, 
 while $$n=N$$ refers to the final output of the reverse process with $$\mathbf{s}^{(N)}\approx\mathbf{x}_{t+h}$$.
 Our reverse process steps forward in time, in contrast to the mapping from noise to data in standard diffusion models. 
 As a result, DYffusion should require fewer diffusion steps and data.
 
-Our forecasting stage as detailed in Eq.~\eqref{eq:forecaster}, follows the generalized diffusion model objective.
+Our forecasting stage as detailed in Eq.\eqref{eq:forecaster}, follows the generalized diffusion model objective.
 This similarity allows us to use existing diffusion model sampling methods for inference.
 In our experiments, we use the sampling algorithm from <d-cite key="bansal2022cold"></d-cite> that we adapt to our setting as shown below.
 
@@ -326,13 +326,10 @@ fine-tune intermediate predictions or to increase the temporal resolution of the
 During sampling, DYffusion essentially alternates between forecasting and interpolation, following Alg. 2. 
 In this example, the sampling trajectory follows a simple schedule of going through all integer timesteps that precede the horizon of $h=4$,
 with the number of diffusion steps $N=h$. 
-The output of the last diffusion step is used as the final forecast for $\hat\mathbf{x}_4$. 
-
-[//]: # (Write The \color{black}black in md)
-The <span style="color:black">**black**</span> lines represent forecasts by the forecaster network, $F_\theta$.
+The output of the last diffusion step is used as the final forecast for $\hat\mathbf{x}_4$.
+The <span style="color:black;font-weight:bold">black</span> lines represent forecasts by the forecaster network, $F_\theta$.
 The first forecast is based on the initial conditions, $\mathbf{x}_0$.
-The <span style="color:blue">**blue**</span> lines represent the subsequent temporal interpolations performed by the interpolator network, $\mathcal{I}_\phi$.
-
+The <span style="color:blue;font-weight:bold">blue</span> lines represent the subsequent temporal interpolations performed by the interpolator network, $\mathcal{I}_\phi$.
 </figcaption>
 </div>
 
