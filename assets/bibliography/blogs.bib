@@ -205,7 +205,7 @@
 @article{pathak2022fourcastnet,
   url = {https://arxiv.org/abs/2202.11214},
   author = {Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and Raja, Sanjeev and Chattopadhyay, Ashesh and Mardani, Morteza and Kurth, Thorsten and Hall, David and Li, Zongyi and Azizzadenesheli, Kamyar and Hassanzadeh, Pedram and Kashinath, Karthik and Anandkumar, Animashree},
-  title = {{FourCastNet}: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators},
+  title = {FourCastNet: A Global Data-driven High-resolution Weather Model using Adaptive Fourier Neural Operators},
   year = {2022},
 }   % At short term similarly good or better than IFS. Training is done on next-step predictions, and then fine-tuned on unrolled step 1 and 2 predictions
 
@@ -228,4 +228,112 @@
   author={Nguyen, Tung and Brandstetter, Johannes and Kapoor, Ashish and Gupta, Jayesh K and Grover, Aditya},
   journal={International Conference on Machine Learning},
   year={2023}
+}
+
+
+@inproceedings{de2018physicalsstbaseline,
+    title={Deep Learning for Physical Processes: Incorporating Prior Scientific Knowledge},
+    author={Emmanuel de B\'{e}zenac and Arthur Pajot and Patrick Gallinari},
+    booktitle={International Conference on Learning Representations},
+    year={2018},
+    url={https://openreview.net/forum?id=By4HsfWAZ},
+}
+
+@inproceedings{bezenac2020normalizing,
+ author = {de B\'{e}zenac, Emmanuel and Rangapuram, Syama Sundar and Benidis, Konstantinos and Bohlke-Schneider, Michael and Kurle, Richard and Stella, Lorenzo and Hasson, Hilaf and Gallinari, Patrick and Januschowski, Tim},
+ booktitle = {Advances in Neural Information Processing Systems},
+ pages = {2995--3007},
+ title = {Normalizing Kalman Filters for Multivariate Time Series Analysis},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2020/file/1f47cef5e38c952f94c5d61726027439-Paper.pdf},
+ volume = {33},
+ year = {2020}
+}
+
+
+@inproceedings{sanchezgonzalez2020learning,
+  title={Learning to Simulate Complex Physics with Graph Networks},
+  author={Alvaro Sanchez-Gonzalez and
+          Jonathan Godwin and
+          Tobias Pfaff and
+          Rex Ying and
+          Jure Leskovec and
+          Peter W. Battaglia},
+  booktitle={International Conference on Machine Learning},
+  year={2020}
+}  % Add noise to the training data to attain stable rollouts (so that input distribution more closely to error-prone rollout distributions). The model predicts and is trained for next-step prediction only.
+
+
+@article{weyn2019canmachines,
+    author = {Weyn, Jonathan A. and Durran, Dale R. and Caruana, Rich},
+    title = {Can Machines Learn to Predict Weather? Using Deep Learning to Predict Gridded 500-hPa Geopotential Height From Historical Weather Data},
+    journal = {Journal of Advances in Modeling Earth Systems},
+    volume = {11},
+    number = {8},
+    pages = {2680-2693},
+    keywords = {machine learning, weather prediction, deep learning, neural network},
+    doi = {https://doi.org/10.1029/2019MS001705},
+    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019MS001705},
+    year = {2019}
+}
+
+@article{rasp2018postprocessing,
+      author = "Stephan Rasp and Sebastian Lerch",
+      title = "Neural Networks for Postprocessing Ensemble Weather Forecasts",
+      journal = "Monthly Weather Review",
+      year = "2018",
+      publisher = "American Meteorological Society",
+      address = "Boston MA, USA",
+      volume = "146",
+      number = "11",
+      pages=   "3885 - 3900",
+}
+
+@article{rasp2021datadriven,
+    author = {Rasp, Stephan and Thuerey, Nils},
+    title = {Data-Driven Medium-Range Weather Prediction With a Resnet Pretrained on Climate Simulations: A New Model for WeatherBench},
+    journal = {Journal of Advances in Modeling Earth Systems},
+    volume = {13},
+    number = {2},
+    keywords = {deep learning, machine learning, numerical weather forecasting},
+    doi = {https://doi.org/10.1029/2020MS002405},
+    url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2020MS002405},
+    year = {2021}
+}
+
+
+@inproceedings{chattopadhyay2020deep,
+  title={Deep spatial transformers for autoregressive data-driven forecasting of geophysical turbulence},
+  author={Chattopadhyay, Ashesh and Mustafa, Mustafa and Hassanzadeh, Pedram and Kashinath, Karthik},
+  booktitle={Proceedings of the 10th International Conference on Climate Informatics},
+  pages={106--112},
+  year={2020}
+}
+
+@article{chattopadhyay2022why,
+  title={Why are deep learning-based models of geophysical turbulence long-term unstable? },
+  author={Chattopadhyay, Ashesh and Hassanzadeh, Pedram},
+  journal={NeurIPS, Machine Learning for Physical Sciences},
+  year={2022}
+}
+
+@article{keisler2022forecasting,
+  url = {https://arxiv.org/abs/2202.07575},
+  author = {Keisler, Ryan},
+  title = {Forecasting Global Weather with Graph Neural Networks},
+  year = {2022},
+}
+
+
+@article{erichson2019pimlLyapunov,
+  url = {https://arxiv.org/abs/1905.10866},
+  author = {Erichson, N. Benjamin and Muehlebach, Michael and Mahoney, Michael W.},
+  title = {Physics-informed Autoencoders for Lyapunov-stable Fluid Flow Prediction},
+  year = {2019},
+}
+
+@article{mamakoukas2020learningstable,
+    author = {Mamakoukas, Giorgos and Abraham, Ian and Murphey, Todd},
+    year = {2020},
+    journal = {IEEE Transactions on Robotics},
+    title = {Learning Stable Models for Prediction and Control}
 }
