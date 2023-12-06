@@ -400,12 +400,6 @@ See Appendix D.2 of <a href="https://arxiv.org/abs/2306.01984">our paper</a> for
 
 #### Neural network architectures
 
-[//]: # (For a given dataset, we use the \emph{same backbone architecture} for all baselines as well as for both the interpolation and forecaster networks in \method.
-[//]: # (For the SST dataset, we use a popular UNet architecture designed for diffusion models\footnote{
-\footnotesize{\url{https://github.com/lucidrains/denoising-diffusion-pytorch/blob/main/denoising_diffusion_pytorch/denoising_diffusion_pytorch.py}}}.
- For the Navier-Stokes and spring mesh datasets, we use the UNet and CNN from the original paper~\cite{otness21nnbenchmark}, respectively. 
-[//]: # (The UNet and CNN models from~\cite{otness21nnbenchmark} are extended by the sine/cosine-based featurization module of the SST UNet to embed the diffusion step or dynamical timestep.)
-
 For a given dataset, we use the _same backbone architecture_ for all baselines as well as for both the interpolation and forecaster networks in DYffusion.
 For the SST dataset, we use a <a href="https://github.com/lucidrains/denoising-diffusion-pytorch/blob/main/denoising_diffusion_pytorch/denoising_diffusion_pytorch.py">popular UNet architecture</a> designed for diffusion models.
 For the Navier-Stokes and spring mesh datasets, we use the UNet and CNN from the original benchmark paper <d-cite key="otness21nnbenchmark"></d-cite>, respectively.
