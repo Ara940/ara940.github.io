@@ -473,12 +473,12 @@ This effect is also found for the Navier-Stokes dataset to a lower extent, as de
 ### Qualitative results
 
 Long-range forecasts of ML models often suffer from blurriness or might even diverge when using autoregressive models.
-In the video below, we show the Navier-Stokes test trajectories forecasted by the best baseline (Dropout)
+In the video below, we show the Navier-Stokes test trajectories forecasted by the best baseline, Dropout,
 and DYffusion as well as the corresponding ground truth.
 Our method can reproduce the true dynamics over the full trajectory and does so better than the baseline, 
 especially for fine-scale patterns such as the tails of the flow after the right-most obstacle.
 
-[//]: # (Embed mp4 video video.mp4)
+[//]: # (Embed mp4 video)
 
 <div class='l-body' align="center">
 <video width="100%" controls>
@@ -489,7 +489,28 @@ Exemplary samples from DYffusion and the best baseline, Dropout, as well as the 
 </figcaption>
 </div>
 
-### Temporal super-resolution
+### Temporal super-resolution and sample variability
+
+Motivated by the continuous-time nature of DYffusion, we aim to study in this experiment whether it is possible to forecast
+skillfully beyond the resolution given by the data. 
+Here, we forecast the same Navier-Stokes trajectory shown in the video above but at $$8\times$$ resolution. 
+That is, DYffusion forecasts 512 timesteps instead of 64 in total.
+This behavior can be achieved by either changing the sampling trajectory $$[i_n]_{n=0}^{N-1}$$ or 
+by including additional output timesteps, $$J$$, for the refinement step of line 6 in Alg. 2.
+In the video below, we choose to do the latter and find the resulting forecast to be visibly pleasing and temporally consistent with the ground truth.
+
+[//]: # (Embed mp4 video)
+
+<div class='l-body' align="center">
+<video width="100%" controls>
+  <source src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/yivdhhzu-trajectory4-0.125res-timeDependentTruthBoundary-5samples-5fps.mp4" type="video/mp4">
+</video>
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+$8\times$ temporal super-resolution of a Navier-Stokes trajectory with DYffusion.
+</figcaption>
+</div>
+
+We show five different samples from DYffusion. It is reassuring that its samples show sufficient variation but also covers the ground truth (sample 1).
 
 ## Conclusion
 
