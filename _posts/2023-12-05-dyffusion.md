@@ -516,7 +516,7 @@ uncertain futures instead of forecasting their mean, as a deterministic model wo
 As a result, some long-term rollout samples are expected to deviate from the ground truth. 
 For example, see the velocity at _t=3.70_ in the video above.
 It is reassuring that DYffusion's samples show sufficient variation, but also cover the ground truth quite well (sample 1).
-This advantage of DYffusion is also reflected quantitatively in the spread-skill ratio (SSR) metric, where DYffusion 
+This advantage is also reflected quantitatively in the spread-skill ratio (SSR) metric, where DYffusion 
 consistently reached values close to 1.
 
 ## Conclusion
