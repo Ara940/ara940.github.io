@@ -341,7 +341,7 @@ as demonstrated by our Navier-Stokes and spring mesh experiments.
 ### Memory footprint
 
 During training, DYffusion only requires $$\mathbf{x}_t$$ and $$\mathbf{x}_{t+h}$$ (plus $$\mathbf{x}_{t+i}$$ during the first interpolation stage),
-resulting in a_ constant memory footprint as a function of_ $$h$$. 
+resulting in a _constant memory footprint as a function of_ $$h$$. 
 In contrast, direct multi-step prediction models including video diffusion models or (autoregressive) multi-step loss approaches require 
 $$\mathbf{x}_{t:t+h}$$ to compute the loss. 
 This means that these models must fit $$h+1$$ timesteps of data into memory (and may need to compute gradients recursively through them),
