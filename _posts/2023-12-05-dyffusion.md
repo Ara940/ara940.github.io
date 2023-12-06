@@ -301,7 +301,7 @@ while $$n=N$$ refers to the final output of the reverse process with $$\mathbf{s
 Our reverse process steps forward in time, in contrast to the mapping from noise to data in standard diffusion models. 
 As a result, DYffusion should require fewer diffusion steps and data.
 
-Our forecasting stage as detailed in Eq.\eqref{eq:forecaster}, follows the generalized diffusion model objective.
+Training our forecaster net in Eq.\eqref{eq:forecaster}, follows the generalized diffusion model objective.
 This similarity allows us to use existing diffusion model sampling methods for inference.
 In our experiments, we use the sampling algorithm from <d-cite key="bansal2022cold"></d-cite> that we adapt to our setting as shown below.
 
@@ -316,7 +316,7 @@ During the sampling process, our method essentially alternates between forecasti
 as illustrated in the figure below.
 $$R_\theta$$ always predicts the last timestep, $$\mathbf{x}_{t+h}$$, 
 but iteratively improves those forecasts as the reverse process comes closer in time to $$t+h$$.
-This is analogous to the iterative denoising of the ``clean'' data in standard diffusion models.
+This is analogous to the iterative denoising of the "clean" data in standard diffusion models.
 This motivates line 6 of Alg. 2, where the final forecast of $$\mathbf{x}_{t+h}$$ can be used to
 fine-tune intermediate predictions or to increase the temporal resolution of the forecast.
 
