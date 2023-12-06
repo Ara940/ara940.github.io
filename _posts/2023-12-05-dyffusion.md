@@ -497,7 +497,7 @@ Here, we forecast the same Navier-Stokes trajectory shown in the video above but
 That is, DYffusion forecasts 512 timesteps instead of 64 in total.
 This behavior can be achieved by either changing the sampling trajectory $$[i_n]_{n=0}^{N-1}$$ or 
 by including additional output timesteps, $$J$$, for the refinement step of line 6 in Alg. 2.
-In the video below, we choose to do the latter and find the resulting forecast to be visibly pleasing and temporally consistent with the ground truth.
+In the video below, we choose to do the latter and find the 5 sampled forecasts to be visibly pleasing and temporally consistent with the ground truth.
 
 [//]: # (Embed mp4 video)
 
@@ -510,7 +510,14 @@ $8\times$ temporal super-resolution of a Navier-Stokes trajectory with DYffusion
 </figcaption>
 </div>
 
-We show five different samples from DYffusion. It is reassuring that its samples show sufficient variation but also covers the ground truth (sample 1).
+Note that we hope that our probabilistic forecasting model can capture any of the possible,
+uncertain futures instead of forecasting their mean, as a deterministic model would do. 
+As a result, some long-term rollout samples are expected to deviate from the ground truth. 
+For example, see the velocity at _t=3.70_ in the video above.
+We show five different samples from DYffusion. 
+It is reassuring that DYffusion's samples show sufficient variation, but also cover the ground truth quite well (sample 1).
+This advantage of DYffusion is also reflected quantitatively in the spread-skill ratio (SSR) metric, where DYffusion 
+consistently reached values close to 1.
 
 ## Conclusion
 
