@@ -468,20 +468,23 @@ This is likely because our models are trained to forecast multiple timesteps,
 while the models from <d-cite key="otness21nnbenchmark"></d-cite> are trained to forecast the next timestep only.
 As a result, the training objective significantly deviates from the evaluation procedure,
 which was already noted as a limitation of the benchmark baselines in <d-cite key="otness21nnbenchmark"></d-cite>.
-This effect is also found for the Navier-Stokes dataset to a lower extent.
-We demonstrate this in the figures below, where we plot the MSE as a function of the trajectory timestep.
+This effect is also found for the Navier-Stokes dataset to a lower extent, as demonstrated in the figures below.
 
 <div class="row l-body">
     <div class="col-sm">
-      <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-navier-stokes.png">
-   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Navier-Stokes.</figcaption>
+      <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-navier-stokes.png">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Navier-Stokes</figcaption>
     </div>
     <div class="col-sm">
-  <img class="img-fluid rounded z-depth-1" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-spring-mesh.png">
-   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Spring Mesh.</figcaption>
+  <img class="img-fluid rounded" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/mse-vs-time-spring-mesh.png">
+   <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">Spring Mesh</figcaption>
     </div>
     <!--- add joint caption here --->
-    <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px"> caption="MSE as a function of the trajectory timestep for the Navier-Stokes and spring mesh datasets. The deterministic CNN baseline diverges, while our multi-step trained baseline and DYffusion models."></figcaption>
+    <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">
+        Comparison against single-step deterministic baselines from <d-cite key="otness21nnbenchmark"></d-cite>.
+        We plot the MSE as a function of the rollout time step.
+        For spring mesh, we plot each of the three models trained with a different random seed separately due to the high variance.
+</figcaption>
 </div>
 
 
