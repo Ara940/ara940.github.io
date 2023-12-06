@@ -404,6 +404,43 @@ For the SST dataset, we use a <a href="https://github.com/lucidrains/denoising-d
 For the Navier-Stokes and spring mesh datasets, we use the UNet and CNN from the original benchmark paper <d-cite key="otness21nnbenchmark"></d-cite>, respectively.
 The UNet and CNN models from <d-cite key="otness21nnbenchmark"></d-cite> are extended by the sine/cosine-based featurization module of the SST UNet to embed the diffusion step or dynamical timestep.
 
+#### Evaluation metrics
+
+[//]: # (We evaluate the models on the best validation Continuous Ranked Probability Score (CRPS)~
+\cite{matheson1976crps}, which is a proper scoring rule and a popular metric in the probabilistic forecasting
+literature~\cite{gneiting2014Probabilistic, bezenac2020normalizing, Rasul2021AutoregressiveDD, rasp2018postprocessing,
+scher2021ensemble}. The CRPS is computed by generating a 20-member ensemble (i.e. 20 samples are drawn per batch
+element), while we generate a 50-member ensemble for final model selection between different hyperparameter runs.
+[//]: # (We also use a 50-member ensemble for evaluation on the test datasets to compute the CRPS, mean squared error (
+MSE), and spread-skill ratio (SSR). The MSE is computed on the ensemble mean prediction. The SSR is defined as the ratio
+of the square root of the ensemble variance to the corresponding ensemble RMSE.
+[//]: # (It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate
+underdispersion (i.e. the probabilistic forecast is overconfident in its forecasts), and larger values overdispersion~
+\cite{fortin2014ssr, garg2022weatherbenchprob}.
+[//]: # (On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test
+trajectories of length 64 and 804, respectively.
+[//]: # (For the SST dataset, all models are evaluated on forecasts of up to 7 days. We do not explore more long-term
+SST forecasts because the chaotic nature of the system, and the fact that we only use regional patches, inherently
+limits predictability.)
+
+We evaluate the models by generating an M-member ensemble (i.e. M samples are drawn per batch element), where
+we use M=20 for validation and M=50 for testing. 
+As metrics, we use the Continuous Ranked Probability Score (CRPS) <d-cite key="matheson1976crps"></d-cite>,
+which is a proper scoring rule and a popular metric in the probabilistic forecasting
+literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2021AutoregressiveDD, rasp2018postprocessing, scher2021ensemble"></d-cite>,
+the mean squared error (MSE), and the spread-skill ratio (SSR).
+The MSE is computed on the ensemble mean prediction. 
+The SSR is defined as the ratio of the square root of the ensemble variance to the corresponding ensemble mean RMSE.
+It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate underdispersion (i.e. the probabilistic forecast is overconfident in its forecasts), and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
+For early stopping and final model selection between different hyperparameter runs, we use the best validation CRPS.
+On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test trajectories of length 64 and 804, respectively.
+For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-footnote>We do not explore more long-term SST forecasts because the chaotic nature of the system, and the fact that we only use regional patches, inherently limits predictability.</d-footnote>.
+
+
+
+
+
+
 ## Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
