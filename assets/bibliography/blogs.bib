@@ -233,14 +233,14 @@
 
 @inproceedings{de2018physicalsstbaseline,
     title={Deep Learning for Physical Processes: Incorporating Prior Scientific Knowledge},
-    author={Emmanuel de B\'{e}zenac and Arthur Pajot and Patrick Gallinari},
+    author={Emmanuel de Bezenac and Arthur Pajot and Patrick Gallinari},
     booktitle={International Conference on Learning Representations},
     year={2018},
     url={https://openreview.net/forum?id=By4HsfWAZ},
 }
 
 @inproceedings{bezenac2020normalizing,
- author = {de B\'{e}zenac, Emmanuel and Rangapuram, Syama Sundar and Benidis, Konstantinos and Bohlke-Schneider, Michael and Kurle, Richard and Stella, Lorenzo and Hasson, Hilaf and Gallinari, Patrick and Januschowski, Tim},
+ author = {de Bezenac, Emmanuel and Rangapuram, Syama Sundar and Benidis, Konstantinos and Bohlke-Schneider, Michael and Kurle, Richard and Stella, Lorenzo and Hasson, Hilaf and Gallinari, Patrick and Januschowski, Tim},
  booktitle = {Advances in Neural Information Processing Systems},
  pages = {2995--3007},
  title = {Normalizing Kalman Filters for Multivariate Time Series Analysis},
@@ -446,4 +446,106 @@
     number = {1},
     pages = {125-151},
     year = {2014}
+}
+
+
+@article{bevacqua2023smiles,
+  title    = "Advancing research on compound weather and climate events via
+              large ensemble model simulations",
+  author   = "Bevacqua, Emanuele and Suarez-Gutierrez, Laura and
+              J{\'e}z{\'e}quel, Agla{\'e} and Lehner, Flavio and Vrac, Mathieu
+              and Yiou, Pascal and Zscheischler, Jakob",
+  journal  = "Nature Communications",
+  volume   =  14,
+  number   =  1,
+  pages    = "2145",
+  month    =  apr,
+  year     =  2023
+}
+
+@article{el2021implicit,
+  title={Implicit deep learning},
+  author={El Ghaoui, Laurent and Gu, Fangda and Travacca, Bertrand and Askari, Armin and Tsai, Alicia},
+  journal={SIAM Journal on Mathematics of Data Science},
+  volume={3},
+  number={3},
+  pages={930--958},
+  year={2021},
+  publisher={SIAM}
+}
+
+
+@article{kochkov2021mlfluids,
+    author = {Dmitrii Kochkov  and Jamie A. Smith  and Ayya Alieva  and Qing Wang  and Michael P. Brenner  and Stephan Hoyer },
+    title = {Machine learning–accelerated computational fluid dynamics},
+    journal = {Proceedings of the National Academy of Sciences},
+    volume = {118},
+    number = {21},
+    pages = {e2101784118},
+    year = {2021},
+    doi = {10.1073/pnas.2101784118},
+    URL = {https://www.pnas.org/doi/abs/10.1073/pnas.2101784118},
+}
+
+
+@inproceedings{graubner2022calibration,
+  title={Calibration of Large Neural Weather Models},
+  author={Graubner, Andre and Kamyar Azizzadenesheli, Kamyar and Pathak, Jaideep and Mardani, Morteza and Pritchard, Mike and Kashinath, Karthik and Anandkumar, Anima},
+  booktitle={NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning},
+  year={2022}
+}
+
+@inproceedings{han2022predicting,
+    title={Predicting Physics in Mesh-reduced Space with Temporal Attention},
+    author={Xu Han and Han Gao and Tobias Pfaff and Jian-Xun Wang and Liping Liu},
+    booktitle={International Conference on Learning Representations},
+    year={2022},
+    url={https://openreview.net/forum?id=XctLdNfCmP}
+}  % Maps snapshots to latent (graph-based) space (basically to latent tokens), on which an autoregressive transformer operates to evolve the dynamics up to T snapshots into the future (using the previously predicted tokens as input/query). Interesting is that they propose a multi-step loss curriculum, i.e the model "is trained by incrementally including loss terms computed from different time steps." (i.e. it seems, first only loss for x1, then x1 and x2, then x1 x2 x3, etc.). Issue: Needs to attend during training on whole simulation trajectories.
+
+@inproceedings{brandstetter2022message,
+    title={Message Passing Neural PDE Solvers},
+    author={Johannes Brandstetter and Daniel E. Worrall and Max Welling},
+    booktitle={International Conference on Learning Representations},
+    year={2022},
+    url={https://openreview.net/forum?id=vSix3HPYKSU}
+} % Basically, does autoregressive rollouts but over direct multi-step predictions ("temporal bundling") and adds a stability loss term on rolled out predictions (two steps in exps) based on a domain adaptation adversarial loss
+
+@inproceedings{brandstetter2023clifford,
+    title={Clifford Neural Layers for PDE Modeling},
+    author={Johannes Brandstetter and Rianne van den Berg and Max Welling and Jayesh K Gupta},
+    booktitle={The Eleventh International Conference on Learning Representations },
+    year={2023},
+    url={https://openreview.net/forum?id=okwxL_c4x84}
+}
+
+@inproceedings{janny2023eagle,
+    title={{EAGLE}: Large-scale Learning of Turbulent Fluid Dynamics with Mesh Transformers},
+    author={Steeven Janny and Aur{\'e}lien B{\'e}n{\'e}teau and Madiha Nadri and Julie Digne and Nicolas Thome and Christian Wolf},
+    booktitle={The Eleventh International Conference on Learning Representations },
+    year={2023},
+    url={https://openreview.net/forum?id=mfIX4QpsARJ}
+}
+
+@article{wang2020tfnet,
+   title={Towards Physics-informed Deep Learning for Turbulent Flow Prediction},
+   author={Rui Wang and Karthik Kashinath and Mustafa Mustafa and Adrian Albert and Rose Yu},
+   journal={Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+   year = {2020}
+}
+% To generate multi-step forecasts, \cite{wang2020tfnet} perform one-step ahead prediction and roll out the predictions autoregressively
+
+@inproceedings{wang2022metalearning,
+      title={Meta-Learning Dynamics Forecasting Using Task Inference},
+      author={Rui Wang and Robin Walters and Rose Yu},
+      year={2022},
+      booktitle={Advances in Neural Information Processing Systems (NeurIPS)}
+}
+
+@inproceedings{wan2023evolve,
+    title={Evolve Smoothly, Fit Consistently: Learning Smooth Latent Dynamics For Advection-Dominated Systems},
+    author={Zhong Yi Wan and Leonardo Zepeda-Nunez and Anudhyan Boral and Fei Sha},
+    booktitle={The Eleventh International Conference on Learning Representations},
+    year={2023},
+    url={https://openreview.net/forum?id=Z4s73sJYQM}
 }
