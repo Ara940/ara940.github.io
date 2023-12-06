@@ -417,7 +417,7 @@ literature<d-cite key="gneiting2014Probabilistic, bezenac2020normalizing, Rasul2
 The MSE is computed on the ensemble mean prediction. 
 The SSR is defined as the ratio of the square root of the ensemble variance to the corresponding ensemble mean RMSE.
 It serves as a measure of the reliability of the ensemble, where values smaller than 1 indicate 
-underdispersion<d-footnote>That is, the probabilistic forecast is overconfident and fails to model the full uncertainty of the forecast</d-footnote>,
+underdispersion<d-footnote>That is, the probabilistic forecast is overconfident and fails to model the full uncertainty of the forecast</d-footnote> 
 and larger values overdispersion<d-cite key="fortin2014ssr, garg2022weatherbenchprob"></d-cite>.
 For early stopping and final model selection between different hyperparameter runs, we use the best validation CRPS.
 On the Navier-Stokes and spring mesh datasets, models are evaluated by autogressively forecasting the full test trajectories of length 64 and 804, respectively.
