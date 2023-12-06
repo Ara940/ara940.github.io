@@ -173,8 +173,9 @@ $$\mathbf{s}^{(0)}$$ is the forecasting target.
 For a single-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$$,
 while for a multi-step training approach $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$.<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has 
 been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>
-We use the latter as a baseline since this is common in the related field of video diffusion models, 
-and it is established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
+We use the latter as a baseline since this is common in the related field of video diffusion models
+<d-cite key="{voleti2022mcvd, ho2022videodiffusion, yang2022diffusion, singer2022makeavideo, ho2022imagenvideo, harvey2022flexiblevideos"></d-cite>, 
+and it is has been established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Lastly, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.
 
 ## DYffusion: Dynamics-informed Diffusion Model
@@ -336,13 +337,24 @@ The <span style="color:blue;font-weight:bold">blue</span> lines represent the su
 DYffusion can be applied autoregressively to forecast even longer rollouts beyond the training horizon, 
 as demonstrated by our Navier-Stokes and spring mesh experiments.
 
-### Results
+### Memory footprint
+
+During training, DYffusion only requires $$\mathbf{x}_t$$ and $$\mathbf{x}_{t+h}$$ (plus $$\mathbf{x}_{t+i}$$ during the first interpolation stage),
+resulting in a_ constant memory footprint as a function of $$h$$_. 
+In contrast, direct multi-step prediction models including video diffusion models or (autoregressive) multi-step loss approaches require 
+$$\mathbf{x}_{t:t+h}$$ to compute the loss. 
+This means that these models must fit $$h+1$$ timesteps of data into memory (and may need to compute gradients recursively through them),
+which scales poorly with the training horizon $$h$$. 
+Therefore, many are limited to predicting a small number of frames or snapshots.
+For example, our main video diffusion model baseline, MCVD, trains on a maximum of 5 video frames due to GPU memory constraints <d-cite key="voleti2022mcvd"></d-cite>.
+
+## Results
 
 
 
 
 
-### Conclusion
+## Conclusion
 
 DYffusion is the first diffusion model that relies on task-informed forward and reverse processes.
 All other existing diffusion models, albeit more general, use data corruption-based processes. 
