@@ -442,7 +442,7 @@ flow full trajectory forecasting of 64 timesteps.
 For SST, all models are trained on forecasting $h=7$ timesteps. The time column represents the time needed to forecast all 7 timesteps for a single batch. 
 For Navier-Stokes, Perturbation, Dropout, and DYffusion are trained on a horizon of $h=16$. 
 MCVD and DDPM are trained on $h=4$ and $h=1$, respectively, as we could not successfully train them using larger horizons.
-<span style="font-weight:bold">Bold</span>indicates best, <span style="color:blue">blue</span> second best. 
+<span style="font-weight:bold">Bold</span> indicates best, <span style="color:blue">blue</span> second best. 
 For CRPS and MSE, lower is better. For SSR, closer to 1 is better. Numbers are averaged out over the evaluation horizon.
 </figcaption>
 </div>
