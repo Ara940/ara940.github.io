@@ -167,6 +167,7 @@ A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to res
 i.e. such that $$R_\theta(\mathbf{s}^{(n)}, n) \approx \mathbf{s}^{(0)}$$. 
 For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering 
 $$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$, and trained to minimize the objective
+
 $$
 \begin{equation}
     \min_\theta 
@@ -225,6 +226,7 @@ To learn our proposed temporal forward process,
 we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
 Given a horizon $$h$$, we train the interpolator net so that 
 $$\mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) \approx \mathbf{x}_{t+i}$$ for $$i \in \{1, \ldots, h-1\}$$ using the objective:
+
 $$
 \begin{equation}
     \min_\phi 
@@ -253,6 +255,7 @@ The interpolator network, $$\mathcal{I}$$, is frozen with inference stochasticit
 represented by the random variable $$\xi$$. 
 In our experiments, $$\xi$$ stands for the randomly dropped out weights of the neural network and is omitted henceforth for clarity.
 Specifically, we seek to optimize the objective
+
 $$
 \begin{equation}
     \min_\theta 
@@ -428,9 +431,7 @@ For the SST dataset, all models are evaluated on forecasts of up to 7 days<d-foo
 
 
 ## Results
-
 ### Quantitative results
-
 We present the time-averaged metrics for the SST and Navier-Stokes dataset in the table below.
 DYffusion performs best on the Navier-Stokes dataset, while coming in a close second on the SST dataset after MCVD, in terms of CRPS.
 Since MCVD uses 1000 diffusion steps, 
