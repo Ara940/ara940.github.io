@@ -568,7 +568,7 @@ Other existing diffusion models, albeit more general, use data corruption-based 
 Thus, our work provides a new perspective on designing a capable diffusion model, 
 and we hope that it will lead to a whole family of task-informed diffusion models.
 
-We are 
+[//]: # (We are )
 If you have any application that you think could benefit from DYffusion, or build on top of it, we would love to hear from you!
 
 For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
