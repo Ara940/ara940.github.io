@@ -191,7 +191,7 @@ Moreover, autoregressive single-step forecasting with a standard diffusion model
 
 [//]: # (------------------------------------------- DYffusion -------------------------------------------------)
 [//]: # (Make heading smaller than normal ## heading)
-<h2 id="dyffusion-dynamics-informed-diffusion-model" style="font-size: 55em;">DYffusion: Dynamics-informed Diffusion Model</h2>
+<h2 id="dyffusion-dynamics-informed-diffusion-model">DYffusion: Dynamics-informed Diffusion Model</h2>
 
 [//]: # (## DYffusion: Dynamics-informed Diffusion Model)
 The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
