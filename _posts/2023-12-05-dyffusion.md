@@ -270,7 +270,7 @@ To include the setting where $$F_\theta$$ learns to forecast the initial conditi
 we define $$i_0 := 0$$ and $$\mathcal{I}_\phi(\mathbf{x}_{t}, \cdot, i_0) := \mathbf{x}_t$$.
 In the simplest case, the forecaster net is supervised by all timesteps given
 by the temporal resolution of the training data. That is, $$N=h$$ and $$S = [j]_{j=0}^{h-1}$$. 
-Generally, the interpolation timesteps should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n < m \leq N-1$$.
+Generally, the schedule should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n < m \leq N-1$$.
 
 [//]: # (As the time condition to our diffusion backbone is $$i_n$$ instead of $$n$$,)
 [//]: # (we can choose _any_ diffusion-dynamics schedule during training or inference )
