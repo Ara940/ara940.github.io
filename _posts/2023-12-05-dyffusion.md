@@ -167,7 +167,6 @@ A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to res
 i.e. such that $$R_\theta(\mathbf{s}^{(n)}, n) \approx \mathbf{s}^{(0)}$$. 
 For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering 
 $$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$, and trained to minimize the objective
-
 $$
 \begin{equation}
     \min_\theta 
@@ -191,9 +190,9 @@ Moreover, autoregressive single-step forecasting with a standard diffusion model
 
 [//]: # (------------------------------------------- DYffusion -------------------------------------------------)
 [//]: # (Make heading smaller than normal ## heading)
-<h2 id="dyffusion-dynamics-informed-diffusion-model">DYffusion: Dynamics-informed Diffusion Model</h2>
+## DYffusion: Dynamics-informed Diffusion Model
+[//]: # (To make the heading smaller, you need to edit the css 
 
-[//]: # (## DYffusion: Dynamics-informed Diffusion Model)
 The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
 spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$.
 Specifically, we design the reverse (forward) process to step forward (backward) in time 
@@ -226,7 +225,6 @@ To learn our proposed temporal forward process,
 we train a time-conditioned network $$\mathcal{I}_\phi$$ to interpolate between snapshots of data. 
 Given a horizon $$h$$, we train the interpolator net so that 
 $$\mathcal{I}_\phi(\mathbf{x}_t, \mathbf{x}_{t+h}, i) \approx \mathbf{x}_{t+i}$$ for $$i \in \{1, \ldots, h-1\}$$ using the objective:
-
 $$
 \begin{equation}
     \min_\phi 
@@ -255,7 +253,6 @@ The interpolator network, $$\mathcal{I}$$, is frozen with inference stochasticit
 represented by the random variable $$\xi$$. 
 In our experiments, $$\xi$$ stands for the randomly dropped out weights of the neural network and is omitted henceforth for clarity.
 Specifically, we seek to optimize the objective
-
 $$
 \begin{equation}
     \min_\theta 
