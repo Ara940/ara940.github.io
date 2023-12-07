@@ -138,7 +138,7 @@ and the target distribution over multiple diffusion steps<d-cite key="sohldickst
 Here, we adapt the 
 <a src="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process">common notation for diffusion models</a> 
 to use a superscript $$n$$ for the diffusion states $$\mathbf{s}^{(n)}$$, 
-to clearly distinguish them from the time steps of the data, $$\mathbf{x}_t$$.
+to distinguish them from the timesteps of the data, $$\mathbf{x}_t$$.
 Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined through a _forward diffusion process_ 
 $$q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})$$
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
