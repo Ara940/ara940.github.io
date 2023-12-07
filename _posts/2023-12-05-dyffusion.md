@@ -166,7 +166,7 @@ for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
 A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to restore $$\mathbf{s}^{(0)}$$,
 i.e. such that $$R_\theta(\mathbf{s}^{(n)}, n) \approx \mathbf{s}^{(0)}$$. 
 For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering 
-$$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$. Then, the diffusion model can be trained to minimize the objective
+$$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$, and trained to minimize the objective
 
 $$
 \begin{equation}
