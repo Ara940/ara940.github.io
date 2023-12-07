@@ -294,14 +294,14 @@ Generally, the schedule should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n <
 
 Our above design for the forward and reverse processes of DYffusion, implies the following generative process:
 $$
-\begin{align}
+\begin{equation}
     p_\theta(\mathbf{s}^{(n+1)} | \mathbf{s}^{(n)}, \mathbf{x}_t) = 
     \begin{cases}
         F_\theta(\mathbf{s}^{(n)}, i_{n})  & \text{if} \ n = N-1 \\
         \mathcal{I}_\phi(\mathbf{x}_t, F_\theta(\mathbf{s}^{(n)}, i_n), i_{n+1}) & \text{otherwise,}
     \end{cases} 
     \label{eq:new-reverse}
-\end{align}
+\end{equation}
 $$
 
 where $$\mathbf{s}^{(0)}=\mathbf{x}_t$$ and $$\mathbf{s}^{(n)}\approx\mathbf{x}_{t+i_n}$$ 
