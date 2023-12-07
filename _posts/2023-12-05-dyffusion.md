@@ -83,7 +83,7 @@ Thus, they are often unable to capture the inherent uncertainty in the data, pro
 and are prone to error accumulation for long-range forecasts.
 
 Diffusion models have shown great success for natural image and video generation.
-However, diffusion models have been primarily designed for static data and are expensive to train and, especially, to sample from.
+However, diffusion models have been primarily designed for static data and are expensive to train and to sample from.
 We study how we can _efficiently leverage them for large-scale spatiotemporal problems_ and _explicitly
 incorporate the temporality of the data into the diffusion model_. 
 
