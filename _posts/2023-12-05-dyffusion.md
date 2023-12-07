@@ -190,9 +190,10 @@ Moreover, autoregressive single-step forecasting with a standard diffusion model
 
 
 [//]: # (------------------------------------------- DYffusion -------------------------------------------------)
+[//]: # (Make heading smaller than normal ## heading)
+<h2 id="dyffusion-dynamics-informed-diffusion-model" style="font-size: 1.5em; margin-top: 1.5em; margin-bottom: 0.5em;">DYffusion: Dynamics-informed Diffusion Model</h2>
 
-## DYffusion: Dynamics-informed Diffusion Model
-
+[//]: # (## DYffusion: Dynamics-informed Diffusion Model)
 The key innovation of our framework, DYffusion, is a reimagining of the diffusion processes to more naturally model 
 spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$.
 Specifically, we design the reverse (forward) process to step forward (backward) in time 
