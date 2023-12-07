@@ -183,7 +183,7 @@ where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the inte
 $$\mathbf{s}^{(0)}$$ is the forecasting target<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has 
 been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>.
 Following the common approach for video diffusion models<d-cite key="voleti2022mcvd, ho2022videodiffusion, yang2022diffusion, singer2022makeavideo, ho2022imagenvideo, harvey2022flexiblevideos"></d-cite>, 
-our diffusion model baselines are trained to predict multiple steps with 
+we train our diffusion model baselines predict multiple steps, i.e. 
 $$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$<d-footnote>A single-step training approach $\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$ 
 would be possible too. However, it is has been established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
 Moreover, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.</d-footnote>.
