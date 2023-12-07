@@ -268,7 +268,7 @@ $$
 
 To include the setting where $$F_\theta$$ learns to forecast the initial conditions, 
 we define $$i_0 := 0$$ and $$\mathcal{I}_\phi(\mathbf{x}_{t}, \cdot, i_0) := \mathbf{x}_t$$.
-In the simplest case, the forecaster network is supervised by all possible timesteps given
+In the simplest case, the forecaster net is supervised by all timesteps given
 by the temporal resolution of the training data. That is, $$N=h$$ and $$S = [j]_{j=0}^{h-1}$$. 
 Generally, the interpolation timesteps should satisfy $$0 = i_0 < i_n < i_m < h$$ for $$0 < n < m \leq N-1$$.
 
