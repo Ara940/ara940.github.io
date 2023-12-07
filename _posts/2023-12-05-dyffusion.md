@@ -217,7 +217,7 @@ In contrast, a standard diffusion model is designed for unconditional generation
 [//]: # (For conditional prediction tasks such as forecasting, DYffusion emerges as a much more natural method that is well aligned with the task at hand.)
 
 ### Training DYffusion
-We propose to learn DYffusion's forward and reverse processes in two separate stages as described below.
+We propose to learn the forward and reverse process in two separate stages as described below.
 
 #### Temporal interpolation as a forward process
 
