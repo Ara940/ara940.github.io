@@ -2114,10 +2114,11 @@ d-appendix > distill-appendix {
     <div>
       <h3>Further Link's</h3>
       <p>
-        <a class="affiliation" href="${frontMatter.paper_url}">Paper</a>
+      <!-- make bold font for <a class="affiliation" href="${frontMatter.paper_url}">Paper</a> -->
+        <a class="affiliation" href="${frontMatter.paper_url}"><b>Paper</b></a>
         <!-- Make some space between the links -->
         <span style="margin: 0 5px;"></span>
-        <a class="affiliation" href="${frontMatter.code_url}">Code</a>
+        <a class="affiliation" href="${frontMatter.code_url}"><b>Code</b></a>
         </p>
     </div>
   </div>
