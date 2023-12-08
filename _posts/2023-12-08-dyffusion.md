@@ -1,7 +1,7 @@
 ---
 layout: distill
 title:  "DYffusion: A Dynamics-informed Diffusion Model for Spatiotemporal Forecasting"
-date:   2023-12-05
+date:   2023-12-08
 authors: 
     - name: Salva Rühling Cachay
       url: https://salvarc.github.io/
