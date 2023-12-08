@@ -201,8 +201,8 @@ spatiotemporal sequences, $$\mathbf{x}_{t:t+h}$$.
 Specifically, we design the reverse (forward) process to step forward (backward) in time 
 so that our diffusion model emulates the temporal dynamics in 
 the data<d-footnote>Similarly to<d-cite key="song2021ddim, bansal2022cold"></d-cite>, 
-our forward and reverse processes cease to represent actual "diffusion" processes.</d-footnote>.
-Differently to all prior work, our processes are _not_ based on data corruption or restoration.
+our forward and reverse processes cease to represent actual "diffusion" processes. 
+Differently to all prior work, our processes are _not_ based on data corruption or restoration.</d-footnote>.
 
 <div class='l-body'>
 <img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/noise-diagram-dyffusion.png">
@@ -362,6 +362,13 @@ This means that these models must fit $$h+1$$ timesteps of data into memory (and
 which scales poorly with the training horizon $$h$$. 
 Therefore, many are limited to predicting a small number of frames or snapshots.
 For example, our main video diffusion model baseline, MCVD, trains on a maximum of 5 video frames due to GPU memory constraints <d-cite key="voleti2022mcvd"></d-cite>.
+
+<div class='l-body'>
+<img class="img-fluid" src="{{ site.baseurl }}/assets/img/2023-12-dyffusion/dyffusion-vs-video-diffusion.png">
+<figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px">On the top row, we illustrate the direct application of a video diffusion model to dynamics forecasting for a horizon of $h=3$.
+    On the bottom row, DYffusion generates continuous-time probabilistic forecasts for $\mathbf{x}_{t+1:t+h}$, given the initial conditions, $\mathbf{x}_t$.
+    Our approach operates in the observation space at all times and does not need to model high-dimensional videos at each diffusion state.</figcaption>
+</div>
 
 ## Experimental Setup
 
