@@ -163,30 +163,51 @@ Adopting the notation from <d-cite key="bansal2022cold"></d-cite> for generalize
 a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$ 
 for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
 
-A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to restore $$\mathbf{s}^{(0)}$$,
-i.e. such that $$R_\theta(\mathbf{s}^{(n)}, n) \approx \mathbf{s}^{(0)}$$. 
-For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering 
-$$R_\theta(\mathbf{s}^{(n)}, \mathbf{x}_{t}, n)$$, and trained to minimize the objective
+[//]: # (A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to restore $$\mathbf{s}^{&#40;0&#41;}$$,)
 
-$$
-\begin{equation}
-    \min_\theta 
-    \mathbb{E}_{n \sim \mathcal{U}[\![1, N]\!], \mathbf{x}_{t}, \mathbf{s}^{(0)}\sim \mathcal{X}}
-    \left[
-    \|R_\theta(D(\mathbf{s}^{(0)}, n), \mathbf{x}_{t}, n) - \mathbf{s}^{(0)}\|^2
-    \right],
-\label{eq:diffusionmodels}
-\end{equation}
-$$
+[//]: # (i.e. such that $$R_\theta&#40;\mathbf{s}^{&#40;n&#41;}, n&#41; \approx \mathbf{s}^{&#40;0&#41;}$$. )
 
-where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and
-$$\mathbf{s}^{(0)}$$ is the forecasting target<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has 
-been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>.
-Adopting the common approach of video diffusion models<d-cite key="voleti2022mcvd, ho2022videodiffusion, yang2022diffusion, singer2022makeavideo, ho2022imagenvideo, harvey2022flexiblevideos"></d-cite>, 
-we train our diffusion model baselines to predict multiple steps, i.e. 
-$$\mathbf{s}^{(0)} = \mathbf{x}_{t+1:t+h}$$<d-footnote>A single-step training approach $\mathbf{s}^{(0)} = \mathbf{x}_{t+1}$ 
-would be possible too. However, it is has been established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.
-Moreover, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.</d-footnote>.
+[//]: # (For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering )
+
+[//]: # ($$R_\theta&#40;\mathbf{s}^{&#40;n&#41;}, \mathbf{x}_{t}, n&#41;$$, and trained to minimize the objective)
+
+[//]: # ()
+[//]: # ($$)
+
+[//]: # (\begin{equation})
+
+[//]: # (    \min_\theta )
+
+[//]: # (    \mathbb{E}_{n \sim \mathcal{U}[\![1, N]\!], \mathbf{x}_{t}, \mathbf{s}^{&#40;0&#41;}\sim \mathcal{X}})
+
+[//]: # (    \left[)
+
+[//]: # (    \|R_\theta&#40;D&#40;\mathbf{s}^{&#40;0&#41;}, n&#41;, \mathbf{x}_{t}, n&#41; - \mathbf{s}^{&#40;0&#41;}\|^2)
+
+[//]: # (    \right],)
+
+[//]: # (\label{eq:diffusionmodels})
+
+[//]: # (\end{equation})
+
+[//]: # ($$)
+
+[//]: # ()
+[//]: # (where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and)
+
+[//]: # ($$\mathbf{s}^{&#40;0&#41;}$$ is the forecasting target<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has )
+
+[//]: # (been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>.)
+
+[//]: # (Adopting the common approach of video diffusion models<d-cite key="voleti2022mcvd, ho2022videodiffusion, yang2022diffusion, singer2022makeavideo, ho2022imagenvideo, harvey2022flexiblevideos"></d-cite>, )
+
+[//]: # (we train our diffusion model baselines to predict multiple steps, i.e. )
+
+[//]: # ($$\mathbf{s}^{&#40;0&#41;} = \mathbf{x}_{t+1:t+h}$$<d-footnote>A single-step training approach $\mathbf{s}^{&#40;0&#41;} = \mathbf{x}_{t+1}$ )
+
+[//]: # (would be possible too. However, it is has been established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.)
+
+[//]: # (Moreover, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.</d-footnote>.)
 
 
 [//]: # (------------------------------------------- DYffusion -------------------------------------------------)
@@ -570,5 +591,5 @@ and we hope that it will lead to a whole family of task-informed diffusion model
 [//]: # (We are )
 If you have any application that you think could benefit from DYffusion, or build on top of it, we would love to hear from you!
 
-For more details, please check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
-and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion).
+For more details, please **_check out our [NeurIPS 2023 paper](https://arxiv.org/abs/2306.01984),
+and our [code on GitHub](https://github.com/Rose-STL-Lab/dyffusion)_**.
