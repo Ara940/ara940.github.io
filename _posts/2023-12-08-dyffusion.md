@@ -143,7 +143,7 @@ Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined 
 $$q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})$$
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
-Adopting the notation from <d-cite key="bansal2022cold"></d-cite> for generalized diffusion models, we can also consider
+Adopting the notation for generalized diffusion models from <d-cite key="bansal2022cold"></d-cite>, we can also consider
 a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$.
 
 [//]: # (The step sizes are controlled by a variance schedule $$\{\beta_n \in &#40;0, 1&#41;\}_{n=1}^N$$ such that )
