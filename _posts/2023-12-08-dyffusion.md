@@ -143,6 +143,8 @@ Given a data sample $$\mathbf{s}^{(0)}$$, a standard diffusion model is defined 
 $$q(\mathbf{s}^{(n)} \vert \mathbf{s}^{(n-1)})$$
 in which small amounts of Gaussian noise are added to the sample in $$N$$ steps, producing a sequence of noisy samples 
 $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$. 
+Adopting the notation from <d-cite key="bansal2022cold"></d-cite> for generalized diffusion models, we can also consider
+a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$.
 
 [//]: # (The step sizes are controlled by a variance schedule $$\{\beta_n \in &#40;0, 1&#41;\}_{n=1}^N$$ such that )
 [//]: # (the samples are corrupted with increasing levels of noise for $$n\rightarrow N$$ and $$\mathbf{s}^{&#40;N&#41;} \sim \mathcal{N}&#40;\mathbf{0}, \mathbf{I}&#41;$$.)
@@ -159,54 +161,33 @@ $$\mathbf{s}^{(1)}, \ldots, \mathbf{s}^{(N)}$$.
 <figcaption style="text-align: center; margin-top: 10px; margin-bottom: 10px;"> Graphical model for a standard diffusion model.</figcaption>
 </div>
 
-Adopting the notation from <d-cite key="bansal2022cold"></d-cite> for generalized diffusion models, we can also consider
-a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{(n)} = D(\mathbf{s}^{(0)}, n)$$ 
-for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.
+[//]: # (Adopting the notation from <d-cite key="bansal2022cold"></d-cite> for generalized diffusion models, we can also consider)
+[//]: # (a forward process operator, $$D$$, that outputs the corrupted samples $$\mathbf{s}^{&#40;n&#41;} = D&#40;\mathbf{s}^{&#40;0&#41;}, n&#41;$$ )
+[//]: # (for increasing degrees of corruption $$n\in\{1,\dots, N\}$$.)
 
 [//]: # (A denoising network $$R_\theta$$, parameterized by $$\theta$$, is trained to restore $$\mathbf{s}^{&#40;0&#41;}$$,)
-
 [//]: # (i.e. such that $$R_\theta&#40;\mathbf{s}^{&#40;n&#41;}, n&#41; \approx \mathbf{s}^{&#40;0&#41;}$$. )
-
 [//]: # (For dynamics forecasting, the diffusion model can be conditioned on the initial conditions by considering )
-
 [//]: # ($$R_\theta&#40;\mathbf{s}^{&#40;n&#41;}, \mathbf{x}_{t}, n&#41;$$, and trained to minimize the objective)
-
 [//]: # ()
 [//]: # ($$)
-
 [//]: # (\begin{equation})
-
 [//]: # (    \min_\theta )
-
 [//]: # (    \mathbb{E}_{n \sim \mathcal{U}[\![1, N]\!], \mathbf{x}_{t}, \mathbf{s}^{&#40;0&#41;}\sim \mathcal{X}})
-
 [//]: # (    \left[)
-
 [//]: # (    \|R_\theta&#40;D&#40;\mathbf{s}^{&#40;0&#41;}, n&#41;, \mathbf{x}_{t}, n&#41; - \mathbf{s}^{&#40;0&#41;}\|^2)
-
 [//]: # (    \right],)
-
 [//]: # (\label{eq:diffusionmodels})
-
 [//]: # (\end{equation})
-
 [//]: # ($$)
-
 [//]: # ()
 [//]: # (where $$\mathcal{U}[\![1, N]\!]$$ denotes the uniform distribution over the integers $$\{1, \ldots, N\}$$ and)
-
 [//]: # ($$\mathbf{s}^{&#40;0&#41;}$$ is the forecasting target<d-footnote>In practice, $R_\theta$ can also be trained to predict the Gaussian noise that has )
-
 [//]: # (been added to the data sample using a score matching objective <d-cite key="ho2020ddpm"></d-cite>.</d-footnote>.)
-
 [//]: # (Adopting the common approach of video diffusion models<d-cite key="voleti2022mcvd, ho2022videodiffusion, yang2022diffusion, singer2022makeavideo, ho2022imagenvideo, harvey2022flexiblevideos"></d-cite>, )
-
 [//]: # (we train our diffusion model baselines to predict multiple steps, i.e. )
-
 [//]: # ($$\mathbf{s}^{&#40;0&#41;} = \mathbf{x}_{t+1:t+h}$$<d-footnote>A single-step training approach $\mathbf{s}^{&#40;0&#41;} = \mathbf{x}_{t+1}$ )
-
 [//]: # (would be possible too. However, it is has been established that multi-step training aids inference rollout performance and stability <d-cite key="weyn2019canmachines, ravuri2021skilful, brandstetter2022message"></d-cite>.)
-
 [//]: # (Moreover, autoregressive single-step forecasting with a standard diffusion model would be extremely time-consuming during inference time.</d-footnote>.)
 
 
